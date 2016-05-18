@@ -1,0 +1,32 @@
+{
+	"env": {
+		"es6": true,
+		"browser": true,
+		"node": true,
+		"jquery": true
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"jsx": true,
+			"impliedStrict": true,
+			"experimentalObjectRestSpread": true
+		}
+	},
+	"rules": {
+		"semi": 2,
+		"block-scoped-var": 2,
+		"default-case": 2,
+		"no-undefined": 2,
+		"no-inline-comments": 2,
+		"no-undef": 2,
+		"eqeqeq": 2,
+		"keyword-spacing": 1,
+		"valid-jsdoc": 1,
+		"spaced-comment": 1,
+		"no-else-return": 1,
+		"strict": 1,
+		"quotes": 1
+	}
+}
