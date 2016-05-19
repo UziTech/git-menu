@@ -1,16 +1,18 @@
 {
-	"name": "context-git",
-	"main": "./lib/context-git",
-	"version": "0.0.0",
-	"description": "Use git from the context menu",
-	"keywords": [],
-	"activationCommands": {
-		"atom-workspace": "context-git:commit"
-	},
-	"repository": "https://github.com/UziTech/context-git",
-	"license": "MIT",
-	"engines": {
-		"atom": ">=1.0.0 <2.0.0"
-	},
-	"dependencies": {}
+  "name": "context-git",
+  "main": "./lib/context-git",
+  "version": "0.0.0",
+  "description": "Use git from the context menu",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "context-git:commit"
+  },
+  "repository": "https://github.com/UziTech/context-git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.2.0"
+  }
 }
