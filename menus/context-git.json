@@ -14,7 +14,7 @@
 				"command": "context-git:commit"
 			}]
 		}],
-		"atom-tabs": [{
+		".texteditor.tab": [{
 			"label": "Git",
 			"submenu": [{
 				"label": "Commit",
