@@ -72,6 +72,6 @@ class CommitDialog extends View
     @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
   commit: ->
-    @commitCallback message: @message.val(), amend: @amend.prop("checked"), files: @files.files
+    @commitCallback @message.val(), @amend.prop("checked"), @files.files
     @deactivate()
     return
