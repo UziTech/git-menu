@@ -13,7 +13,7 @@ class CommitDialog extends View
         @label 'Message'
         @textarea class: 'native-key-bindings', outlet: 'message', keyUp: 'colorLength'
         @label =>
-          @text 'Ammend last commit?'
+          @text 'Amend last commit?'
           @input type: 'checkbox', class: 'checkbox amend', outlet: 'amend', change: 'amendChange'
       @div class: 'buttons', =>
         @button class: 'active', click: 'commit', =>
