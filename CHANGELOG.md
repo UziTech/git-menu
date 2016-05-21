@@ -1,3 +1,8 @@
+## 0.1.4 - Select multiple files in treeview
+
+-   Allow multiple files to be selected in treeview fixes #8
+-   Remove message on uncheck amend
+
 ## 0.1.3 - Move git commands to new file
 
 -   Move git commands to git-cmd.js #4
