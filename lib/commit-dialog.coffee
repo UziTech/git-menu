@@ -64,8 +64,13 @@ class CommitDialog extends View
     return
 
   amendChange: ->
-    if @amend.prop("checked") and @message.val() is ''
-      @message.val(@lastCommit)
+    if @amend.prop("checked")
+      if @message.val() is ''
+        @message.val(@lastCommit)
+    else
+      if @message.val() is @lastCommit
+        @message.val('')
+    # TODO: maybe check @msgChanged instead of testing @msg.val()?
     return
 
   show: ->
