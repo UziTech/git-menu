@@ -1,3 +1,8 @@
+## 0.2.0 - Add config var for git path
+
+-   Add setting for git path
+-   Add notifications
+
 ## 0.1.4 - Select multiple files in treeview
 
 -   Allow multiple files to be selected in treeview fixes #8
