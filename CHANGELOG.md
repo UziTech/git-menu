@@ -1,3 +1,7 @@
+## 0.2.1 - Fix multi-line commit messages
+
+-   Fix multi-line commit messages
+
 ## 0.2.0 - Add config var for git path
 
 -   Add setting for git path
