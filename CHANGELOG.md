@@ -1,20 +1,25 @@
+## 0.2.2 - Fix multi-line commit messages
+
+-   Change notifications to not dismissable
+-   Clean up code
+
 ## 0.2.1 - Fix multi-line commit messages
 
--   Fix multi-line commit messages
+-   Fix multi-line commit messages [#11](https://github.com/UziTech/context-git/issues/11)
 
 ## 0.2.0 - Add config var for git path
 
--   Add setting for git path
--   Add notifications
+-   Add setting for git path [#6](https://github.com/UziTech/context-git/issues/6)
+-   Add notifications [#1](https://github.com/UziTech/context-git/issues/1)
 
 ## 0.1.4 - Select multiple files in treeview
 
--   Allow multiple files to be selected in treeview fixes #8
+-   Allow multiple files to be selected in treeview [#8](https://github.com/UziTech/context-git/issues/8)
 -   Remove message on uncheck amend
 
 ## 0.1.3 - Move git commands to new file
 
--   Move git commands to git-cmd.js #4
+-   Move git commands to git-cmd.js [#4](https://github.com/UziTech/context-git/issues/4)
 -   Fix spelling "Ammend" on commit dialog
 -   Change screenshot
 
