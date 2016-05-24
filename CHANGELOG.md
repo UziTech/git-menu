@@ -1,5 +1,7 @@
-## 0.2.2 - Fix multi-line commit messages
+## 0.2.2 - Refresh git status in Atom
 
+-   Get full commit message when amend is checked
+-   Refresh git status in Atom [#9](https://github.com/UziTech/context-git/issues/9)
 -   Change notifications to not dismissable
 -   Clean up code
 
