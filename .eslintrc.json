@@ -2,8 +2,7 @@
 	"env": {
 		"es6": true,
 		"browser": true,
-		"node": true,
-		"jquery": true
+		"node": true
 	},
 	"parserOptions": {
 		"sourceType": "module",
@@ -27,6 +26,7 @@
 		"spaced-comment": 1,
 		"no-else-return": 1,
 		"strict": 1,
-		"quotes": 1
+		"quotes": 1,
+		"max-len": 0
 	}
 }
