@@ -1,3 +1,5 @@
+# coffeelint: disable=max_line_length
+
 {$, View} = require 'atom-space-pen-views'
 
 module.exports =
@@ -13,8 +15,11 @@ class CommitDialog extends View
         @label 'Message'
         @textarea class: 'native-key-bindings', outlet: 'message', keyUp: 'colorLength'
         @label =>
-          @text 'Amend last commit?'
+          @text 'Amend last commit'
           @input type: 'checkbox', class: 'checkbox amend', outlet: 'amend', change: 'amendChange'
+        @label =>
+          @text 'Push changes'
+          @input type: 'checkbox', class: 'checkbox push', outlet: 'push'
       @div class: 'buttons', =>
         @button class: 'active', click: 'commit', =>
           @i class: 'icon commit'
@@ -23,7 +28,7 @@ class CommitDialog extends View
           @i class: 'icon x'
           @span 'Cancel'
 
-  activate: (files, lastCommit, commitCallback) ->
+  activate: (files, lastCommit) ->
     @files.files = files.map (file) -> file.file
     @files.html(files.map( (file) ->
       $file = $("<div />").addClass("file").text(file.file)
@@ -37,11 +42,14 @@ class CommitDialog extends View
     ))
     @lastCommit = lastCommit
     @amend.prop({checked: false})
+    @push.prop({checked: false})
     @message.val('')
-    @commitCallback = commitCallback
     @show()
     @message.focus()
-    return
+    return new Promise (resolve, reject) =>
+      @resolve = resolve
+      @reject = reject
+      return
 
   deactivate: ->
     @modalPanel.destroy()
@@ -77,6 +85,11 @@ class CommitDialog extends View
     @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
   commit: ->
-    @commitCallback @message.val(), @amend.prop("checked"), @files.files
+    @resolve [
+      @message.val(),
+      @amend.prop("checked"),
+      @push.prop("checked"),
+      @files.files
+    ]
     @deactivate()
     return
