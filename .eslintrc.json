@@ -21,6 +21,7 @@
 		"no-inline-comments": 2,
 		"no-undef": 2,
 		"eqeqeq": 2,
+		"no-warning-comments": 1,
 		"keyword-spacing": 1,
 		"valid-jsdoc": 1,
 		"spaced-comment": 1,
