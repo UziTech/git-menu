@@ -1,20 +1,6 @@
 {
 	"context-menu": {
-		".tree-view": [{
-			"label": "Git",
-			"submenu": [{
-				"label": "Commit",
-				"command": "context-git:commit"
-			}]
-		}],
-		"atom-text-editor": [{
-			"label": "Git",
-			"submenu": [{
-				"label": "Commit",
-				"command": "context-git:commit"
-			}]
-		}],
-		".texteditor.tab": [{
+		".tree-view, atom-text-editor, .texteditor.tab": [{
 			"label": "Git",
 			"submenu": [{
 				"label": "Commit",
