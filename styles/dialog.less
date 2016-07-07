@@ -1,109 +1,98 @@
 @import "ui-variables";
-
 .context-git.dialog {
-  background: @inset-panel-background-color;
-  border: 1px solid @inset-panel-border-color;
-  border-radius: 4px;
-  padding: 15px;
-  opacity: 0.95;
-
-  .body {
-    margin-bottom: 15px;
-  }
-
-  .heading {
-    margin-bottom: 15px;
-
-    strong {
-      color: @text-color-highlight;
-      display: inline-block;
-    }
-
-    i.icon {
-      float: right;
-      width: 0;
-      margin-right: 15px;
-    }
-  }
-
-  .files{
-    width: 100%;
-    line-height: 1.4em;
-    max-height: 14em;
-    overflow: auto;
-    margin-bottom: 15px;
-   .file {
-      white-space: pre;
-      padding-left: 15px;
-      &.untracked {
-        color: @text-color-success;
-      }
-      &.changed {
-        color: @text-color-warning;
-      }
-      &.deleted {
-        color: @text-color-error;
-      }
-      &.added {
-      }
-    }
-  }
-
-  label{
-    display: inline-block;
-    width: 100%;
-  }
-
-  input, select, textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    background: @input-background-color;
-    border-color: @input-border-color;
-    border-radius: 4px;
-    color: @text-color;
-    padding: 10px;
-  }
-
-  input[type='checkbox'] {
-    width: auto;
-    display: inline-block;
-    vertical-align: -30%;
-    margin: 0 .5em;
-  }
-
-  input[readonly], textarea[readonly], select[readonly] {
-    color: @text-color-subtle;
-  }
-
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-
-  textarea {
-    height: 150px;
-    resize: none;
-    &.over-fifty {
-      color: @text-color-error;
-    }
-  }
-
-  .warningText {
-    color: @text-color-warning;
-    &:hover {
-      color: @text-color-error;
-    }
-  }
-
-  button {
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: @text-color;
-    margin-right: 10px;
-    &:hover {
-      color: @text-color-highlight;
-    }
-  }
+	background: @inset-panel-background-color;
+	border: 1px solid @inset-panel-border-color;
+	border-radius: 4px;
+	padding: 15px;
+	opacity: 0.95;
+	.body {
+		margin-bottom: 15px;
+	}
+	.heading {
+		margin-bottom: 15px;
+		strong {
+			color: @text-color-highlight;
+			display: inline-block;
+		}
+		i.icon {
+			float: right;
+			width: 0;
+			margin-right: 15px;
+		}
+	}
+	.files {
+		width: 100%;
+		line-height: 1.4em;
+		max-height: 14em;
+		overflow: auto;
+		margin-bottom: 15px;
+		.file {
+			white-space: pre;
+			padding-left: 15px;
+			&.untracked {
+				color: @text-color-success;
+			}
+			&.changed {
+				color: @text-color-warning;
+			}
+			&.deleted {
+				color: @text-color-error;
+			}
+			&.added {}
+		}
+	}
+	label {
+		display: inline-block;
+		width: 100%;
+	}
+	input,
+	select,
+	textarea {
+		width: 100%;
+		margin-bottom: 15px;
+		background: @input-background-color;
+		border-color: @input-border-color;
+		border-radius: 4px;
+		color: @text-color;
+		padding: 10px;
+	}
+	input[type='checkbox'] {
+		width: auto;
+		display: inline-block;
+		vertical-align: -30%;
+		margin: 0 0.5em;
+	}
+	input[readonly],
+	select[readonly],
+	textarea[readonly] {
+		color: @text-color-subtle;
+	}
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+	textarea {
+		height: 150px;
+		resize: none;
+		&.over-fifty {
+			color: @text-color-error;
+		}
+	}
+	.warningText {
+		color: @text-color-warning;
+		&:hover {
+			color: @text-color-error;
+		}
+	}
+	button {
+		background: transparent;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		color: @text-color;
+		margin-right: 10px;
+		&:hover {
+			color: @text-color-highlight;
+		}
+	}
 }
