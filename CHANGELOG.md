@@ -1,5 +1,11 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.3.0 - Add progress bar in status bar
+
+- Add progress bar in status bar
+- Refresh Atom immediately after commit
+- Clean up code
+
 ## 0.2.3 - Add "Push changes" checkbox
 
 - Add "Push changes" checkbox
