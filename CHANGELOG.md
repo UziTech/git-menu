@@ -8,7 +8,7 @@
 
 ## 0.2.3 - Add "Push changes" checkbox
 
-- Add "Push changes" checkbox
+- Add "Push changes" checkbox [#14](https://github.com/UziTech/context-git/issues/14)
 - Add more git statuses
 - Suppress output from "git add"
 
