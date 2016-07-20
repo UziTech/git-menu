@@ -1,5 +1,11 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.4.0 - Add "Discard" command
+
+- Add "Discard" command
+- Set commit message too long at 50 for first line
+- Clean up code
+
 ## 0.3.0 - Add progress bar in status bar
 
 - Add progress bar in status bar
