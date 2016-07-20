@@ -5,6 +5,9 @@
 			"submenu": [{
 				"label": "Commit",
 				"command": "context-git:commit"
+			}, {
+				"label": "Discard",
+				"command": "context-git:discard"
 			}]
 		}]
 	}
