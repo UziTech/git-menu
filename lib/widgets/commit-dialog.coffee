@@ -62,13 +62,13 @@ class CommitDialog extends View
 
   colorLength: ->
     lines = @message.val().split("\n")
-    too_long = lines.some (line) ->
-      return (lines.length is 1 and line.length > 50) or (line.length > 80)
+    too_long = lines.some (line, idx) ->
+      return (idx is 1 and line.length > 50) or (line.length > 80)
 
     if too_long
-      @message.addClass('over-fifty')
+      @message.addClass('too-long')
     else
-      @message.removeClass('over-fifty')
+      @message.removeClass('too-long')
     return
 
   amendChange: ->
