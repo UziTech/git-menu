@@ -11,6 +11,9 @@
 			}, {
 				"label": "Discard",
 				"command": "context-git:discard"
+			}, {
+				"label": "Undo Last Commit",
+				"command": "context-git:undo-last-commit"
 			}]
 		}]
 	}
