@@ -1,4 +1,8 @@
 <!--lint disable first-heading-level list-item-indent-->
+## 0.5.0 - Add "Undo Last Commit", "Commit All" commands
+
+- Add "Commit All" command
+- Add "Undo Last Commit" command
 
 ## 0.4.0 - Add "Discard" command
 
