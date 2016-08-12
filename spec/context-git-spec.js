@@ -1,7 +1,7 @@
 "use babel";
 /* globals describe, beforeEach, atom, it, expect, waitsForPromise, runs, jasmine */
 
-import ContextGit from "../lib/context-git";
+import command from "../lib/command";
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -9,66 +9,69 @@ import ContextGit from "../lib/context-git";
 // or `fdescribe`). Remove the `f` to unfocus the block.
 
 describe("ContextGit", () => {
-	let workspaceElement, activationPromise;
-
-	beforeEach(() => {
-		workspaceElement = atom.views.getView(atom.workspace);
-		activationPromise = atom.packages.activatePackage("context-git");
+	it("tests written", function(){
+		expect(false).toBe(true);
 	});
-
-	describe("when the context-git:toggle event is triggered", () => {
-		it("hides and shows the modal panel", () => {
-			// Before the activation event the view is not on the DOM, and no panel
-			// has been created
-			expect(workspaceElement.querySelector(".context-git")).not.toExist();
-
-			// This is an activation event, triggering it will cause the package to be
-			// activated.
-			atom.commands.dispatch(workspaceElement, "context-git:toggle");
-
-			waitsForPromise(() => {
-				return activationPromise;
-			});
-
-			runs(() => {
-				expect(workspaceElement.querySelector(".context-git")).toExist();
-
-				let contextGitElement = workspaceElement.querySelector(".context-git");
-				expect(contextGitElement).toExist();
-
-				let contextGitPanel = atom.workspace.panelForItem(contextGitElement);
-				expect(contextGitPanel.isVisible()).toBe(true);
-				atom.commands.dispatch(workspaceElement, "context-git:toggle");
-				expect(contextGitPanel.isVisible()).toBe(false);
-			});
-		});
-
-		it("hides and shows the view", () => {
-			// This test shows you an integration test testing at the view level.
-
-			// Attaching the workspaceElement to the DOM is required to allow the
-			// `toBeVisible()` matchers to work. Anything testing visibility or focus
-			// requires that the workspaceElement is on the DOM. Tests that attach the
-			// workspaceElement to the DOM are generally slower than those off DOM.
-			jasmine.attachToDOM(workspaceElement);
-
-			expect(workspaceElement.querySelector(".context-git")).not.toExist();
-
-			// This is an activation event, triggering it causes the package to be
-			// activated.
-			atom.commands.dispatch(workspaceElement, "context-git:toggle");
-
-			waitsForPromise(() => {
-				return activationPromise;
-			});
-
-			runs(() => {
-				// Now we can test for view visibility
-				let contextGitElement = workspaceElement.querySelector(".context-git");
-				expect(contextGitElement).toBeVisible();
-				atom.commands.dispatch(workspaceElement, "context-git:toggle");
-				expect(contextGitElement).not.toBeVisible();
-			});
-		});
-	});
+	// let workspaceElement, activationPromise;
+	//
+	// beforeEach(() => {
+	// 	workspaceElement = atom.views.getView(atom.workspace);
+	// 	activationPromise = atom.packages.activatePackage("context-git");
+	// });
+	//
+	// describe("when the context-git:toggle event is triggered", () => {
+	// 	it("hides and shows the modal panel", () => {
+	// 		// Before the activation event the view is not on the DOM, and no panel
+	// 		// has been created
+	// 		expect(workspaceElement.querySelector(".context-git")).not.toExist();
+	//
+	// 		// This is an activation event, triggering it will cause the package to be
+	// 		// activated.
+	// 		atom.commands.dispatch(workspaceElement, "context-git:toggle");
+	//
+	// 		waitsForPromise(() => {
+	// 			return activationPromise;
+	// 		});
+	//
+	// 		runs(() => {
+	// 			expect(workspaceElement.querySelector(".context-git")).toExist();
+	//
+	// 			let contextGitElement = workspaceElement.querySelector(".context-git");
+	// 			expect(contextGitElement).toExist();
+	//
+	// 			let contextGitPanel = atom.workspace.panelForItem(contextGitElement);
+	// 			expect(contextGitPanel.isVisible()).toBe(true);
+	// 			atom.commands.dispatch(workspaceElement, "context-git:toggle");
+	// 			expect(contextGitPanel.isVisible()).toBe(false);
+	// 		});
+	// 	});
+	//
+	// 	it("hides and shows the view", () => {
+	// 		// This test shows you an integration test testing at the view level.
+	//
+	// 		// Attaching the workspaceElement to the DOM is required to allow the
+	// 		// `toBeVisible()` matchers to work. Anything testing visibility or focus
+	// 		// requires that the workspaceElement is on the DOM. Tests that attach the
+	// 		// workspaceElement to the DOM are generally slower than those off DOM.
+	// 		jasmine.attachToDOM(workspaceElement);
+	//
+	// 		expect(workspaceElement.querySelector(".context-git")).not.toExist();
+	//
+	// 		// This is an activation event, triggering it causes the package to be
+	// 		// activated.
+	// 		atom.commands.dispatch(workspaceElement, "context-git:toggle");
+	//
+	// 		waitsForPromise(() => {
+	// 			return activationPromise;
+	// 		});
+	//
+	// 		runs(() => {
+	// 			// Now we can test for view visibility
+	// 			let contextGitElement = workspaceElement.querySelector(".context-git");
+	// 			expect(contextGitElement).toBeVisible();
+	// 			atom.commands.dispatch(workspaceElement, "context-git:toggle");
+	// 			expect(contextGitElement).not.toBeVisible();
+	// 		});
+	// 	});
+	// });
 });
