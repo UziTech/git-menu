@@ -1,4 +1,9 @@
 <!--lint disable first-heading-level list-item-indent-->
+## 0.5.1 - Alert for unsaved files
+
+- Alert for unsaved files [#18](https://github.com/UziTech/context-git/issues/18)
+- Clean up code
+
 ## 0.5.0 - Add "Undo Last Commit", "Commit All" commands
 
 - Add "Commit All" command
