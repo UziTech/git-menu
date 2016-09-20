@@ -1,25 +1,25 @@
 {
-	"name": "context-git",
-	"main": "./lib/main",
-	"version": "0.5.1",
-	"description": "Use git from the context menu",
-	"keywords": [
-		"context",
-		"git"
-	],
-	"repository": "https://github.com/UziTech/context-git",
-	"license": "MIT",
-	"engines": {
-		"atom": ">=1.8.0 <2.0.0"
-	},
-	"dependencies": {
-		"atom-space-pen-views": "^2.2.0"
-	},
-	"consumedServices": {
-		"status-bar": {
-			"versions": {
-				"^1.0.0": "statusBarService"
-			}
-		}
-	}
+  "name": "context-git",
+  "main": "./lib/main",
+  "version": "0.6.0",
+  "description": "Use git from the context menu",
+  "keywords": [
+    "context",
+    "git"
+  ],
+  "repository": "https://github.com/UziTech/context-git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.8.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.2.0"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "statusBarService"
+      }
+    }
+  }
 }
