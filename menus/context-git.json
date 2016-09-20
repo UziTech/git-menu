@@ -3,14 +3,17 @@
 		".tree-view, atom-text-editor, .texteditor.tab": [{
 			"label": "Git",
 			"submenu": [{
-				"label": "Commit",
+				"label": "Commit...",
 				"command": "context-git:commit"
 			}, {
-				"label": "Commit All",
+				"label": "Commit All...",
 				"command": "context-git:commit-all"
 			}, {
 				"label": "Discard",
 				"command": "context-git:discard"
+			}, {
+				"label": "Amend Last Commit",
+				"command": "context-git:amend-last-commit"
 			}, {
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
