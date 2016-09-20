@@ -14,6 +14,15 @@
 			}, {
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
+			}, {
+				"label": "Pull",
+				"command": "context-git:pull"
+			}, {
+				"label": "Push",
+				"command": "context-git:push"
+			}, {
+				"label": "Pull && Push",
+				"command": "context-git:pull-&-push"
 			}]
 		}]
 	}
