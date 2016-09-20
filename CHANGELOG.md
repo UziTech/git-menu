@@ -1,5 +1,9 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.7.0 - Add "Amend Last Commit" command
+
+- Add "Amend Last Commit" command
+
 ## 0.6.0 - Add Pull and Push commands
 
 - Add Pull and Push commands
