@@ -1,4 +1,11 @@
 <!--lint disable first-heading-level list-item-indent-->
+
+## 0.6.0 - Add Pull and Push commands
+
+- Add Pull and Push commands
+- Add keywords to package.json
+- Clean up code
+
 ## 0.5.1 - Alert for unsaved files
 
 - Alert for unsaved files [#18](https://github.com/UziTech/context-git/issues/18)
