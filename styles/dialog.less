@@ -51,12 +51,8 @@
 
 			&.added {}
 
-			input {
-				vertical-align: bottom;
-
-				&:not(:checked) + span {
-					color: #999;
-				}
+			input:not(:checked) + span {
+				color: @text-color;
 			}
 		}
 	}
@@ -81,7 +77,7 @@
 	input[type='checkbox'] {
 		width: auto;
 		display: inline-block;
-		vertical-align: -30%;
+		vertical-align: bottom;
 		margin: 0 0.5em;
 	}
 
