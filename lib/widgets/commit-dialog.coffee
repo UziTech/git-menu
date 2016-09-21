@@ -47,6 +47,8 @@ class CommitDialog extends View
     ))
     @lastCommit = lastCommit
     @amend.prop({checked: false})
+    if lastCommit is null
+      @amend.prop({disabled: true})
     @message.val('')
     @show()
     @message.focus()
