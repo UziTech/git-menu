@@ -17,13 +17,16 @@ class CommitDialog extends View
         @label =>
           @text 'Amend last commit'
           @input type: 'checkbox', class: 'checkbox amend', outlet: 'amend', change: 'amendChange'
-        @label =>
-          @text 'Push changes'
-          @input type: 'checkbox', class: 'checkbox push', outlet: 'push'
       @div class: 'buttons', =>
         @button class: 'active', click: 'commit', =>
           @i class: 'icon commit'
           @span 'Commit'
+        @button click: 'commitPush', =>
+          @i class: 'icon push'
+          @span 'Commit & Push'
+        @button click: 'commitPullPush', =>
+          @i class: 'icon pull'
+          @span 'Commit & Pull & Push'
         @button click: 'cancel', =>
           @i class: 'icon x'
           @span 'Cancel'
@@ -42,7 +45,6 @@ class CommitDialog extends View
     ))
     @lastCommit = lastCommit
     @amend.prop({checked: false})
-    @push.prop({checked: false})
     @message.val('')
     @show()
     @message.focus()
@@ -88,7 +90,30 @@ class CommitDialog extends View
     @resolve [
       @message.val(),
       @amend.prop("checked"),
-      @push.prop("checked"),
+      false,
+      false,
+      @files.files
+    ]
+    @deactivate()
+    return
+
+  commitPush: ->
+    @resolve [
+      @message.val(),
+      @amend.prop("checked"),
+      true,
+      false,
+      @files.files
+    ]
+    @deactivate()
+    return
+
+  commitPushPull: ->
+    @resolve [
+      @message.val(),
+      @amend.prop("checked"),
+      true,
+      true,
       @files.files
     ]
     @deactivate()
