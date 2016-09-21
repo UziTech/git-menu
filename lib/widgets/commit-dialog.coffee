@@ -32,9 +32,11 @@ class CommitDialog extends View
           @span 'Cancel'
 
   activate: (files, lastCommit) ->
-    @files.files = files.map (file) -> file.file
     @files.html(files.map( (file) ->
-      $file = $("<div />").addClass("file").text(file.file)
+      $checkbox = $("<input />").attr({ type: "checkbox" }).prop({ checked: true })
+      $span = $("<span />").text(file.file)
+      $label = $("<label />").append($checkbox, $span)
+      $file = $("<div />").addClass("file").append($label)
 
       $file.addClass "added" if file.added
       $file.addClass "untracked" if file.untracked
@@ -57,6 +59,9 @@ class CommitDialog extends View
     @modalPanel.destroy()
     @detach()
     return
+
+  getFiles: ->
+    $.makeArray(@files.find(".file").filter((i, el) -> $(el).find("input").prop("checked")).map((i, el) -> $(el).find("label").text()))
 
   cancel: ->
     @deactivate()
@@ -92,7 +97,7 @@ class CommitDialog extends View
       @amend.prop("checked"),
       false,
       false,
-      @files.files
+      @getFiles()
     ]
     @deactivate()
     return
@@ -103,7 +108,7 @@ class CommitDialog extends View
       @amend.prop("checked"),
       true,
       false,
-      @files.files
+      @getFiles()
     ]
     @deactivate()
     return
@@ -114,7 +119,7 @@ class CommitDialog extends View
       @amend.prop("checked"),
       true,
       true,
-      @files.files
+      @getFiles()
     ]
     @deactivate()
     return
