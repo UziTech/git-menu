@@ -1,5 +1,10 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.9.0 - Add "Initialize" command
+
+- Add "Initialize" command
+- Remove amend option on first commit [#19](https://github.com/UziTech/context-git/issues/19)
+
 ## 0.8.0 - Add checkboxes & pull before push
 
 - Add Pull & Push buttons on commit dialog [#15](https://github.com/UziTech/context-git/issues/15)
