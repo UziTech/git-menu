@@ -26,6 +26,9 @@
 			}, {
 				"label": "Pull && Push",
 				"command": "context-git:pull-&-push"
+			}, {
+				"label": "Initialize",
+				"command": "context-git:init"
 			}]
 		}]
 	}
