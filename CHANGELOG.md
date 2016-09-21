@@ -1,5 +1,9 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.9.1 - Fix empty commit message
+
+- Fix empty commit message [#22](https://github.com/UziTech/context-git/issues/22)
+
 ## 0.9.0 - Add "Initialize" command
 
 - Add "Initialize" command
