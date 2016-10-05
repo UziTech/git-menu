@@ -85,10 +85,11 @@ class CommitDialog extends View
     if @amend.prop("checked")
       if @message.val() is ''
         @message.val(@lastCommit)
+        @messageKeyUp
     else
       if @message.val() is @lastCommit
         @message.val('')
-    # TODO: maybe check @msgChanged instead of testing @msg.val()?
+        @messageKeyUp
     return
 
   show: ->
