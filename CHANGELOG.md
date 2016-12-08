@@ -1,5 +1,11 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.9.3 - Add "Refresh" command
+
+- Add "Refresh" command to refresh Atom's git status
+- Fix remove last commit when 0 or 1 commits exist
+- Alert unsaved files on "Commit All"
+
 ## 0.9.2 - Fix always resetting paths on refresh
 
 - Move reset paths to init only
