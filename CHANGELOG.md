@@ -1,5 +1,9 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.9.4 - Fix git remove
+
+- Fix git.remove
+
 ## 0.9.3 - Add "Refresh" command
 
 - Add "Refresh" command to refresh Atom's git status
