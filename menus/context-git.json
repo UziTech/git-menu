@@ -29,6 +29,9 @@
 			}, {
 				"label": "Initialize",
 				"command": "context-git:init"
+			}, {
+				"label": "Refresh",
+				"command": "context-git:refresh"
 			}]
 		}]
 	}
