@@ -1,7 +1,7 @@
 {
   "name": "context-git",
   "main": "./lib/main",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Use git from the context menu",
   "keywords": [
     "context",
