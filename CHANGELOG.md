@@ -1,5 +1,9 @@
 <!--lint disable first-heading-level list-item-indent-->
 
+## 0.10.0 - Make git.remove async
+
+- Make git.remove async
+
 ## 0.9.4 - Fix git remove
 
 - Fix git.remove
