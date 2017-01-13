@@ -24,7 +24,7 @@ You then have the following options to commit the message/files:
 
 ### Commit All...
 
-Same as Commit... but will list all changed file in the dialog
+Same as [Commit...](#commit) but will list all changed file in the dialog
 
 ### Discard
 
@@ -34,7 +34,7 @@ This will discard changes to the selected files.
 
 This will add the selected files to the last commit.
 
-If you want to change the message of the last commit you will have to choose Commit...
+If you want to change the message of the last commit you will have to choose [Commit...](#commit)
 
 ### Undo Last Commit
 
