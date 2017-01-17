@@ -1,7 +1,7 @@
 {
   "name": "context-git",
   "main": "./lib/main",
-  "version": "0.10.0",
+  "version": "0.11.1",
   "description": "Use git from the context menu",
   "keywords": [
     "context",
@@ -10,7 +10,7 @@
   "repository": "https://github.com/UziTech/context-git",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.8.0 <2.0.0"
+    "atom": ">=1.13.0 <2.0.0"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.2.0"

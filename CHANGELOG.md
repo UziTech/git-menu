@@ -1,4 +1,15 @@
-<!--lint disable first-heading-level list-item-indent-->
+<!-- lint disable first-heading-level list-item-indent -->
+
+## 0.11.1 - update readme
+
+- update readme
+- change "Amend Last Commit" to "Add To Last Commit"
+- change "Discard" to "Discard Changes"
+
+## 0.11.0 - Fix commit on editor
+
+- Fix commit on editor listing all files
+- Update lowest Atom version to 1.13.0 because of shadow dom removal
 
 ## 0.10.0 - Make git.remove async
 
