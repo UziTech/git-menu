@@ -1,4 +1,10 @@
-<!--lint disable first-heading-level list-item-indent-->
+<!-- lint disable first-heading-level list-item-indent -->
+
+## 0.11.1 - update readme
+
+- update readme
+- change "Amend Last Commit" to "Add To Last Commit"
+- change "Discard" to "Discard Changes"
 
 ## 0.11.0 - Fix commit on editor
 
