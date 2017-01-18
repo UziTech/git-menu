@@ -1,10 +1,8 @@
 # coffeelint: disable=max_line_length
 
-# TODO: map key down to open the select list
+# TODO: map key down to open the select list.  I think there is a chromium bug because of the way the elements are appended afterwards
 # TODO: map enter to checkout
 # TODO: map esc to cancel
-# TODO: noop if branch selected is current branch
-# TODO: select current branch
 
 {$, View} = require 'atom-space-pen-views'
 
