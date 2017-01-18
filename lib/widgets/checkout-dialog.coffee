@@ -29,8 +29,7 @@ class CommitDialog extends View
   activate: (branches) ->
     @branches.html(branches.map( (branch) ->
       $option = $("<option />").attr({value: branch.name}).text(branch.path)
-      if branch.charAt(0) == '*'
-        $option.attr('selected','selected')
+      $option.attr('selected','selected') if branch.selected
       return $option
     ))
     @show()
