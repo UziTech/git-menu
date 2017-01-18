@@ -22,10 +22,11 @@ class CommitDialog extends View
 
   activate: (branches) ->
     @branches.html(branches.map( (branch) ->
-      $option = $("<option />").attr({value: branch}).text(branch)
+      $option = $("<option />").attr({value: branch.name}).text(branch.path)
       return $option
     ))
     @show()
+    @branches.focus()
     return new Promise (resolve, reject) =>
       @resolve = resolve
       @reject = reject
