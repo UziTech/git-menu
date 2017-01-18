@@ -1,5 +1,10 @@
 # coffeelint: disable=max_line_length
 
+# TODO: map key down to open the select list
+# TODO: map enter to checkout
+# TODO: map esc to cancel
+# TODO: noop if branch selected is current branch
+
 {$, View} = require 'atom-space-pen-views'
 
 module.exports =
@@ -47,7 +52,7 @@ class CommitDialog extends View
 
   checkout: () ->
     @resolve [
-      @branches.prop("selected"),
+      @branches.val()
     ]
     @deactivate()
     return
