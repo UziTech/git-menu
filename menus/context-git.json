@@ -18,6 +18,9 @@
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
 			}, {
+				"label": "Checkout",
+				"command": "context-git:checkout"
+			}, {
 				"label": "Pull",
 				"command": "context-git:pull"
 			}, {
