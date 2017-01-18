@@ -1,15 +1,13 @@
 # coffeelint: disable=max_line_length
 
-# TODO: map key down to open the select list.  I think there is a chromium bug because of the way the elements are appended afterwards
-# TODO: map enter to checkout
-# TODO: map esc to cancel
+# TODO: fix arrow down and up don't select options in focused branches select
 
 {$, View} = require 'atom-space-pen-views'
 
 module.exports =
 class CommitDialog extends View
   @content: ->
-    @div class: 'dialog context-git', =>
+    @div class: 'dialog context-git', keyup: 'keyup', =>
       @div class: 'heading', =>
         @i class: 'icon x clickable', click: 'cancel'
         @strong 'Checkout'
@@ -42,6 +40,12 @@ class CommitDialog extends View
     @detach()
     return
 
+  keyup: (event, dialog) ->
+    @cancel() if event.keyCode == 27
+    @checkout() if event.keyCode == 13
+    @openBranches() if event.keyCode == 40 || event.keyCode == 38
+    return
+
   cancel: ->
     @reject()
     @deactivate()
@@ -56,3 +60,7 @@ class CommitDialog extends View
     ]
     @deactivate()
     return
+
+  openBranches: () ->
+    console.log('openBranches', arguments)
+    @branches.trigger('change')
