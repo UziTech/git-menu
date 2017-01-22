@@ -18,8 +18,8 @@
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
 			}, {
-				"label": "Checkout",
-				"command": "context-git:checkout"
+				"label": "Switch",
+				"command": "context-git:switch"
 			}, {
 				"label": "Pull",
 				"command": "context-git:pull"

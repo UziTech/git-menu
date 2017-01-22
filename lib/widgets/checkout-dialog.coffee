@@ -42,7 +42,7 @@ class CommitDialog extends View
 
   keyup: (event, dialog) ->
     @cancel() if event.keyCode == 27
-    @checkout() if event.keyCode == 13
+    @switch() if event.keyCode == 13
     @openBranches() if event.keyCode == 40 || event.keyCode == 38
     return
 
@@ -54,7 +54,7 @@ class CommitDialog extends View
   show: ->
     @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
-  checkout: () ->
+  switch: () ->
     @resolve [
       @branches.val()
     ]
