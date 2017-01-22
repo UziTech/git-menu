@@ -15,7 +15,7 @@ class CommitDialog extends View
         @label 'Select A Branch'
         @select class: 'branches', outlet: 'branches'
       @div class: 'buttons', =>
-        @button class: 'active', click: 'checkout', =>
+        @button class: 'active', click: 'switch', =>
           @i class: 'icon branch'
           @span 'Switch'
         @button click: 'cancel', =>
