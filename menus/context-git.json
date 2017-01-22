@@ -19,7 +19,7 @@
 				"command": "context-git:undo-last-commit"
 			}, {
 				"label": "Switch",
-				"command": "context-git:switch"
+				"command": "context-git:switch-branch"
 			}, {
 				"label": "Pull",
 				"command": "context-git:pull"
