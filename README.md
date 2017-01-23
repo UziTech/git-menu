@@ -34,7 +34,7 @@ This will discard changes to the selected files.
 
 This will add the selected files to the last commit.
 
-If you want to change the message of the last commit you will have to choose [Commit...](#commit)
+If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [CommitAll...](#commitall)
 
 ### Undo Last Commit
 
