@@ -18,7 +18,7 @@
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
 			}, {
-				"label": "Switch",
+				"label": "Switch Branch",
 				"command": "context-git:switch-branch"
 			}, {
 				"label": "Pull",

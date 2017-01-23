@@ -10,14 +10,14 @@ class CommitDialog extends View
     @div class: 'dialog context-git', keyup: 'keyup', =>
       @div class: 'heading', =>
         @i class: 'icon x clickable', click: 'cancel'
-        @strong 'Switch'
+        @strong 'Switch Branch'
       @div class: 'body', =>
         @label 'Select A Branch'
         @select class: 'branches', outlet: 'branches'
       @div class: 'buttons', =>
         @button class: 'active', click: 'switch', =>
           @i class: 'icon branch'
-          @span 'Switch'
+          @span 'Switch Branch'
         @button click: 'cancel', =>
           @i class: 'icon x'
           @span 'Cancel'
