@@ -5,7 +5,7 @@
 module.exports =
 class Dialog extends View
   @content: ->
-    @div class: 'dialog context-git', =>
+    @div class: 'dialog context-git', keyup: 'keyup', =>
       @div class: 'heading', =>
         @i class: 'icon x clickable', click: 'cancel'
         @strong 'Commit'
@@ -60,6 +60,10 @@ class Dialog extends View
   deactivate: ->
     @modalPanel.destroy()
     @detach()
+    return
+
+  keyup: (event, dialog) ->
+    @cancel() if event.keyCode == 27
     return
 
   getFiles: ->
