@@ -40,6 +40,10 @@ If you want to change the message of the last commit you will have to choose [Co
 
 This will undo the last commit but save the changes. Like `git reset --mixed HEAD~1`
 
+### Switch Branch
+
+Checkout a different branch in this repo.
+
 ### Pull
 
 Pull from tracked upstream
