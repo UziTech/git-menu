@@ -5,7 +5,7 @@
 {$, View} = require 'atom-space-pen-views'
 
 module.exports =
-class CommitDialog extends View
+class Dialog extends View
   @content: ->
     @div class: 'dialog context-git', keyup: 'keyup', =>
       @div class: 'heading', =>
@@ -13,7 +13,7 @@ class CommitDialog extends View
         @strong 'Switch Branch'
       @div class: 'body', =>
         @label 'Select A Branch'
-        @select class: 'branches', outlet: 'branches'
+        @select class: 'branches native-key-bindings', outlet: 'branches'
       @div class: 'buttons', =>
         @button class: 'active', click: 'switch', =>
           @i class: 'icon branch'
@@ -43,7 +43,6 @@ class CommitDialog extends View
   keyup: (event, dialog) ->
     @cancel() if event.keyCode == 27
     @switch() if event.keyCode == 13
-    @openBranches() if event.keyCode == 40 || event.keyCode == 38
     return
 
   cancel: ->
@@ -60,7 +59,3 @@ class CommitDialog extends View
     ]
     @deactivate()
     return
-
-  openBranches: () ->
-    console.log('openBranches', arguments)
-    @branches.trigger('change')

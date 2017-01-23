@@ -3,7 +3,7 @@
 {$, View} = require 'atom-space-pen-views'
 
 module.exports =
-class CommitDialog extends View
+class Dialog extends View
   @content: ->
     @div class: 'dialog context-git', =>
       @div class: 'heading', =>
