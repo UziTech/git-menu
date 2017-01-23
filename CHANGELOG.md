@@ -1,8 +1,8 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0.12.0 -
+## 0.12.0 - Add "Switch Branch" command
 
-- Add "Switch Branch" command
+- Add "Switch Branch" command. Thanks @sfeldkamp
 - Use [esc] key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
