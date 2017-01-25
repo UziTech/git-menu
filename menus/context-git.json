@@ -10,10 +10,10 @@
 				"command": "context-git:commit-all"
 			}, {
 				"label": "Discard Changes",
-				"command": "context-git:discard"
+				"command": "context-git:discard-changes"
 			}, {
 				"label": "Add To Last Commit",
-				"command": "context-git:amend-last-commit"
+				"command": "context-git:add-to-last-commit"
 			}, {
 				"label": "Undo Last Commit",
 				"command": "context-git:undo-last-commit"
