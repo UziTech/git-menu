@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.12.1 - Fix context menu commands
+
+- Fix "Discard Changes" pointing to context-git:discard
+- Fix "Add To Last Commit" pointing to context-git:amend-last-commit
+
 ## 0.12.0 - Add "Switch Branch" command
 
 - Add "Switch Branch" command. Thanks @sfeldkamp
