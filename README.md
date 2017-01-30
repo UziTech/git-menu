@@ -24,7 +24,7 @@ You then have the following options to commit the message/files:
 
 ### Commit All...
 
-Same as [Commit...](#commit) but will list all changed file in the dialog
+Same as [Commit...](#commit) but will list all changed files in the dialog
 
 ### Discard Changes
 
