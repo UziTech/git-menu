@@ -54,8 +54,6 @@ class Dialog extends View
     @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
   switch: () ->
-    @resolve [
-      @branches.val()
-    ]
+    @resolve @branches.val()
     @deactivate()
     return
