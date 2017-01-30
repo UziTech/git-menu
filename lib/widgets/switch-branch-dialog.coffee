@@ -1,8 +1,7 @@
 # coffeelint: disable=max_line_length
 
-# TODO: fix arrow down and up don't select options in focused branches select
-
 {$, View} = require 'atom-space-pen-views'
+git = require "../git-cmd"
 
 module.exports =
 class Dialog extends View
@@ -15,25 +14,32 @@ class Dialog extends View
         @label 'Select A Branch'
         @select class: 'branches native-key-bindings', outlet: 'branches'
       @div class: 'buttons', =>
-        @button class: 'active', click: 'switch', =>
+        @button class: 'active', click: 'switch', outlet: 'switchButton', =>
           @i class: 'icon branch'
           @span 'Switch Branch'
+        @button click: 'fetch', =>
+          @i class: 'icon sync'
+          @span 'Fetch'
         @button click: 'cancel', =>
           @i class: 'icon x'
           @span 'Cancel'
 
-  activate: (branches) ->
-    @branches.html(branches.map( (branch) ->
-      $option = $("<option />").attr({value: branch.name}).text(branch.path)
-      $option.attr('selected','selected') if branch.selected
-      return $option
-    ))
+  activate: (branches, @root) ->
+    @listBranches branches
     @show()
     @branches.focus()
     return new Promise (resolve, reject) =>
       @resolve = resolve
       @reject = reject
       return
+
+  listBranches: (branches) ->
+    @branches.html(branches.map( (branch) ->
+      $option = $("<option />").attr({value: branch.name}).text(branch.path)
+      $option.attr('selected','selected') if branch.selected
+      return $option
+    ))
+    return
 
   deactivate: ->
     @modalPanel.destroy()
@@ -54,6 +60,21 @@ class Dialog extends View
     @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
   switch: () ->
-    @resolve @branches.val()
+    branch = @branches.val()
+    # return unless branch != ""
+    @resolve branch
     @deactivate()
+    return
+
+  fetch: () ->
+    @listBranches([{name: "", path: "Fetching...", selected: true}])
+    @branches.prop({disabled: true})
+    @switchButton.prop({disabled: true})
+    git.fetch(@root)
+      .then(() => git.branches(@root))
+      .then((branches) =>
+        @listBranches(branches)
+        @branches.prop({disabled: false})
+        @switchButton.prop({disabled: false})
+      )
     return

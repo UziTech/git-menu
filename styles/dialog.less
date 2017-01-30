@@ -117,8 +117,12 @@
 		color: @text-color;
 		margin-right: 10px;
 
-		&:hover {
+		&:not([disabled]):hover {
 			color: @text-color-highlight;
+		}
+
+		&[disabled] {
+			color: @text-color-subtle
 		}
 	}
 }
