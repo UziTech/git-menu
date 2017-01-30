@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.12.2 - Add Fetch button in Switch Branch dialog
+
+- Add "Fetch" button to the Switch Branch dialog [#31](https://github.com/UziTech/context-git/issues/31)
+
 ## 0.12.1 - Fix context menu commands
 
 - Fix "Discard Changes" pointing to context-git:discard
@@ -7,7 +11,7 @@
 
 ## 0.12.0 - Add "Switch Branch" command
 
-- Add "Switch Branch" command. Thanks @sfeldkamp
+- Add "Switch Branch" command. Thanks @sfeldkamp [#25](https://github.com/UziTech/context-git/issues/25)
 - Use [esc] key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
