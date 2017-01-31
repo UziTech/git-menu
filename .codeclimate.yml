@@ -10,6 +10,9 @@ engines:
     enabled: true
     exclude_fingerprints:
     - acebaf69d448e7cbde3c0e917b449f46
+    - 810ad086e2f36b1bedfda23d6f8ff252
+    - 3b4956d7297a1a9c225a258261f9f59f
+    - b64e6153a9945fce505a07cdf676a06f
   fixme:
     enabled: true
 ratings:
