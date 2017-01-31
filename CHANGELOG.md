@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.13.3 - Clean code
+
+- clean code
+- Convert coffee script dialogs to javascript [#3](https://github.com/UziTech/context-git/issues/3)
+
 ## 0.13.2 - Fix Ignore Changes
 
 - Fix Un/Ignore changes only selecting changed files
