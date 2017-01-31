@@ -1,5 +1,12 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.13.0 - Add settings to enable/disable context menu items
+
+- Add context menu to atom-pane to include .image-view, etc.
+- Add "Ignore Changes" command [#27](https://github.com/UziTech/context-git/issues/27)
+- Add "Unignore Changes" command
+- Add settings to enable/disable context menu items [#32](https://github.com/UziTech/context-git/issues/32)
+
 ## 0.12.2 - Add Fetch button in Switch Branch dialog
 
 - Add "Fetch" button to the Switch Branch dialog [#31](https://github.com/UziTech/context-git/issues/31)
@@ -12,7 +19,7 @@
 ## 0.12.0 - Add "Switch Branch" command
 
 - Add "Switch Branch" command. Thanks @sfeldkamp [#25](https://github.com/UziTech/context-git/issues/25)
-- Use [esc] key to close Commit dialog
+- Use [Esc] key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
 
