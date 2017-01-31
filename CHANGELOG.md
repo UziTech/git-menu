@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.13.2 - Fix Ignore Changes
+
+- Fix Un/Ignore changes only selecting changed files
+
 ## 0.13.1 - Fix error on unsaved untitled tab
 
 - Fix error on unsaved untitled tab [#33](https://github.com/UziTech/context-git/issues/33)
