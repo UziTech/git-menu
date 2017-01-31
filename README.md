@@ -1,6 +1,6 @@
 # context-git package
 
-An Atom.io package to use git from the context menu.
+An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
 
 ![screenshpt](https://uzitech.github.io/context-git/screenshots/context-git 0.11.0 full.gif)
 
@@ -34,7 +34,7 @@ This will discard changes to the selected files.
 
 This will add the selected files to the last commit.
 
-If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [CommitAll...](#commitall)
+If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [CommitAll...](#commit-all)
 
 ### Undo Last Commit
 
@@ -43,6 +43,14 @@ This will undo the last commit but save the changes. Like `git reset --mixed HEA
 ### Switch Branch
 
 Checkout a different branch in this repo.
+
+### Ignore Changes
+
+Update the index with the changed version but don't commit the changes. Like `git update-index --assume-unchanged`
+
+### Unignore Changes
+
+Opposite of [Ignore Changes](#ignore-changes). Like `git update-index --assume-unchanged`
 
 ### Pull
 
