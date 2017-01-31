@@ -50,7 +50,7 @@ Update the index with the changed version but don't commit the changes. Like `gi
 
 ### Unignore Changes
 
-Opposite of [Ignore Changes](#ignore-changes). Like `git update-index --assume-unchanged`
+Opposite of [Ignore Changes](#ignore-changes). Like `git update-index --no-assume-unchanged`
 
 ### Pull
 
