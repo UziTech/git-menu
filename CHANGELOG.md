@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.13.1 - Fix error on unsaved untitled tab
+
+- Fix error on unsaved untitled tab [#33](https://github.com/UziTech/context-git/issues/33)
+
 ## 0.13.0 - Add settings to enable/disable context menu items
 
 - Add context menu to atom-pane to include .image-view, etc.
