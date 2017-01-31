@@ -30,6 +30,14 @@
 		"label": "Switch Branch..."
 	},
 	{
+		"command": "ignore-changes",
+		"label": "Ignore Changes"
+	},
+	{
+		"command": "unignore-changes",
+		"label": "Unignore Changes"
+	},
+	{
 		"command": "pull",
 		"label": "Pull"
 	},
