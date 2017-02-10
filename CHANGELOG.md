@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.13.5 - Allow default keymaps on commands
+
+- Allow default keymaps on commands
+
 ## 0.13.4 - Fix Discard All Changes
 
 - Fix Discard All Changes
