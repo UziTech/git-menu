@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.14.0 - Add Notifications settings
+
+- Add Notification settings [#28](https://github.com/UziTech/context-git/issues/28) [#29](https://github.com/UziTech/context-git/issues/29)
+- BREAKING CHANGE: The config options `showContextMenuItems` has changed to `contextMenuItems`. You may need to edit your config file manually to convert the settings.
+
 ## 0.13.5 - Allow default keymaps on commands
 
 - Allow default keymaps on commands
