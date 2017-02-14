@@ -30,46 +30,6 @@
 		}
 	}
 
-	.files {
-		width: 100%;
-		line-height: 1.4em;
-		max-height: 14em;
-		overflow: auto;
-		margin-bottom: 15px;
-
-		.file {
-			white-space: pre;
-			padding-left: 15px;
-
-			&.untracked {
-				color: @text-color-success;
-			}
-
-			&.changed {
-				color: @text-color-warning;
-			}
-
-			&.deleted {
-				color: @text-color-error;
-			}
-
-			&.added {}
-
-			input:not(:checked) + span {
-				color: @text-color-subtle;
-			}
-		}
-	}
-
-	.message {
-		height: 150px;
-		resize: none;
-
-		&.too-long {
-			color: @text-color-error;
-		}
-	}
-
 	label {
 		display: inline-block;
 		width: 100%;
@@ -81,13 +41,14 @@
 		width: 100%;
 		margin-bottom: 15px;
 		background: @input-background-color;
-		border: 2px solid @input-border-color;
+		border: 1px solid @input-border-color;
 		border-radius: 4px;
 		color: @text-color;
 		padding: 10px;
 
 		&:focus {
 			border-color: @text-color-highlight;
+			box-shadow: 0 0 0 1px @text-color-highlight;
 		}
 
 		&.error {
@@ -95,21 +56,17 @@
 		}
 	}
 
-	atom-text-editor {
-		&:focus {
-			border-color: @text-color-highlight;
-		}
-
-		&.error {
-			box-shadow: 0 0 10px 0 @text-color-error;
-		}
-	}
-
-	input[type='checkbox'] {
+	input[type='checkbox'],
+	input[type='radio'] {
 		width: auto;
 		display: inline-block;
 		vertical-align: bottom;
 		margin: 0 0.5em;
+
+		&:focus {
+			box-shadow: none;
+			outline: 2px auto @text-color-highlight;
+		}
 	}
 
 	input[readonly],
@@ -120,7 +77,6 @@
 
 	select {
 		-webkit-appearance: none;
-		-moz-appearance: none;
 		appearance: none;
 	}
 

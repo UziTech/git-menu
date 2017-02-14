@@ -1,0 +1,48 @@
+@import "ui-variables";
+
+.context-git.dialog {
+	.files {
+		width: 100%;
+		line-height: 1.4em;
+		max-height: 14em;
+		overflow: auto;
+		margin-bottom: 15px;
+
+		.file {
+			white-space: pre;
+			padding-left: 15px;
+
+			&.untracked {
+				color: @text-color-success;
+			}
+
+			&.changed {
+				color: @text-color-warning;
+			}
+
+			&.deleted {
+				color: @text-color-error;
+			}
+
+			&.added {}
+
+			input:not(:checked) + span {
+				color: @text-color-subtle;
+			}
+		}
+	}
+
+	.message {
+		height: 150px;
+		resize: none;
+
+		&.too-long {
+			color: @text-color-error;
+		}
+	}
+
+	.last-commit {
+		font-weight: bold;
+		font-style: italic;
+	}
+}
