@@ -87,7 +87,7 @@
 		padding: 10px;
 
 		&:focus {
-			border-color: @accent-color;
+			border-color: @text-color-highlight;
 		}
 
 		&.error {
@@ -95,8 +95,14 @@
 		}
 	}
 
-	atom-text-editor.error {
-		box-shadow: 0 0 10px 0 @text-color-error;
+	atom-text-editor {
+		&:focus {
+			border-color: @text-color-highlight;
+		}
+
+		&.error {
+			box-shadow: 0 0 10px 0 @text-color-error;
+		}
 	}
 
 	input[type='checkbox'] {
