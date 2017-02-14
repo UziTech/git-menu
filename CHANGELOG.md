@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.14.1 - Fix css @accent-color
+
+- Fix @accent-color in css [#35](https://github.com/UziTech/context-git/issues/30)
+
 ## 0.14.0 - Add Notifications settings
 
 - Add Create Branch command [#30](https://github.com/UziTech/context-git/issues/30)
