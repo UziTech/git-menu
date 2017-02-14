@@ -15,6 +15,7 @@ If this is a feature or command request:
 
 - sourceBranch: Pick which branch to copy
 - newBranch: The new branch name
+- track: To track the branch in origin or not
 
 )
 
