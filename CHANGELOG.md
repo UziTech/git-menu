@@ -3,6 +3,9 @@
 ## 0.15.0 - Fix initialize with multiple project folders
 
 - Initialize will now create a repo in every project folder of a selected file  [#23](https://github.com/UziTech/context-git/issues/23)
+- Add Fetch command [#36](https://github.com/UziTech/context-git/issues/36)
+- Add Stash Changes command [#37](https://github.com/UziTech/context-git/issues/37)
+- Add Unstash Changes command [#38](https://github.com/UziTech/context-git/issues/38)
 
 ## 0.14.2 - More keyboard friendly dialogs
 
