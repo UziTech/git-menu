@@ -1,8 +1,12 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.14.2 - More keyboard friendly dialogs
+
+- Move dialogs to [etch](https://github.com/atom/etch) [#3](https://github.com/UziTech/context-git/issues/3)
+
 ## 0.14.1 - Fix css @accent-color
 
-- Fix @accent-color in css [#35](https://github.com/UziTech/context-git/issues/30)
+- Fix @accent-color in css [#35](https://github.com/UziTech/context-git/issues/35)
 
 ## 0.14.0 - Add Notifications settings
 
