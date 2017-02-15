@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.0 - Fix initialize with multiple project folders
+
+- Initialize will now create a repo in every project folder of a selected file  [#23](https://github.com/UziTech/context-git/issues/23)
+
 ## 0.14.2 - More keyboard friendly dialogs
 
 - Move dialogs to [etch](https://github.com/atom/etch) [#3](https://github.com/UziTech/context-git/issues/3)
