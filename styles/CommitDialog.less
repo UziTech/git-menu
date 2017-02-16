@@ -1,5 +1,9 @@
 @import "ui-variables";
 
+.input-label .input-radio, .input-label .input-checkbox, .input-label .input-toggle {
+	margin-right: 10px;
+}
+
 .context-git.dialog {
 	.files {
 		width: 100%;
@@ -9,8 +13,12 @@
 		margin-bottom: 15px;
 
 		.file {
-			white-space: pre;
-			padding-left: 15px;
+			margin: 0 0 10px 0;
+
+			label.input-label {
+				display: inline-block;
+				width: auto;
+			}
 
 			&.untracked {
 				color: @text-color-success;
