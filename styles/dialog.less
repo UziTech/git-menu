@@ -41,7 +41,7 @@
 		width: 100%;
 	}
 
-	input,
+	input[type=text],
 	select,
 	textarea {
 		width: 100%;
@@ -59,19 +59,6 @@
 
 		&.error {
 			box-shadow: 0 0 10px 0 @text-color-error;
-		}
-	}
-
-	input[type='checkbox'],
-	input[type='radio'] {
-		width: auto;
-		display: inline-block;
-		vertical-align: bottom;
-		margin: 0 0.5em;
-
-		&:focus {
-			box-shadow: none;
-			outline: 2px auto @text-color-highlight;
 		}
 	}
 
