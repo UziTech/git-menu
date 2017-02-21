@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.1 - Fix Discard Changes
+
+- Fix Discard Changes removing untracked files when none were selected [#24](https://github.com/UziTech/context-git/issues/24)
+
 ## 0.15.0 - Fix initialize with multiple project folders
 
 - Initialize will now create a repo in every project folder of a selected file  [#23](https://github.com/UziTech/context-git/issues/23)
