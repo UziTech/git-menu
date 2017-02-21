@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.2 - Fix illegal characters in branch name
+
+- Fix the way illegal characters are handled in the Create Branch dialog  [#39](https://github.com/UziTech/context-git/issues/39)
+
 ## 0.15.1 - Fix Discard Changes
 
 - Fix Discard Changes removing untracked files when none were selected [#24](https://github.com/UziTech/context-git/issues/24)
