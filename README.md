@@ -1,3 +1,8 @@
+<!-- [![Throughput Graph](https://graphs.waffle.io/UziTech/context-git/throughput.svg)](https://waffle.io/UziTech/context-git/metrics) -->
+[![Build Status](https://travis-ci.org/UziTech/context-git.svg?branch=master)](https://travis-ci.org/UziTech/context-git)
+[![Build status](https://ci.appveyor.com/api/projects/status/649me6gpm37u4tja?svg=true)](https://ci.appveyor.com/project/UziTech/context-git)
+[![Code Climate](https://codeclimate.com/github/UziTech/context-git/badges/gpa.svg)](https://codeclimate.com/github/UziTech/context-git)
+
 # context-git package
 
 An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
