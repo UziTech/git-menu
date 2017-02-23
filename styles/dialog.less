@@ -40,7 +40,7 @@
 		}
 	}
 
-	input[type=text],
+	input[type="text"]
 	select,
 	textarea {
 		margin-bottom: 15px;
@@ -62,5 +62,14 @@
 	select[readonly],
 	textarea[readonly] {
 		color: @text-color-subtle;
+	}
+
+	.create-branch {
+		label.input-label,
+		input[type=text],
+		select {
+			display: block;
+			width: 100%;
+		}
 	}
 }
