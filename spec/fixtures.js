@@ -9,6 +9,18 @@ import StatusBarManager from "../lib/widgets/StatusBarManager";
 
 export const statusBar = new StatusBarManager({ addRightTile() {} });
 
+/**
+ * Mock statuses for files
+ * @param  {string} code The git status code
+ * @param  {string} file The file
+ * @return {Object} {
+ *                    added: bool,
+ *                    untracked: bool,
+ *                    deleted: bool,
+ *                    changed: bool,
+ *                    file: string
+ *                  }
+ */
 export function fileStatus(code, file) {
 	const status = gitCmd.statusFromCode(code);
 	if (status === false) {
@@ -20,6 +32,10 @@ export function fileStatus(code, file) {
 	};
 }
 
+/**
+ * Files in spec/git-root
+ * @type {Object}
+ */
 export const files = {
 	t1: "test1.txt",
 	t2: "test2.txt",
@@ -29,7 +45,7 @@ export const files = {
 
 /**
  * Mock a dialog
- * @param  {Object} [methods={ methods: Promise.[resolve|reject](value), ... }] The methods to add to the mock
+ * @param  {Object} [methods={ methods: Promise, ... }] The methods to add to the mock
  * @return {class} A dialog class
  */
 export function mockDialog(methods = { activate: Promise.reject() }) {
@@ -42,7 +58,7 @@ export function mockDialog(methods = { activate: Promise.reject() }) {
 
 /**
  * Mock git-cmd
- * @param  {Object} [methods={ methods: Promise.[resolve|reject](value), ... }] The methods to add to the mock
+ * @param  {Object} [methods={ methods: Promise, ... }] The methods to add to the mock
  * @return {Object} An object with the methods provided
  */
 export function mockGit(methods = {}) {
@@ -52,10 +68,18 @@ export function mockGit(methods = {}) {
 	}, {});
 };
 
+/**
+ * Remove the test spec/git-root directory
+ * @return {void}
+ */
 export function removeGitRoot() {
 	rimrafSync(getFilePath());
 }
 
+/**
+ * Create the test spec/git-root directory
+ * @return {void}
+ */
 export function createGitRoot() {
 	if (fs.existsSync(getFilePath())) {
 		removeGitRoot();
@@ -68,6 +92,11 @@ export function createGitRoot() {
 	});
 };
 
+
+/**
+ * Get path to file(s) in spec/git-root directory
+ * @return {string|string[]} If input is an array it will return an array
+ */
 export function getFilePath(paths) {
 	const isArray = Array.isArray(paths);
 	if (!paths) {
