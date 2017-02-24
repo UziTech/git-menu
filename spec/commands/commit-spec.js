@@ -81,7 +81,7 @@ describe("commit", function () {
 		});
 	});
 
-	fdescribe("commit", function () {
+	describe("commit", function () {
 		beforeEach(function () {
 			this.filePaths = getFilePath([files.t1]);
 			this.git = mockGit({
