@@ -10,63 +10,60 @@ import rimraf from "../lib/rimraf";
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
 // or `fdescribe`). Remove the `f` to unfocus the block.
 
-describe("Context Git", _ => {
-	let configOptions;
-	let configContextMenuItems;
-	let allConfig;
-	let allCommands;
-	let contextMenuItems;
-	beforeEach(_ => {
-		waitsForPromise(_ => atom.packages.activatePackage("context-git").then(_ => {
-			configOptions = configOptions || atom.config.getAll("context-git")[0].value;
-			configContextMenuItems = configContextMenuItems || Object.keys(configOptions.contextMenuItems);
-			allConfig = allConfig || Object.keys(configOptions);
-			allCommands = allCommands || atom.commands
-				.findCommands({ target: atom.views.getView(atom.workspace) })
-				.map(cmd => cmd.name)
-				.filter(cmd => cmd.startsWith("context-git:"));
-			contextMenuItems = contextMenuItems || atom.contextMenu.itemSets
-				.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
-				.map(itemSet => itemSet.items[0].submenu[0].command);
-		}));
-	});
-
-	describe("Config", _ => {
-		Object.keys(config).forEach(configOption => {
-			it("has a config option: " + configOption, _ => {
-				expect(allConfig).toContain(configOption);
+describe("Context Git", function () {
+	beforeEach(function () {
+		waitsForPromise(_ => {
+			return atom.packages.activatePackage("context-git").then(_ => {
+				this.configOptions = atom.config.getAll("context-git")[0].value;
+				this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
+				this.allConfig = Object.keys(this.configOptions);
+				this.allCommands = atom.commands
+					.findCommands({ target: atom.views.getView(atom.workspace) })
+					.map(cmd => cmd.name)
+					.filter(cmd => cmd.startsWith("context-git:"));
+				this.contextMenuItems = atom.contextMenu.itemSets
+					.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
+					.map(itemSet => itemSet.items[0].submenu[0].command);
 			});
 		});
 	});
 
-	describe("Commands", _ => {
+	describe("Config", function () {
+		Object.keys(config).forEach(configOption => {
+			it("has a config option: " + configOption, function () {
+				expect(this.allConfig).toContain(configOption);
+			});
+		});
+	});
+
+	describe("Commands", function () {
 		Object.keys(commands).forEach(command => {
 			const cmd = "context-git:" + command;
 			const label = commands[command].label;
 			const description = commands[command].description;
 			const func = commands[command].command;
-			it("has a command in the command pallete: " + command, _ => {
-				expect(allCommands).toContain(cmd);
+			it("should have a command in the command pallete: " + command, function () {
+				expect(this.allCommands).toContain(cmd);
 			});
-			it("has a command: " + command, _ => {
+			it("should have a command: " + command, function () {
 				expect(typeof func).toBe("function");
 			});
 			if (label) {
-				it("has a config option to disable it in the context menu: " + command, _ => {
-					expect(configContextMenuItems).toContain(command);
+				it("should have a config option to disable it in the context menu: " + command, function () {
+					expect(this.configContextMenuItems).toContain(command);
 				});
-				it("has a description: " + command, _ => {
+				it("should have a description: " + command, function () {
 					expect(description).toBeTruthy();
 				});
-				it("has a context menu item: " + command, _ => {
-					expect(contextMenuItems).toContain(cmd);
+				it("should have a context menu item: " + command, function () {
+					expect(this.contextMenuItems).toContain(cmd);
 				});
 			} else {
-				it("does not have a config option to disable it in the context menu: " + command, _ => {
-					expect(configContextMenuItems).not.toContain(command);
+				it("should not have a config option to disable it in the context menu: " + command, function () {
+					expect(this.configContextMenuItems).not.toContain(command);
 				});
-				it("does not have a context menu item: " + command, _ => {
-					expect(contextMenuItems).not.toContain(cmd);
+				it("should not have a context menu item: " + command, function () {
+					expect(this.contextMenuItems).not.toContain(cmd);
 				});
 			}
 		});
