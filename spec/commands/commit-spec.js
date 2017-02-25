@@ -6,10 +6,6 @@ import { commit } from "../../lib/commands";
 import Notifications, { isVerbose } from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../fixtures";
 
-spyOn.andThrow = function (error) {
-	this.andCallFake(_ => { throw error; });
-};
-
 describe("commit", function () {
 
 	beforeEach(function () {
@@ -51,7 +47,7 @@ describe("commit", function () {
 
 		it("should call dialog with correct props", function () {
 			waitsForPromise(async _ => {
-				spyOn(this, "dialog").andThrow();
+				spyOn(this, "dialog").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -64,7 +60,7 @@ describe("commit", function () {
 
 		it("should call dialog.activate()", function () {
 			waitsForPromise(async _ => {
-				spyOn(this.dialog.prototype, "activate").andThrow();
+				spyOn(this.dialog.prototype, "activate").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -111,7 +107,7 @@ describe("commit", function () {
 
 		it("should show committing... in status bar", function () {
 			waitsForPromise(async _ => {
-				spyOn(statusBar, "show").andThrow();
+				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -121,7 +117,7 @@ describe("commit", function () {
 
 		it("should call git.add", function () {
 			waitsForPromise(async _ => {
-				spyOn(this.git, "add").andThrow();
+				spyOn(this.git, "add").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -131,7 +127,7 @@ describe("commit", function () {
 
 		it("should call git.commit", function () {
 			waitsForPromise(async _ => {
-				spyOn(this.git, "commit").andThrow();
+				spyOn(this.git, "commit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -145,7 +141,7 @@ describe("commit", function () {
 				this.dialog = mockDialog({
 					activate: Promise.resolve(this.dialogReturn)
 				});
-				spyOn(this.git, "commit").andThrow();
+				spyOn(this.git, "commit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -155,7 +151,7 @@ describe("commit", function () {
 
 		it("should show a git.commit result notification", function () {
 			waitsForPromise(async _ => {
-				spyOn(Notifications, "addGit").andThrow();
+				spyOn(Notifications, "addGit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -165,7 +161,7 @@ describe("commit", function () {
 
 		it("should call refresh after commit", function () {
 			waitsForPromise(async _ => {
-				spyOn(this.repo, "refreshStatus").andThrow();
+				spyOn(this.repo, "refreshStatus").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (e) {}
@@ -206,65 +202,137 @@ describe("commit", function () {
 				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {console.debug(e);}
+				} catch (e) {}
 				expect(statusBar.show.calls.length).toBe(2);
 				expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
 			});
 		});
 
-		xit("should show info notification pushing...", function () {
-			throw "Not Implemented";
+		it("should call git.push", function () {
+			waitsForPromise(async _ => {
+				spyOn(this.git, "push").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			});
 		});
 
-		xit("should show a git.push result notification", function () {
-			throw "Not Implemented";
+		it("should show a git.push result notification", function () {
+			waitsForPromise(async _ => {
+				spyOn(Notifications, "addGit").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(Notifications.addGit).toHaveBeenCalledWith("push result");
+			});
 		});
 
-		xit("should refresh after push", function () {
-			throw "Not Implemented";
+		it("should refresh after push", function () {
+			waitsForPromise(async _ => {
+				spyOn(this.repo, "refreshStatus").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(this.repo.refreshStatus.calls.length).toBe(2);
+			});
 		});
 
-		xit("should return numFiles + ' committed & pushed.'", function () {
-			throw "Not Implemented";
+		it("should return numFiles + ' committed & pushed.'", function () {
+			waitsForPromise(async _ => {
+				const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				expect(ret).toBe("1 File committed & pushed.");
+			});
 		});
 	});
 
 	describe("commit & pull & push", function () {
 
-		xit("should show pulling... in status bar", function () {
-			throw "Not Implemented";
+		beforeEach(function () {
+			this.dialogReturn[2] = true;
+			this.dialogReturn[3] = true;
+			this.dialog = mockDialog({
+				activate: Promise.resolve(this.dialogReturn)
+			});
 		});
 
-		xit("should show info notification pulling...", function () {
-			throw "Not Implemented";
+		it("should show pulling... in status bar", function () {
+			waitsForPromise(async _ => {
+				spyOn(statusBar, "show").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(statusBar.show.calls.length).toBe(3);
+				expect(statusBar.show).toHaveBeenCalledWith("Pulling...", null);
+			});
 		});
 
-		xit("should show git notification for pull results", function () {
-			throw "Not Implemented";
+		it("should call git.pull", function () {
+			waitsForPromise(async _ => {
+				spyOn(this.git, "pull").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			});
 		});
 
-		xit("should refresh after pulling", function () {
-			throw "Not Implemented";
+		it("should show git notification for pull results", function () {
+			waitsForPromise(async _ => {
+				spyOn(Notifications, "addGit").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(Notifications.addGit).toHaveBeenCalledWith("pull result");
+			});
 		});
 
-		xit("should show pushing... in status bar", function () {
-			throw "Not Implemented";
+		it("should show pushing... in status bar", function () {
+			waitsForPromise(async _ => {
+				spyOn(statusBar, "show").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(statusBar.show.calls.length).toBe(3);
+				expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
+			});
 		});
 
-		xit("should notification pushing...", function () {
-			throw "Not Implemented";
+		it("should call git.push", function () {
+			waitsForPromise(async _ => {
+				spyOn(this.git, "push").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			});
 		});
 
-		xit("should git notification push result", function () {
-			throw "Not Implemented";
+		it("should show git notification for push result", function () {
+			waitsForPromise(async _ => {
+				spyOn(Notifications, "addGit").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(Notifications.addGit).toHaveBeenCalledWith("push result");
+			});
 		});
 
-		xit("should refresh after pushing", function () {
-			throw "Not Implemented";
+		it("should refresh after pulling and pushing", function () {
+			waitsForPromise(async _ => {
+				spyOn(this.repo, "refreshStatus").andCallThrough();
+				try {
+					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				} catch (e) {}
+				expect(this.repo.refreshStatus.calls.length).toBe(3);
+			});
 		});
 
-		xit("should return numfiles + ' committed & pulled & pushed.'", function () {
-			throw "Not Implemented";
+		it("should return numfiles + ' committed & pulled & pushed.'", function () {
+			waitsForPromise(async _ => {
+				const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+				expect(ret).toBe("1 File committed & pulled & pushed.");
+			});
 		});
 
 	});
