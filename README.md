@@ -85,3 +85,11 @@ Initialize a git repo for the current project.
 ### Refresh
 
 Refresh the git status in Atom.
+
+### Stash Changes
+
+Save changes and checkout last commit
+
+### Unstash Changes
+
+Restore changes from last stash
