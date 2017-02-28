@@ -86,6 +86,10 @@ Initialize a git repo for the current project.
 
 Refresh the git status in Atom.
 
+### Fetch
+
+Fetch from all tracked repos
+
 ### Stash Changes
 
 Save changes and checkout last commit
