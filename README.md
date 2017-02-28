@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/UziTech/context-git.svg?branch=master)](https://travis-ci.org/UziTech/context-git)
 [![Build status](https://ci.appveyor.com/api/projects/status/649me6gpm37u4tja?svg=true)](https://ci.appveyor.com/project/UziTech/context-git)
 [![Code Climate](https://codeclimate.com/github/UziTech/context-git/badges/gpa.svg)](https://codeclimate.com/github/UziTech/context-git)
+[![Dependency Status](https://david-dm.org/UziTech/context-git.svg)](https://david-dm.org/UziTech/context-git)
 
 # context-git package
 
