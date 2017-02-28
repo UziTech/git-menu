@@ -50,6 +50,10 @@ This will undo the last commit but save the changes. Like `git reset --mixed HEA
 
 Checkout a different branch in this repo.
 
+### Create Branch
+
+Create a branch and optionally track/create a remote branch.
+
 ### Ignore Changes
 
 Update the index with the changed version but don't commit the changes. Like `git update-index --assume-unchanged`
