@@ -36,6 +36,10 @@ Same as [Commit...](#commit) but will list all changed files in the dialog
 
 This will discard changes to the selected files.
 
+### Discard All Changes
+
+This will discard changes to the all files in the repo.
+
 ### Add To Last Commit
 
 This will add the selected files to the last commit.
