@@ -12,19 +12,18 @@ import rimraf from "../lib/rimraf";
 
 describe("Context Git", function () {
 	beforeEach(function () {
-		waitsForPromise(_ => {
-			return atom.packages.activatePackage("context-git").then(_ => {
-				this.configOptions = atom.config.getAll("context-git")[0].value;
-				this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
-				this.allConfig = Object.keys(this.configOptions);
-				this.allCommands = atom.commands
-					.findCommands({ target: atom.views.getView(atom.workspace) })
-					.map(cmd => cmd.name)
-					.filter(cmd => cmd.startsWith("context-git:"));
-				this.contextMenuItems = atom.contextMenu.itemSets
-					.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
-					.map(itemSet => itemSet.items[0].submenu[0].command);
-			});
+		waitsForPromise(async _ => {
+			await atom.packages.activatePackage("context-git");
+			this.configOptions = atom.config.getAll("context-git")[0].value;
+			this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
+			this.allConfig = Object.keys(this.configOptions);
+			this.allCommands = atom.commands
+				.findCommands({ target: atom.views.getView(atom.workspace) })
+				.map(cmd => cmd.name)
+				.filter(cmd => cmd.startsWith("context-git:"));
+			this.contextMenuItems = atom.contextMenu.itemSets
+				.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
+				.map(itemSet => itemSet.items[0].submenu[0].command);
 		});
 	});
 

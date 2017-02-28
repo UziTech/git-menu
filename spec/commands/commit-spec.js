@@ -13,6 +13,7 @@ describe("commit", function () {
 			await atom.packages.activatePackage("context-git");
 			createGitRoot();
 			this.gitRoot = getFilePath();
+			atom.project.setPaths([this.gitRoot]);
 			this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 			this.statuses = [fileStatus("M ", files.t1)];
@@ -50,7 +51,7 @@ describe("commit", function () {
 				spyOn(this, "dialog").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.dialog).toHaveBeenCalledWith({
 					files: this.statuses,
 					lastCommit: "last commit"
@@ -63,7 +64,7 @@ describe("commit", function () {
 				spyOn(this.dialog.prototype, "activate").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.dialog.prototype.activate).toHaveBeenCalled();
 			});
 		});
@@ -79,8 +80,8 @@ describe("commit", function () {
 				let error = true;
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {
-					error = e;
+				} catch (ex) {
+					error = ex;
 				}
 				expect(error).toBeFalsy();
 			});
@@ -98,8 +99,8 @@ describe("commit", function () {
 				let error;
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {
-					error = e;
+				} catch (ex) {
+					error = ex;
 				}
 				expect(error).toBe("Message cannot be blank.");
 			});
@@ -110,7 +111,7 @@ describe("commit", function () {
 				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(statusBar.show).toHaveBeenCalledWith("Committing...", null);
 			});
 		});
@@ -120,7 +121,7 @@ describe("commit", function () {
 				spyOn(this.git, "add").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.add).toHaveBeenCalledWith(this.gitRoot, getFilePath(this.dialogReturn[4]));
 			});
 		});
@@ -130,7 +131,7 @@ describe("commit", function () {
 				spyOn(this.git, "commit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], getFilePath(this.dialogReturn[4]), isVerbose());
 			});
 		});
@@ -144,7 +145,7 @@ describe("commit", function () {
 				spyOn(this.git, "commit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], getFilePath(this.dialogReturn[4]), isVerbose());
 			});
 		});
@@ -154,7 +155,7 @@ describe("commit", function () {
 				spyOn(Notifications, "addGit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(Notifications.addGit).toHaveBeenCalledWith("commit result");
 			});
 		});
@@ -164,7 +165,7 @@ describe("commit", function () {
 				spyOn(this.repo, "refreshStatus").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.repo.refreshStatus).toHaveBeenCalled();
 			});
 		});
@@ -202,7 +203,7 @@ describe("commit", function () {
 				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(statusBar.show.calls.length).toBe(2);
 				expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
 			});
@@ -213,7 +214,7 @@ describe("commit", function () {
 				spyOn(this.git, "push").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
 			});
 		});
@@ -223,7 +224,7 @@ describe("commit", function () {
 				spyOn(Notifications, "addGit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(Notifications.addGit).toHaveBeenCalledWith("push result");
 			});
 		});
@@ -233,7 +234,7 @@ describe("commit", function () {
 				spyOn(this.repo, "refreshStatus").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.repo.refreshStatus.calls.length).toBe(2);
 			});
 		});
@@ -261,7 +262,7 @@ describe("commit", function () {
 				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(statusBar.show.calls.length).toBe(3);
 				expect(statusBar.show).toHaveBeenCalledWith("Pulling...", null);
 			});
@@ -272,7 +273,7 @@ describe("commit", function () {
 				spyOn(this.git, "pull").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, isVerbose());
 			});
 		});
@@ -282,7 +283,7 @@ describe("commit", function () {
 				spyOn(Notifications, "addGit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(Notifications.addGit).toHaveBeenCalledWith("pull result");
 			});
 		});
@@ -292,7 +293,7 @@ describe("commit", function () {
 				spyOn(statusBar, "show").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(statusBar.show.calls.length).toBe(3);
 				expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
 			});
@@ -303,7 +304,7 @@ describe("commit", function () {
 				spyOn(this.git, "push").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
 			});
 		});
@@ -313,7 +314,7 @@ describe("commit", function () {
 				spyOn(Notifications, "addGit").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(Notifications.addGit).toHaveBeenCalledWith("push result");
 			});
 		});
@@ -323,7 +324,7 @@ describe("commit", function () {
 				spyOn(this.repo, "refreshStatus").andCallThrough();
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-				} catch (e) {}
+				} catch (ex) {}
 				expect(this.repo.refreshStatus.calls.length).toBe(3);
 			});
 		});

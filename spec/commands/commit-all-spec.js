@@ -11,6 +11,9 @@ describe("commit-all", function () {
 		waitsForPromise(async _ => {
 			await atom.packages.activatePackage("context-git");
 			createGitRoot();
+			this.gitRoot = getFilePath();
+			atom.project.setPaths([this.gitRoot]);
+
 			this.filePaths = getFilePath([files.t1]);
 		});
 	});
@@ -24,7 +27,7 @@ describe("commit-all", function () {
 			spyOn(commit, "command").andCallFake(_ => Promise.reject());
 			try {
 				await commitAll.command(this.filePaths);
-			} catch (e) {}
+			} catch (ex) {}
 			expect(commit.command.mostRecentCall.args[0]).toEqual(atom.project.getPaths());
 		});
 	});
