@@ -1,5 +1,19 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.3 - Fix Create Branch with Tracking
+
+- Fix creating a remote branch [#42](https://github.com/UziTech/context-git/issues/42)
+- Add Tests 🎉🎊🎇🎆✨
+
+## 0.15.2 - Fix illegal characters in branch name
+
+- Fix the way illegal characters are handled in the Create Branch dialog [#39](https://github.com/UziTech/context-git/issues/39)
+
+## 0.15.1 - Fix Discard Changes
+
+- Fix Discard Changes removing untracked files when none were selected [#24](https://github.com/UziTech/context-git/issues/24)
+- Remove remote branches from the branch list that are also tracked locally
+
 ## 0.15.0 - Fix initialize with multiple project folders
 
 - Initialize will now create a repo in every project folder of a selected file  [#23](https://github.com/UziTech/context-git/issues/23)

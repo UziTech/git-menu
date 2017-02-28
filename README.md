@@ -1,3 +1,9 @@
+<!-- [![Throughput Graph](https://graphs.waffle.io/UziTech/context-git/throughput.svg)](https://waffle.io/UziTech/context-git/metrics) -->
+[![Build Status](https://travis-ci.org/UziTech/context-git.svg?branch=master)](https://travis-ci.org/UziTech/context-git)
+[![Build status](https://ci.appveyor.com/api/projects/status/649me6gpm37u4tja?svg=true)](https://ci.appveyor.com/project/UziTech/context-git)
+[![Code Climate](https://codeclimate.com/github/UziTech/context-git/badges/gpa.svg)](https://codeclimate.com/github/UziTech/context-git)
+[![Dependency Status](https://david-dm.org/UziTech/context-git.svg)](https://david-dm.org/UziTech/context-git)
+
 # context-git package
 
 An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
@@ -30,6 +36,10 @@ Same as [Commit...](#commit) but will list all changed files in the dialog
 
 This will discard changes to the selected files.
 
+### Discard All Changes
+
+This will discard changes to the all files in the repo.
+
 ### Add To Last Commit
 
 This will add the selected files to the last commit.
@@ -43,6 +53,10 @@ This will undo the last commit but save the changes. Like `git reset --mixed HEA
 ### Switch Branch
 
 Checkout a different branch in this repo.
+
+### Create Branch
+
+Create a branch and optionally track/create a remote branch.
 
 ### Ignore Changes
 
@@ -71,3 +85,15 @@ Initialize a git repo for the current project.
 ### Refresh
 
 Refresh the git status in Atom.
+
+### Fetch
+
+Fetch from all tracked repos
+
+### Stash Changes
+
+Save changes and checkout last commit
+
+### Unstash Changes
+
+Restore changes from last stash
