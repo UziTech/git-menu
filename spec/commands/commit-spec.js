@@ -77,13 +77,13 @@ describe("commit", function () {
 				this.dialog = mockDialog({
 					activate: Promise.reject()
 				});
-				let error = true;
+				let error;
 				try {
 					await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 				} catch (ex) {
-					error = ex;
+					error = !ex;
 				}
-				expect(error).toBeFalsy();
+				expect(error).toBeTruthy();
 			});
 		});
 	});

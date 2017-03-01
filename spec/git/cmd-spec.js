@@ -1,10 +1,8 @@
 "use babel";
 /* globals atom, describe, it, expect, beforeEach, afterEach, waitsForPromise, runs, spyOn, jasmine */
 
-import { Directory } from "atom";
 import gitCmd from "../../lib/git-cmd";
-import Notifications, { isVerbose } from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../fixtures";
+import { getFilePath, removeGitRoot, createGitRoot } from "../fixtures";
 
 describe("git.cmd", function () {
 
@@ -47,30 +45,23 @@ describe("git.cmd", function () {
 
 	it("should reject on error", function () {
 		waitsForPromise(async _ => {
-			let rejected = false;
-			let resolved = false;
+			let rejected;
 			try {
 				await gitCmd.cmd(this.getRoot, ["test"]);
-				resolved = true;
 			} catch (ex) {
 				rejected = true;
 			}
 			expect(rejected).toBeTruthy();
-			expect(resolved).toBeFalsy();
 		});
 	});
 
 	it("should resolve on non-error", function () {
 		waitsForPromise(async _ => {
-			let rejected = false;
-			let resolved = false;
+			let resolved;
 			try {
 				await gitCmd.cmd(this.getRoot, ["init"]);
 				resolved = true;
-			} catch (ex) {
-				rejected = true;
-			}
-			expect(rejected).toBeFalsy();
+			} catch (ex) {}
 			expect(resolved).toBeTruthy();
 		});
 	});
