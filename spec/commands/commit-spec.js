@@ -1,11 +1,14 @@
 "use babel";
-/* globals atom, describe, it, expect, beforeEach, afterEach, waitsForPromise, runs, spyOn, jasmine */
+/* globals atom */
 
 import { Directory } from "atom";
 import { commit } from "../../lib/commands";
 import Notifications, { isVerbose } from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../fixtures";
-import "jasmine-promises";
+
+// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
+global.jasmineRequire = {};
+require("jasmine-promises");
 
 
 describe("commit", function () {
@@ -70,7 +73,7 @@ describe("commit", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: Promise.reject()
+				activate: _ => Promise.reject()
 			});
 			let error;
 			try {
