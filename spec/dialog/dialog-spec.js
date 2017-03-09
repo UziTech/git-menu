@@ -1,9 +1,13 @@
 "use babel";
 /** @jsx etch.dom */
-/* globals atom, describe, it, expect, beforeEach, afterEach, waitsForPromise, runs, spyOn, jasmine */
+/* globals atom */
 
 import Dialog from "../../lib/widgets/Dialog";
 import etch from "etch";
+
+// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
+global.jasmineRequire = {};
+require("jasmine-promises");
 
 describe("Dialog", function () {
 	beforeEach(function () {
@@ -12,13 +16,13 @@ describe("Dialog", function () {
 				return "test-title";
 			}
 			body() {
-				return (
-					<div id="test-body"></div>
+				return ( <
+					div id = "test-body" > < /div>
 				);
 			}
 			buttons() {
-				return (
-					<div id="test-buttons"></div>
+				return ( <
+					div id = "test-buttons" > < /div>
 				);
 			}
 			validate(state) {
@@ -53,7 +57,7 @@ describe("Dialog", function () {
 		spyOn(atom.workspace, "addModalPanel");
 		dialog = new this.TestDialog();
 		dialog.activate();
-		expect(atom.workspace.addModalPanel).toHaveBeenCalledWith({item: dialog});
+		expect(atom.workspace.addModalPanel).toHaveBeenCalledWith({ item: dialog });
 	});
 
 	it("should call this.show on activate", function () {
@@ -66,23 +70,21 @@ describe("Dialog", function () {
 		spyOn(this.TestDialog.prototype, "cancel");
 		const dialog = new this.TestDialog();
 		dialog.activate();
-		dialog.element.dispatchEvent(new KeyboardEvent("keyup", {key: "Escape"}));
+		dialog.element.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }));
 		expect(this.TestDialog.prototype.cancel).toHaveBeenCalled();
 	});
 
-	it("should reject on cancel", function () {
-		waitsForPromise(async _ => {
-			let error;
-			const dialog = new this.TestDialog();
-			const promise = dialog.activate();
-			dialog.cancel();
-			try {
-				await promise;
-			} catch (ex) {
-				error = !ex;
-			}
-			expect(error).toBeTruthy();
-		});
+	it("should reject on cancel", async function () {
+		let error;
+		const dialog = new this.TestDialog();
+		const promise = dialog.activate();
+		dialog.cancel();
+		try {
+			await promise;
+		} catch (ex) {
+			error = !ex;
+		}
+		expect(error).toBeTruthy();
 	});
 
 	it("should call this.hide on cancel", function () {
@@ -109,39 +111,33 @@ describe("Dialog", function () {
 		expect(this.TestDialog.prototype.validate).toHaveBeenCalled();
 	});
 
-	it("should return without resolving on this.validate returning non-array on accept", function () {
-		waitsForPromise(async _ => {
-			this.TestDialog.prototype.validate = (_ => false);
-			const dialog = new this.TestDialog();
-			const promise = dialog.activate();
-			dialog.accept();
-			dialog.cancel();
-			let error;
-			try {
-				await promise;
-			} catch (ex) {
-				error = true;
-			}
-			expect(error).toBeTruthy();
-
-		});
+	it("should return without resolving on this.validate returning non-array on accept", async function () {
+		this.TestDialog.prototype.validate = (_ => false);
+		const dialog = new this.TestDialog();
+		const promise = dialog.activate();
+		dialog.accept();
+		dialog.cancel();
+		let error;
+		try {
+			await promise;
+		} catch (ex) {
+			error = true;
+		}
+		expect(error).toBeTruthy();
 	});
 
-	it("should resolve to an array on accept", function () {
-		waitsForPromise(async _ => {
-			const dialog = new this.TestDialog();
-			const promise = dialog.activate();
-			dialog.accept();
-			dialog.cancel();
-			let error;
-			try {
-				await promise;
-			} catch (ex) {
-				error = true;
-			}
-			expect(error).toBeFalsy();
-
-		});
+	it("should resolve to an array on accept", async function () {
+		const dialog = new this.TestDialog();
+		const promise = dialog.activate();
+		dialog.accept();
+		dialog.cancel();
+		let error;
+		try {
+			await promise;
+		} catch (ex) {
+			error = true;
+		}
+		expect(error).toBeFalsy();
 	});
 
 	it("should call this.hide on accept", function () {
