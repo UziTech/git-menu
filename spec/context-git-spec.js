@@ -5,26 +5,28 @@ import commands from "../lib/commands";
 import config from "../lib/config";
 import rimraf from "../lib/rimraf";
 
+// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
+global.jasmineRequire = {};
+require("jasmine-promises");
+
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
 // or `fdescribe`). Remove the `f` to unfocus the block.
 
 describe("Context Git", function () {
-	beforeEach(function () {
-		waitsForPromise(async _ => {
-			await atom.packages.activatePackage("context-git");
-			this.configOptions = atom.config.getAll("context-git")[0].value;
-			this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
-			this.allConfig = Object.keys(this.configOptions);
-			this.allCommands = atom.commands
-				.findCommands({ target: atom.views.getView(atom.workspace) })
-				.map(cmd => cmd.name)
-				.filter(cmd => cmd.startsWith("context-git:"));
-			this.contextMenuItems = atom.contextMenu.itemSets
-				.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
-				.map(itemSet => itemSet.items[0].submenu[0].command);
-		});
+	beforeEach(async function () {
+		await atom.packages.activatePackage("context-git");
+		this.configOptions = atom.config.getAll("context-git")[0].value;
+		this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
+		this.allConfig = Object.keys(this.configOptions);
+		this.allCommands = atom.commands
+			.findCommands({ target: atom.views.getView(atom.workspace) })
+			.map(cmd => cmd.name)
+			.filter(cmd => cmd.startsWith("context-git:"));
+		this.contextMenuItems = atom.contextMenu.itemSets
+			.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
+			.map(itemSet => itemSet.items[0].submenu[0].command);
 	});
 
 	describe("Config", function () {
