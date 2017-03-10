@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "atom-jasmine2-test-runner": "^0.2.1",
+    "event-kit": "^2.2.0",
     "jasmine-promises": "^0.4.1"
   }
 }
