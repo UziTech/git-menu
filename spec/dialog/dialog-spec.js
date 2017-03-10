@@ -159,7 +159,7 @@ describe("Dialog", function () {
 	it("should set the title to this.title()", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
-		const title = dialog.element.querySelector(".heading > strong").textContent;
+		const title = dialog.element.querySelector(".heading").textContent;
 		expect(title).toBe("test-title");
 	});
 
