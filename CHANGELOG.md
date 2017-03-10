@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0 15.5 - Fix Pull
+
+- Fix Pull sending Push [#46](https://github.com/UziTech/context-git/issues/46)
+
 ## 0.15.4 - Click dialog button with keys when focused
 
 - Add --prune flag to fetch calls
