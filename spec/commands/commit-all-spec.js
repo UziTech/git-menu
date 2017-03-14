@@ -4,10 +4,6 @@
 import commands from "../../lib/commands";
 import { getFilePath, removeGitRoot, createGitRoot, files } from "../fixtures";
 
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
-
 describe("commit-all", function () {
 
 	beforeEach(async function () {

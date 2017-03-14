@@ -4,10 +4,6 @@
 import gitCmd from "../../lib/git-cmd";
 import { getFilePath, removeGitRoot, createGitRoot } from "../fixtures";
 
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
-
 describe("git.cmd", function () {
 
 	beforeEach(async function () {
