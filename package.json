@@ -13,7 +13,7 @@
     "atom": ">=1.13.0 <2.0.0"
   },
   "dependencies": {
-    "etch": "^0.9.2"
+    "etch": "0.8.0"
   },
   "atomTestRunner": "./spec/runner",
   "consumedServices": {
