@@ -6,10 +6,7 @@ export default createRunner({
 	specHelper: {
 		jasmineFocused: true,
 		jasminePass: true,
+		jasminePromises: true,
 		ci: true
 	},
-}, function () {
-	// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-	global.jasmineRequire = {};
-	require("jasmine-promises");
 });
