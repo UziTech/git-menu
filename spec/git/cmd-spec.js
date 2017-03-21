@@ -2,7 +2,7 @@
 /* globals atom */
 
 import gitCmd from "../../lib/git-cmd";
-import { getFilePath, removeGitRoot, createGitRoot } from "../fixtures";
+import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";
 
 describe("git.cmd", function () {
 

@@ -4,7 +4,7 @@
 import { Directory } from "atom";
 import { commit } from "../../lib/commands";
 import Notifications, { isVerbose } from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../fixtures";
+import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
 
 describe("commit", function () {
 

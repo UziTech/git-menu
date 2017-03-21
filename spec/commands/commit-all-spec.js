@@ -2,7 +2,7 @@
 /* globals atom */
 
 import commands from "../../lib/commands";
-import { getFilePath, removeGitRoot, createGitRoot, files } from "../fixtures";
+import { getFilePath, removeGitRoot, createGitRoot, files } from "../mocks";
 
 describe("commit-all", function () {
 
