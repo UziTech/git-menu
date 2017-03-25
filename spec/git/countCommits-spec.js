@@ -5,7 +5,7 @@ import gitCmd from "../../lib/git-cmd";
 import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";
 import fs from "fs";
 
-fdescribe("git.countCommits", function () {
+describe("git.countCommits", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
