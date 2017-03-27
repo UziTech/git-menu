@@ -2,7 +2,9 @@
 	"env": {
 		"es6": true,
 		"browser": true,
-		"node": true
+		"node": true,
+		"jasmine": true,
+		"atomtest": true
 	},
 	"parserOptions": {
 		"sourceType": "module",

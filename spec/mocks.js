@@ -48,10 +48,15 @@ export const files = {
  * @param  {Object} [methods={ methods: Promise, ... }] The methods to add to the mock
  * @return {class} A dialog class
  */
-export function mockDialog(methods = { activate: Promise.reject() }) {
+export function mockDialog(methods = { activate: _ => Promise.reject() }) {
 	let dialog = function () {};
 	Object.keys(methods).forEach(method => {
-		dialog.prototype[method] = _ => methods[method];
+		dialog.prototype[method] = _ => {
+			if (typeof methods[method] === "function") {
+				return methods[method]();
+			}
+			return methods[method];
+		};
 	});
 	return dialog;
 }
@@ -63,7 +68,12 @@ export function mockDialog(methods = { activate: Promise.reject() }) {
  */
 export function mockGit(methods = {}) {
 	return Object.keys(methods).reduce((prev, method) => {
-		prev[method] = _ => methods[method];
+		prev[method] = _ => {
+			if (typeof methods[method] === "function") {
+				return methods[method]();
+			}
+			return methods[method];
+		};
 		return prev;
 	}, {});
 };
@@ -95,6 +105,7 @@ export function createGitRoot() {
 
 /**
  * Get path to file(s) in spec/git-root directory
+ * @param  {string|string[]} paths the path or paths to get
  * @return {string|string[]} If input is an array it will return an array
  */
 export function getFilePath(paths) {

@@ -1,7 +1,7 @@
 {
   "name": "context-git",
   "main": "./lib/main",
-  "version": "0.15.3",
+  "version": "0.15.5",
   "description": "Use git from the context menu",
   "keywords": [
     "context",
@@ -13,13 +13,19 @@
     "atom": ">=1.13.0 <2.0.0"
   },
   "dependencies": {
-    "etch": "0.9.0"
+    "etch": "0.8.0"
   },
+  "atomTestRunner": "./spec/runner",
   "consumedServices": {
     "status-bar": {
       "versions": {
         "^1.0.0": "statusBarService"
       }
     }
+  },
+  "devDependencies": {
+    "atom-jasmine2-test-runner": "^0.5.0",
+    "event-kit": "^2.2.0",
+    "jasmine-promises": "^0.4.1"
   }
 }

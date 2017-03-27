@@ -1,5 +1,14 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0 15.5 - Fix Pull
+
+- Fix Pull sending Push [#46](https://github.com/UziTech/context-git/issues/46)
+
+## 0.15.4 - Click dialog button with keys when focused
+
+- Add --prune flag to fetch calls
+- Dialog buttons will respond to <kbd>enter</kbd> and <kbd>space</kbd> keys when focused
+
 ## 0.15.3 - Fix Create Branch with Tracking
 
 - Fix creating a remote branch [#42](https://github.com/UziTech/context-git/issues/42)
@@ -77,7 +86,7 @@
 ## 0.12.0 - Add "Switch Branch" command
 
 - Add "Switch Branch" command. Thanks @sfeldkamp [#25](https://github.com/UziTech/context-git/issues/25)
-- Use [Esc] key to close Commit dialog
+- Use <kbd>Esc</kbd> key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
 
