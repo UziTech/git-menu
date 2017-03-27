@@ -1,5 +1,28 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0 15.5 - Fix Pull
+
+- Fix Pull sending Push [#46](https://github.com/UziTech/context-git/issues/46)
+
+## 0.15.4 - Click dialog button with keys when focused
+
+- Add --prune flag to fetch calls
+- Dialog buttons will respond to <kbd>enter</kbd> and <kbd>space</kbd> keys when focused
+
+## 0.15.3 - Fix Create Branch with Tracking
+
+- Fix creating a remote branch [#42](https://github.com/UziTech/context-git/issues/42)
+- Add Tests 🎉🎊🎇🎆✨
+
+## 0.15.2 - Fix illegal characters in branch name
+
+- Fix the way illegal characters are handled in the Create Branch dialog [#39](https://github.com/UziTech/context-git/issues/39)
+
+## 0.15.1 - Fix Discard Changes
+
+- Fix Discard Changes removing untracked files when none were selected [#24](https://github.com/UziTech/context-git/issues/24)
+- Remove remote branches from the branch list that are also tracked locally
+
 ## 0.15.0 - Fix initialize with multiple project folders
 
 - Initialize will now create a repo in every project folder of a selected file  [#23](https://github.com/UziTech/context-git/issues/23)
@@ -63,7 +86,7 @@
 ## 0.12.0 - Add "Switch Branch" command
 
 - Add "Switch Branch" command. Thanks @sfeldkamp [#25](https://github.com/UziTech/context-git/issues/25)
-- Use [Esc] key to close Commit dialog
+- Use <kbd>Esc</kbd> key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
 

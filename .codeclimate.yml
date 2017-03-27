@@ -6,6 +6,9 @@ engines:
     config:
       languages:
       - javascript
+    checks:
+      Similar code:
+        enabled: false
   eslint:
     enabled: true
     exclude_fingerprints:
@@ -13,6 +16,15 @@ engines:
     - 810ad086e2f36b1bedfda23d6f8ff252
     - 3b4956d7297a1a9c225a258261f9f59f
     - b64e6153a9945fce505a07cdf676a06f
+    - 79736386bd9faa9f127610f004343af4
+    - d82d7e425cacfda5e3bd28ffc462374c
+    - 74f02d4a04401532068a6b80d93fda5e
+    - 94b63b55b232ccc9aa7382f1d29fd5b4
+    - b1fb94bde8ba423e4c4d5faa2c6ba5c7
+    - 10e12d2b8d96e438747f157da0c6d37b
+    - e1e7f744d8f275da32f848e6937ed7ad
+    - 9fbf69879eb06897e8eab297c6220a11
+    - b2ecba7bfe576177a0c3c99a00b5feed
   fixme:
     enabled: true
 ratings:

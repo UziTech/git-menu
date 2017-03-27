@@ -2,11 +2,13 @@
 	"env": {
 		"es6": true,
 		"browser": true,
-		"node": true
+		"node": true,
+		"jasmine": true,
+		"atomtest": true
 	},
 	"parserOptions": {
 		"sourceType": "module",
-		"ecmaVersion": 6,
+		"ecmaVersion": 2017,
 		"ecmaFeatures": {
 			"jsx": true,
 			"impliedStrict": true,
