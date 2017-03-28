@@ -5,10 +5,6 @@
 import Dialog from "../../lib/widgets/Dialog";
 import etch from "etch";
 
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
-
 describe("Dialog", function () {
 	beforeEach(function () {
 		class TestDialog extends Dialog {

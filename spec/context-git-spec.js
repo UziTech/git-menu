@@ -5,10 +5,6 @@ import commands from "../lib/commands";
 import config from "../lib/config";
 import rimraf from "../lib/rimraf";
 
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
-
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
 // To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`

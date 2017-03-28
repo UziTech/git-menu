@@ -2,11 +2,7 @@
 /* globals atom */
 
 import commands from "../../lib/commands";
-import { getFilePath, removeGitRoot, createGitRoot, files } from "../fixtures";
-
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
+import { getFilePath, removeGitRoot, createGitRoot, files } from "../mocks";
 
 describe("commit-all", function () {
 

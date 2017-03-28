@@ -4,12 +4,7 @@
 import { Directory } from "atom";
 import { commit } from "../../lib/commands";
 import Notifications, { isVerbose } from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../fixtures";
-
-// this is needed for jasmine-promises https://github.com/matthewjh/jasmine-promises/issues/8
-global.jasmineRequire = {};
-require("jasmine-promises");
-
+import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
 
 describe("commit", function () {
 

@@ -6,6 +6,7 @@ export default createRunner({
 	specHelper: {
 		jasmineFocused: true,
 		jasminePass: true,
+		jasminePromises: true,
 		ci: true
 	},
 });
