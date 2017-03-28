@@ -7,42 +7,64 @@ import fs from "fs";
 
 describe("git.init", function () {
 
-	describe("integration tests", function () {
+	describe("unit tests", function () {
 
-		beforeEach(async function () {
-			await atom.packages.activatePackage("context-git");
-			createGitRoot();
-			this.gitRoot = getFilePath();
-			atom.project.setPaths([this.gitRoot]);
-			this.gitPath = getFilePath(".git");
+		beforeEach(function(){
+			spyOn(gitCmd, "cmd").and.returnValue(Promise.resolve());
+
+			this.files = ["file1", "file2"];
+			this.gitRoot = "root";
 		});
 
-		afterEach(function () {
-			removeGitRoot();
-		});
-
-		it("should create a .git folder", async function () {
+		it("should send init commad", async function(){
 			await gitCmd.init(this.gitRoot);
-			await gitCmd.cmd(this.gitRoot, ["add", "."]);
-			await gitCmd.cmd(this.gitRoot, ["commit", "-m", "init"]);
-			const commitCount = await gitCmd.cmd(this.gitRoot, ["rev-list", "--all", "--count"]);
 
-			expect(fs.existsSync(this.gitPath)).toBe(true);
-			expect(commitCount).toBe("1");
+			expect(gitCmd.cmd.calls.mostRecent().args[1]).toEqual(["init", "--quiet"]);
 		});
 
-		it("should return nothing on --quiet", async function () {
-			const result = await gitCmd.init(this.gitRoot);
+		it("should remove --quiet parameter", async function(){
+			await gitCmd.init(this.gitRoot, true);
 
-			expect(result).toBe("");
+			expect(gitCmd.cmd.calls.mostRecent().args[1]).not.toContain("--quiet");
 		});
-
-		it("should return something on verbose", async function () {
-			const result = await gitCmd.init(this.gitRoot, true);
-
-			expect(result).not.toBe("");
-		});
-
 	});
+
+	// describe("integration tests", function () {
+	//
+	// 	beforeEach(async function () {
+	// 		await atom.packages.activatePackage("context-git");
+	// 		createGitRoot();
+	// 		this.gitRoot = getFilePath();
+	// 		atom.project.setPaths([this.gitRoot]);
+	// 		this.gitPath = getFilePath(".git");
+	// 	});
+	//
+	// 	afterEach(function () {
+	// 		removeGitRoot();
+	// 	});
+	//
+	// 	it("should create a .git folder", async function () {
+	// 		await gitCmd.init(this.gitRoot);
+	// 		await gitCmd.cmd(this.gitRoot, ["add", "."]);
+	// 		await gitCmd.cmd(this.gitRoot, ["commit", "-m", "init"]);
+	// 		const commitCount = await gitCmd.cmd(this.gitRoot, ["rev-list", "--all", "--count"]);
+	//
+	// 		expect(fs.existsSync(this.gitPath)).toBe(true);
+	// 		expect(commitCount).toBe("1");
+	// 	});
+	//
+	// 	it("should return nothing on --quiet", async function () {
+	// 		const result = await gitCmd.init(this.gitRoot);
+	//
+	// 		expect(result).toBe("");
+	// 	});
+	//
+	// 	it("should return something on verbose", async function () {
+	// 		const result = await gitCmd.init(this.gitRoot, true);
+	//
+	// 		expect(result).not.toBe("");
+	// 	});
+	//
+	// });
 
 });
