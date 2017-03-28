@@ -12,13 +12,13 @@ describe("Dialog", function () {
 				return "test-title";
 			}
 			body() {
-				return ( <
-					div id = "test-body" > < /div>
+				return (
+					<div id="test-body"></div>
 				);
 			}
 			buttons() {
-				return ( <
-					div id = "test-buttons" > < /div>
+				return (
+					<div id="test-buttons"></div>
 				);
 			}
 			validate(state) {
