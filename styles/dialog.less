@@ -1,5 +1,9 @@
 @import "ui-variables";
 
+.input-label .input-radio, .input-label .input-checkbox, .input-label .input-toggle, button {
+	margin-right: 10px;
+}
+
 .context-git.dialog {
 	background: @inset-panel-background-color;
 	border: 1px solid @inset-panel-border-color;
@@ -23,6 +27,12 @@
 			float: right;
 			width: 0;
 			margin-right: 15px;
+			cursor: pointer;
+
+			&:before {
+				font-size: 22px;
+				line-height: 17px;
+			}
 
 			&:hover {
 				color: @text-color-highlight;
@@ -30,42 +40,21 @@
 		}
 	}
 
-	label {
-		display: inline-block;
-		width: 100%;
-	}
-
-	input,
+	input[type="text"]
 	select,
 	textarea {
-		width: 100%;
 		margin-bottom: 15px;
-		background: @input-background-color;
-		border: 1px solid @input-border-color;
-		border-radius: 4px;
-		color: @text-color;
 		padding: 10px;
+		font-size: inherit;
 
 		&:focus {
-			border-color: @text-color-highlight;
-			box-shadow: 0 0 0 1px @text-color-highlight;
+			border-color: @text-color-info;
+			box-shadow: 0 0 0 1px @text-color-info;
 		}
 
 		&.error {
-			box-shadow: 0 0 10px 0 @text-color-error;
-		}
-	}
-
-	input[type='checkbox'],
-	input[type='radio'] {
-		width: auto;
-		display: inline-block;
-		vertical-align: bottom;
-		margin: 0 0.5em;
-
-		&:focus {
-			box-shadow: none;
-			outline: 2px auto @text-color-highlight;
+			border-color: @text-color-error;
+			box-shadow: 0 0 0 1px @text-color-error;
 		}
 	}
 
@@ -74,26 +63,13 @@
 	textarea[readonly] {
 		color: @text-color-subtle;
 	}
-
-	select {
-		-webkit-appearance: none;
-		appearance: none;
-	}
-
-	button {
-		background: transparent;
-		border: 1px solid transparent;
-		border-radius: 4px;
-		color: @text-color;
-		margin-right: 10px;
-
-		&:focus,
-		&:not([disabled]):hover {
-			color: @text-color-highlight;
-		}
-
-		&[disabled] {
-			color: @text-color-subtle
+	
+	.wrapper-select {
+		label.input-label,
+		input[type=text],
+		select {
+			display: block;
+			width: 100%;
 		}
 	}
 }
