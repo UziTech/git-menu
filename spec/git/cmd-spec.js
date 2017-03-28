@@ -1,5 +1,5 @@
 "use babel";
-/* globals atom */
+/* globals atom, pass */
 
 import gitCmd from "../../lib/git-cmd";
 import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";
@@ -48,12 +48,8 @@ describe("git.cmd", function () {
 	});
 
 	it("should resolve on non-error", async function () {
-		let resolved;
-		try {
-			await gitCmd.cmd(this.getRoot, ["init"]);
-			resolved = true;
-		} catch (ex) {}
-		expect(resolved).toBeTruthy();
+		await gitCmd.cmd(this.getRoot, ["init"]);
+		pass();
 	});
 
 });
