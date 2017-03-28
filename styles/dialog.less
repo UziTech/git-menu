@@ -1,6 +1,9 @@
 @import "ui-variables";
 
-.input-label .input-radio, .input-label .input-checkbox, .input-label .input-toggle, button {
+.input-label .input-checkbox,
+.input-label .input-radio,
+.input-label .input-toggle,
+button {
 	margin-right: 10px;
 }
 
@@ -40,13 +43,17 @@
 		}
 	}
 
-	input[type="text"]
+	input[type="text"],
 	select,
 	textarea {
 		margin-bottom: 15px;
-		padding: 10px;
 		font-size: inherit;
+	}
 
+	button,
+	input[type="text"],
+	select,
+	textarea {
 		&:focus {
 			border-color: @text-color-info;
 			box-shadow: 0 0 0 1px @text-color-info;
@@ -58,15 +65,26 @@
 		}
 	}
 
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:focus {
+			box-shadow: 0 0 0 2px @text-color-info;
+		}
+
+		&.error {
+			box-shadow: 0 0 0 2px @text-color-error;
+		}
+	}
+
 	input[readonly],
 	select[readonly],
 	textarea[readonly] {
 		color: @text-color-subtle;
 	}
-	
+
 	.wrapper-select {
-		label.input-label,
 		input[type=text],
+		label.input-label,
 		select {
 			display: block;
 			width: 100%;
