@@ -1,6 +1,12 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0 15.5 - Fix Pull
+## 0.15.6 - New Style
+
+- New Style. Thanks [@MikedeJong](https://github.com/MikedeJong) [#45](https://github.com/UziTech/context-git/pull/45)
+- Fix commit & push failing if files were removed.
+- Add more tests
+
+## 0.15.5 - Fix Pull
 
 - Fix Pull sending Push [#46](https://github.com/UziTech/context-git/issues/46)
 
@@ -85,7 +91,7 @@
 
 ## 0.12.0 - Add "Switch Branch" command
 
-- Add "Switch Branch" command. Thanks @sfeldkamp [#25](https://github.com/UziTech/context-git/issues/25)
+- Add "Switch Branch" command. Thanks [@sfeldkamp](https://github.com/sfeldkamp) [#25](https://github.com/UziTech/context-git/issues/25)
 - Use <kbd>Esc</kbd> key to close Commit dialog
 - BREAKING CHANGE: context-git:discard -> context-git:discard-changes
 - BREAKING CHANGE: context-git:amend-last-commit -> context-git:add-to-last-commit
