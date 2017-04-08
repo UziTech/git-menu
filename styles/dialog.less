@@ -1,93 +1,93 @@
 @import "ui-variables";
 
-.input-label .input-checkbox,
-.input-label .input-radio,
-.input-label .input-toggle,
-button {
-	margin-right: 10px;
-}
-
 .context-git.dialog {
-	background: @inset-panel-background-color;
-	border: 1px solid @inset-panel-border-color;
-	border-radius: 4px;
-	padding: 15px;
-	opacity: 0.95;
+  background: @inset-panel-background-color;
+  border: 1px solid @inset-panel-border-color;
+  border-radius: 4px;
+  padding: 15px;
+  opacity: 0.95;
 
-	.body {
-		margin-bottom: 15px;
-	}
+  .input-label .input-checkbox,
+  .input-label .input-radio,
+  .input-label .input-toggle,
+  button {
+    margin-right: 10px;
+  }
 
-	.heading {
-		margin-bottom: 15px;
+  .body {
+    margin-bottom: 15px;
+  }
 
-		strong {
-			color: @text-color-highlight;
-			display: inline-block;
-		}
+  .heading {
+    margin-bottom: 15px;
 
-		i.icon {
-			float: right;
-			width: 0;
-			margin-right: 15px;
-			cursor: pointer;
+    strong {
+      color: @text-color-highlight;
+      display: inline-block;
+    }
 
-			&:before {
-				font-size: 22px;
-				line-height: 17px;
-			}
+    i.icon {
+      float: right;
+      width: 0;
+      margin-right: 15px;
+      cursor: pointer;
 
-			&:hover {
-				color: @text-color-highlight;
-			}
-		}
-	}
+      &:before {
+        font-size: 22px;
+        line-height: 17px;
+      }
 
-	input[type="text"],
-	select,
-	textarea {
-		margin-bottom: 15px;
-		font-size: inherit;
-	}
+      &:hover {
+        color: @text-color-highlight;
+      }
+    }
+  }
 
-	button,
-	input[type="text"],
-	select,
-	textarea {
-		&:focus {
-			border-color: @text-color-info;
-			box-shadow: 0 0 0 1px @text-color-info;
-		}
+  input[type="text"],
+  select,
+  textarea {
+    margin-bottom: 15px;
+    font-size: inherit;
+  }
 
-		&.error {
-			border-color: @text-color-error;
-			box-shadow: 0 0 0 1px @text-color-error;
-		}
-	}
+  button,
+  input[type="text"],
+  select,
+  textarea {
+    &:focus {
+      border-color: @text-color-info;
+      box-shadow: 0 0 0 1px @text-color-info;
+    }
 
-	input[type="checkbox"],
-	input[type="radio"] {
-		&:focus {
-			box-shadow: 0 0 0 2px @text-color-info;
-		}
+    &.error {
+      border-color: @text-color-error;
+      box-shadow: 0 0 0 1px @text-color-error;
+    }
+  }
 
-		&.error {
-			box-shadow: 0 0 0 2px @text-color-error;
-		}
-	}
+  input[type="checkbox"],
+  input[type="radio"] {
+    &:focus {
+      box-shadow: 0 0 0 2px @text-color-info;
+    }
 
-	input[readonly],
-	select[readonly],
-	textarea[readonly] {
-		color: @text-color-subtle;
-	}
+    &.error {
+      box-shadow: 0 0 0 2px @text-color-error;
+    }
+  }
 
-	.wrapper-select {
-		input[type=text],
-		label.input-label,
-		select {
-			display: block;
-			width: 100%;
-		}
-	}
+  input[readonly],
+  select[readonly],
+  textarea[readonly] {
+    color: @text-color-subtle;
+  }
+
+  .wrapper-select {
+    input[type=text],
+    label.input-label,
+    select {
+      display: block;
+      width: 100%;
+    }
+  }
 }
