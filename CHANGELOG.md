@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.7 - Fix CSS pollution
+
+- Fix CSS pollution. Thanks [@danosier](https://github.com/danosier) [#51](https://github.com/UziTech/context-git/pull/51)
+
 ## 0.15.6 - New Style
 
 - New Style. Thanks [@MikedeJong](https://github.com/MikedeJong) [#45](https://github.com/UziTech/context-git/pull/45)
