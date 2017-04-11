@@ -14,86 +14,24 @@ An Atom.io package to use git from the context menu. You can choose which comman
 
 This package will add a "Git" item to the context menu when you right click on the tree-view, tabs, or the editor.
 
-## Commands
+## Documentation
 
-### Commit...
+[See /docs/docs.md](https://github.com/UziTech/context-git/blob/master/docs/docs.md)
 
-You can commit a single file or multiple files or folders selected in the tree-view. This command will bring up a dialog window where you can deselect any files you do not want to commit.
+## Contributing
 
-You can also choose to amend the last commit with the selected files and/or optionally change the last commit message.
+### Voting
 
-You then have the following options to commit the message/files:
+The easiest way to contribute to this package is to vote on new commmands. New commands are entered as issues with the [`command`](https://github.com/UziTech/context-git/issues?q=is%3Aissue+is%3Aopen+label%3Acommand) label. I will prioritize commands with the most :+1:'s
 
--   "Commit" will just commit the files.
--   "Commit & Push" will commit the files then push them to origin.
--   "Commit & Pull & Push" will commit the files, pull from origin then push to origin.
+### Submit Commands
 
-### Commit All...
+If there are commands you would like to see just create an issue with the command template and I will label it as a command.
 
-Same as [Commit...](#commit) but will list all changed files in the dialog
+### Submit An Issue
 
-### Discard Changes
+If you find a bug or just have a question about something create an issue and I will be happy to help you out.
 
-This will discard changes to the selected files.
+### Create A Pull Request
 
-### Discard All Changes
-
-This will discard changes to the all files in the repo.
-
-### Add To Last Commit
-
-This will add the selected files to the last commit.
-
-If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [CommitAll...](#commit-all)
-
-### Undo Last Commit
-
-This will undo the last commit but save the changes. Like `git reset --mixed HEAD~1`
-
-### Switch Branch
-
-Checkout a different branch in this repo.
-
-### Create Branch
-
-Create a branch and optionally track/create a remote branch.
-
-### Ignore Changes
-
-Update the index with the changed version but don't commit the changes. Like `git update-index --assume-unchanged`
-
-### Unignore Changes
-
-Opposite of [Ignore Changes](#ignore-changes). Like `git update-index --no-assume-unchanged`
-
-### Pull
-
-Pull from tracked upstream
-
-### Push
-
-Push to tracked upstream
-
-### Pull & Push
-
-Pull then Push
-
-### Initialize
-
-Initialize a git repo for the current project.
-
-### Refresh
-
-Refresh the git status in Atom.
-
-### Fetch
-
-Fetch from all tracked repos
-
-### Stash Changes
-
-Save changes and checkout last commit
-
-### Unstash Changes
-
-Restore changes from last stash
+If there is an issue you think you can fix or a command you think you can implement just create a pull request referencing that issue so I know that you are working on it
