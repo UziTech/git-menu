@@ -1,8 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0.15.8 - Update to etch 0.12.1
+## 0.15.8 - Fix Create Branch
 
 - Update to [etch](https://github.com/atom/etch) 0.12.1
+- Fix creating branch with invalid characters
 
 ## 0.15.7 - Fix CSS pollution
 
