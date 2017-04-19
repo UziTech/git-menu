@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.8 - Update to etch 0.12.1
+
+- Update to [etch](https://github.com/atom/etch) 0.12.1
+
 ## 0.15.7 - Fix CSS pollution
 
 - Fix CSS pollution. Thanks [@danosier](https://github.com/danosier) [#51](https://github.com/UziTech/context-git/pull/51)
