@@ -122,18 +122,27 @@ describe("run-command", function () {
 			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.dialogReturn[1][0])]);
 		});
 
-		it("should return '1 File committed.'", async function () {
+		it("should return 'Ran {command}'", async function () {
 			const ret = await commands["run-command"].command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("'git command' ran with 1 file.");
+			expect(ret).toBe("Ran 'git command'");
 		});
 
-		it("should return '2 Files committed.'", async function () {
-			this.dialogReturn[1] = [files.t1, files.t2];
+		it("should return 'with 1 file.'", async function () {
+			this.dialogReturn[0] = "command %files%";
+			const ret = await commands["run-command"].command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			expect(ret.substring()).toBe("Ran 'git command %files%' with 1 file.");
+		});
+
+		it("should return 'with 2 files.'", async function () {
+			this.dialogReturn = [
+				"command %files%",
+				[files.t1, files.t2]
+			];
 			this.dialog = mockDialog({
 				activate: Promise.resolve(this.dialogReturn)
 			});
 			const ret = await commands["run-command"].command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("'git command' ran with 2 files.");
+			expect(ret).toBe("Ran 'git command %files%' with 2 files.");
 		});
 	});
 
