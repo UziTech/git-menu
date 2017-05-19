@@ -3,7 +3,7 @@
 
 import { Directory } from "atom";
 import commands from "../../lib/commands";
-import Notifications, { isVerbose } from "../../lib/Notifications";
+import Notifications from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
 
 describe("run-command", function () {
