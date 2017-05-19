@@ -1,0 +1,42 @@
+@import "ui-variables";
+
+.context-git.dialog.run-command {
+	.files {
+		padding: 2px;
+		width: 100%;
+		line-height: 1.4em;
+		max-height: 14em;
+		overflow: auto;
+
+		.file {
+			margin: 0 0 10px 0;
+
+			&:last-child {
+				margin: 0 0 15px;
+			}
+
+			label.input-label {
+				display: inline-block;
+				width: auto;
+			}
+
+			&.untracked {
+				color: @text-color-success;
+			}
+
+			&.changed {
+				color: @text-color-warning;
+			}
+
+			&.deleted {
+				color: @text-color-error;
+			}
+
+			&.added {}
+
+			input:not(:checked) + span {
+				color: @text-color-subtle;
+			}
+		}
+	}
+}
