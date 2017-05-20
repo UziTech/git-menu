@@ -1,0 +1,20 @@
+@import "ui-variables";
+
+.autocomplete {
+	.autocomplete-menu {
+		background: @overlay-background-color;
+		border-radius: 2px;
+		border: 1px solid @overlay-border-color;
+
+		.autocomplete-item {
+			padding: 2px 5px;
+			color: @text-color-highlight;
+      line-height: @ui-line-height;
+			border-radius: 2px;
+
+			&.autocomplete-highlight {
+				box-shadow: 0 0 1px 2px @text-color-info inset;
+			}
+		}
+	}
+}
