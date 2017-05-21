@@ -7,6 +7,7 @@ export default createRunner({
 		jasmineFocused: true,
 		jasminePass: true,
 		jasminePromises: true,
+		attachToDom: true,
 		ci: true
 	},
 });
