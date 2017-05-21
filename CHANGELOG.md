@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.9 - Add Run Command
+
+- Add Run Command [#43](https://github.com/UziTech/context-git/issues/43)
+
 ## 0.15.8 - Fix Create Branch
 
 - Update to [etch](https://github.com/atom/etch) 0.12.1
