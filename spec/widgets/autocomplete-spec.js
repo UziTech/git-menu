@@ -4,7 +4,7 @@
 import etch from "etch";
 import Autocomplete from "../../lib/widgets/Autocomplete.js";
 
-fdescribe("Autocomplete.js", function () {
+describe("Autocomplete.js", function () {
 	beforeEach(function () {
 		etch.setScheduler({
 			updateDocument(callback) { callback(); },
