@@ -18,6 +18,7 @@
 - [Fetch](#fetch)
 - [Stash Changes](#stash-changes)
 - [Unstash Changes](#unstash-changes)
+- [Run Command](#run-command)
 
 ## Commit...
 
@@ -100,3 +101,7 @@ Save changes and checkout last commit
 ## Unstash Changes
 
 Restore changes from last stash
+
+## Run Command
+
+Run any `git` command with selected `%files%` as an argument
