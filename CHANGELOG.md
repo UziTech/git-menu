@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.15.10 - Use `[Shift] + [Del]` to remove recent items
+
+- Use `[Shift] + [Del]` to remove recent items
+
 ## 0.15.9 - Add Run Command
 
 - Add Run Command [#43](https://github.com/UziTech/context-git/issues/43)
