@@ -1,8 +1,8 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0.15.10 - Use `[Shift] + [Del]` to remove recent items
+## 0.15.10 - Use <kbd>shift</kbd> + <kbd>del</kbd> to remove recent items
 
-- Use `[Shift] + [Del]` to remove recent items
+- Use <kbd>shift</kbd> + <kbd>del</kbd> to remove recent items
 
 ## 0.15.9 - Add Run Command
 
