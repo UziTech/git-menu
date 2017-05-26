@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.16.0 - Add confirm dialogs
+
+- Add confirm dialogs to commands that don't have an easy undo [#41](https://github.com/UziTech/context-git/issues/41)
+- add [promisificator](https://www.npmjs.com/package/promisificator) as a dependency
+
 ## 0.15.10 - Use <kbd>shift</kbd> + <kbd>del</kbd> to remove recent items
 
 - Use <kbd>shift</kbd> + <kbd>del</kbd> to remove recent items
@@ -7,6 +12,7 @@
 ## 0.15.9 - Add Run Command
 
 - Add Run Command [#43](https://github.com/UziTech/context-git/issues/43)
+- add [string-argv](https://www.npmjs.com/package/string-argv) as a dependency
 
 ## 0.15.8 - Fix Create Branch
 
