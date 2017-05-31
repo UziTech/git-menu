@@ -81,4 +81,30 @@ describe("Autocomplete.js", function () {
 		const hasItem = Array.from(component.refs.menu.children).some(item => item === value);
 		expect(hasItem).toBe(false);
 	});
+
+	it("should call onSelect when an item is clicked", function () {
+		const onSelect = jasmine.createSpy("onSelect");
+		const component = new Autocomplete({items: this.items, onSelect, open: true,});
+		jasmine.attachToDOM(component.element);
+		component.refs["item-0"].click();
+
+		expect(onSelect).toHaveBeenCalled();
+	});
+
+	it("should not call onSelect when remove button is clicked", function () {
+		const onSelect = jasmine.createSpy("onSelect");
+		const onRemove = jasmine.createSpy("onRemove");
+		const component = new Autocomplete({
+			items: this.items,
+			onSelect,
+			onRemove,
+			removeButton: true,
+			open: true,
+		});
+		jasmine.attachToDOM(component.element);
+		component.refs["item-0"].querySelector(".autocomplete-remove-button").click();
+
+		expect(onSelect).not.toHaveBeenCalled();
+		expect(onRemove).toHaveBeenCalled();
+	});
 });
