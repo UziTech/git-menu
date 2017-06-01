@@ -3,6 +3,8 @@
 ## 0.16.1 - Fix remove autocomplete item
 
 - Fix remove autocomplete item
+- Fix unknown status not showing correct error
+- Add package-lock.json from npm@5
 
 ## 0.16.0 - Add confirm dialogs
 
