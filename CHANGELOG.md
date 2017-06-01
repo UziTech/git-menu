@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.16.1 - Fix remove autocomplete item
+
+- Fix remove autocomplete item
+
 ## 0.16.0 - Add confirm dialogs
 
 - Add confirm dialogs to commands that don't have an easy undo [#41](https://github.com/UziTech/context-git/issues/41)
