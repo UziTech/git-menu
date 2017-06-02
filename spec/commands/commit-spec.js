@@ -186,7 +186,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
 		});
 
 		it("should show a git.push result notification", async function () {
@@ -235,7 +235,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
 		});
 
 		it("should show git notification for pull results", async function () {
@@ -260,7 +260,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, isVerbose());
+			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
 		});
 
 		it("should show git notification for push result", async function () {
