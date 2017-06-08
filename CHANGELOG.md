@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.16.2 - Show last commit on confirm dialogs
+
+- Show the last commit message on the Undo Last Commit confirm dialog
+- Show the last commit message on the Add To Last Commit confirm dialog
+
 ## 0.16.1 - Fix remove autocomplete item
 
 - Fix remove autocomplete item
