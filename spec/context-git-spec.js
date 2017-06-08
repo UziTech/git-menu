@@ -4,11 +4,7 @@
 import commands from "../lib/commands";
 import config from "../lib/config";
 import rimraf from "../lib/rimraf";
-
-// Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-//
-// To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-// or `fdescribe`). Remove the `f` to unfocus the block.
+import main from "../lib/main";
 
 describe("Context Git", function () {
 	beforeEach(async function () {
@@ -42,6 +38,7 @@ describe("Context Git", function () {
 			const confirm = commands[command].confirm;
 			const description = commands[command].description;
 			const func = commands[command].command;
+			const dispatch = main.dispatchCommand(command, commands[command]);
 			describe(command, function () {
 				beforeEach(function () {
 					this.cmdSpy = spyOn(commands[command], "command").and.returnValue(Promise.reject());
@@ -93,15 +90,15 @@ describe("Context Git", function () {
 							expect(confirm.detailMessage).toEqual(jasmine.any(String));
 						});
 					}
-					it("should be called if atom.confirm returns true", function () {
+					it("should be called if atom.confirm returns true", async function () {
 						this.confirmSpy.and.returnValue(true);
-						atom.commands.dispatch(atom.views.getView(atom.workspace), "context-git:" + command);
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
-					it("should not be called if atom.confirm returns false", function () {
+					it("should not be called if atom.confirm returns false", async function () {
 						this.confirmSpy.and.returnValue(false);
-						atom.commands.dispatch(atom.views.getView(atom.workspace), "context-git:" + command);
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
 						expect(this.cmdSpy).not.toHaveBeenCalled();
 					});
@@ -109,8 +106,8 @@ describe("Context Git", function () {
 					it("should not have a config option to disable the confirm dialog", function () {
 						expect(this.configConfirmationDialogs).not.toContain(command);
 					});
-					it("should not call atom.confirm but should call the command", function () {
-						atom.commands.dispatch(atom.views.getView(atom.workspace), "context-git:" + command);
+					it("should not call atom.confirm but should call the command", async function () {
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).not.toHaveBeenCalled();
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
