@@ -32,5 +32,8 @@
 		"strict": 1,
 		"quotes": 1,
 		"max-len": 0
+	},
+	"globals": {
+		"atom": true
 	}
 }
