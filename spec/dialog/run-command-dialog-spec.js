@@ -11,7 +11,8 @@ describe("RunCommandDialog", function () {
 
 	it("initial state includes files", function () {
 		const dialog = new RunCommandDialog({ files: this.files });
-		expect(dialog.state.files.length).toBe(this.files.length);
+		expect(dialog.state.files.length)
+			.toBe(this.files.length);
 	});
 
 	it("should return files and command on accept", async function () {
@@ -20,7 +21,9 @@ describe("RunCommandDialog", function () {
 		dialog.state.command = "command";
 		dialog.accept();
 		const ret = await promise;
-		expect(ret[0]).toBe("command");
-		expect(ret[1][0]).toBe(files.t1);
+		expect(ret[0])
+			.toBe("command");
+		expect(ret[1][0])
+			.toBe(files.t1);
 	});
 });

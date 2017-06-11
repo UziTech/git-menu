@@ -23,14 +23,16 @@ describe("git.remove", function () {
 	it("should remove the .git folder", async function () {
 		await gitCmd.remove(this.gitRoot);
 
-		expect(fs.existsSync(this.gitPath)).toBe(false);
+		expect(fs.existsSync(this.gitPath))
+			.toBe(false);
 	});
 
 	it("should be idempotent", async function () {
 		await gitCmd.remove(this.gitRoot);
 		await gitCmd.remove(this.gitRoot);
 
-		expect(fs.existsSync(this.gitPath)).toBe(false);
+		expect(fs.existsSync(this.gitPath))
+			.toBe(false);
 	});
 
 });

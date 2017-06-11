@@ -50,14 +50,15 @@ export const files = {
  */
 export function mockDialog(methods = { activate: _ => Promise.reject() }) {
 	let dialog = function () {};
-	Object.keys(methods).forEach(method => {
-		dialog.prototype[method] = _ => {
-			if (typeof methods[method] === "function") {
-				return methods[method]();
-			}
-			return methods[method];
-		};
-	});
+	Object.keys(methods)
+		.forEach(method => {
+			dialog.prototype[method] = _ => {
+				if (typeof methods[method] === "function") {
+					return methods[method]();
+				}
+				return methods[method];
+			};
+		});
 	return dialog;
 }
 
@@ -67,15 +68,16 @@ export function mockDialog(methods = { activate: _ => Promise.reject() }) {
  * @return {Object} An object with the methods provided
  */
 export function mockGit(methods = {}) {
-	return Object.keys(methods).reduce((prev, method) => {
-		prev[method] = _ => {
-			if (typeof methods[method] === "function") {
-				return methods[method]();
-			}
-			return methods[method];
-		};
-		return prev;
-	}, {});
+	return Object.keys(methods)
+		.reduce((prev, method) => {
+			prev[method] = _ => {
+				if (typeof methods[method] === "function") {
+					return methods[method]();
+				}
+				return methods[method];
+			};
+			return prev;
+		}, {});
 };
 
 /**
@@ -94,14 +96,15 @@ export function createGitRoot() {
 	if (fs.existsSync(getFilePath())) {
 		removeGitRoot();
 	}
-	getFilePath(["/", "/test"]).forEach(dir => {
-		fs.mkdirSync(dir);
-	});
-	getFilePath(["/test1.txt", "/test2.txt", "/test/test1.txt", "/test/test2.txt"]).forEach(file => {
-		fs.closeSync(fs.openSync(file, "w"));
-	});
+	getFilePath(["/", "/test"])
+		.forEach(dir => {
+			fs.mkdirSync(dir);
+		});
+	getFilePath(["/test1.txt", "/test2.txt", "/test/test1.txt", "/test/test2.txt"])
+		.forEach(file => {
+			fs.closeSync(fs.openSync(file, "w"));
+		});
 };
-
 
 /**
  * Get path to file(s) in spec/git-root directory

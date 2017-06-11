@@ -34,18 +34,22 @@ describe("Dialog", function () {
 		};
 		spyOn(this.TestDialog.prototype, "initialState");
 		new this.TestDialog(props);
-		expect(this.TestDialog.prototype.initialState).toHaveBeenCalledWith(props);
+		expect(this.TestDialog.prototype.initialState)
+			.toHaveBeenCalledWith(props);
 	});
 
 	it("should call this.beforeInitialize on constructor", function () {
 		spyOn(this.TestDialog.prototype, "beforeInitialize");
 		new this.TestDialog();
-		expect(this.TestDialog.prototype.beforeInitialize).toHaveBeenCalled();
+		expect(this.TestDialog.prototype.beforeInitialize)
+			.toHaveBeenCalled();
 	});
 
 	it("should return a promise on activate", function () {
-		const promise = new this.TestDialog().activate();
-		expect(promise instanceof Promise).toBeTruthy();
+		const promise = new this.TestDialog()
+			.activate();
+		expect(promise instanceof Promise)
+			.toBeTruthy();
 	});
 
 	it("should add a model panel on activate", function () {
@@ -53,13 +57,16 @@ describe("Dialog", function () {
 		spyOn(atom.workspace, "addModalPanel");
 		dialog = new this.TestDialog();
 		dialog.activate();
-		expect(atom.workspace.addModalPanel).toHaveBeenCalledWith({ item: dialog });
+		expect(atom.workspace.addModalPanel)
+			.toHaveBeenCalledWith({ item: dialog });
 	});
 
 	it("should call this.show on activate", function () {
 		spyOn(this.TestDialog.prototype, "show");
-		new this.TestDialog().activate();
-		expect(this.TestDialog.prototype.show).toHaveBeenCalled();
+		new this.TestDialog()
+			.activate();
+		expect(this.TestDialog.prototype.show)
+			.toHaveBeenCalled();
 	});
 
 	it("should cancel on [esc]", function () {
@@ -67,7 +74,8 @@ describe("Dialog", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		dialog.element.dispatchEvent(new KeyboardEvent("keyup", { key: "Escape" }));
-		expect(this.TestDialog.prototype.cancel).toHaveBeenCalled();
+		expect(this.TestDialog.prototype.cancel)
+			.toHaveBeenCalled();
 	});
 
 	it("should reject on cancel", async function () {
@@ -80,23 +88,28 @@ describe("Dialog", function () {
 		} catch (ex) {
 			error = !ex;
 		}
-		expect(error).toBeTruthy();
+		expect(error)
+			.toBeTruthy();
 	});
 
 	it("should call this.hide on cancel", function () {
 		spyOn(this.TestDialog.prototype, "hide");
 		const dialog = new this.TestDialog();
-		dialog.activate().catch(_ => {});
+		dialog.activate()
+			.catch(_ => {});
 		dialog.cancel();
-		expect(this.TestDialog.prototype.hide).toHaveBeenCalled();
+		expect(this.TestDialog.prototype.hide)
+			.toHaveBeenCalled();
 	});
 
 	it("should destroy the modal panel on cancel", function () {
 		const dialog = new this.TestDialog();
-		dialog.activate().catch(_ => {});
+		dialog.activate()
+			.catch(_ => {});
 		spyOn(dialog.modalPanel, "destroy");
 		dialog.cancel();
-		expect(dialog.modalPanel.destroy).toHaveBeenCalled();
+		expect(dialog.modalPanel.destroy)
+			.toHaveBeenCalled();
 	});
 
 	it("should call this.validate on accept", function () {
@@ -104,7 +117,8 @@ describe("Dialog", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		dialog.accept();
-		expect(this.TestDialog.prototype.validate).toHaveBeenCalled();
+		expect(this.TestDialog.prototype.validate)
+			.toHaveBeenCalled();
 	});
 
 	it("should return without resolving on this.validate returning non-array on accept", async function () {
@@ -119,7 +133,8 @@ describe("Dialog", function () {
 		} catch (ex) {
 			error = true;
 		}
-		expect(error).toBeTruthy();
+		expect(error)
+			.toBeTruthy();
 	});
 
 	it("should resolve to an array on accept", async function () {
@@ -133,7 +148,8 @@ describe("Dialog", function () {
 		} catch (ex) {
 			error = true;
 		}
-		expect(error).toBeFalsy();
+		expect(error)
+			.toBeFalsy();
 	});
 
 	it("should call this.hide on accept", function () {
@@ -141,7 +157,8 @@ describe("Dialog", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		dialog.accept();
-		expect(this.TestDialog.prototype.hide).toHaveBeenCalled();
+		expect(this.TestDialog.prototype.hide)
+			.toHaveBeenCalled();
 	});
 
 	it("should destroy the modal panel on accept", function () {
@@ -149,27 +166,32 @@ describe("Dialog", function () {
 		dialog.activate();
 		spyOn(dialog.modalPanel, "destroy");
 		dialog.accept();
-		expect(dialog.modalPanel.destroy).toHaveBeenCalled();
+		expect(dialog.modalPanel.destroy)
+			.toHaveBeenCalled();
 	});
 
 	it("should set the title to this.title()", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
-		const title = dialog.element.querySelector(".title").textContent;
-		expect(title).toBe("test-title");
+		const title = dialog.element.querySelector(".title")
+			.textContent;
+		expect(title)
+			.toBe("test-title");
 	});
 
 	it("should set the body to this.body()", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		const body = dialog.element.querySelector("#test-body");
-		expect(body).not.toBeNull();
+		expect(body)
+			.not.toBeNull();
 	});
 
 	it("should set the buttons to this.buttons()", function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		const buttons = dialog.element.querySelector("#test-buttons");
-		expect(buttons).not.toBeNull();
+		expect(buttons)
+			.not.toBeNull();
 	});
 });

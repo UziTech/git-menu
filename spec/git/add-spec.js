@@ -7,7 +7,8 @@ import gitCmd from "../../lib/git-cmd";
 describe("git.add", function () {
 
 	beforeEach(function () {
-		spyOn(gitCmd, "cmd").and.returnValue(Promise.resolve());
+		spyOn(gitCmd, "cmd")
+			.and.returnValue(Promise.resolve());
 
 		this.files = ["file1", "file2"];
 		this.gitRoot = "root";
@@ -16,13 +17,17 @@ describe("git.add", function () {
 	it("should send ['add', '--', ...files] to cmd", async function () {
 		await gitCmd.add(this.gitRoot, this.files);
 
-		expect(gitCmd.cmd.calls.mostRecent().args[1].filter(i => !!i)).toEqual(["add", "--", ...this.files]);
+		expect(gitCmd.cmd.calls.mostRecent()
+				.args[1].filter(i => !!i))
+			.toEqual(["add", "--", ...this.files]);
 	});
 
 	it("should send --verbose to cmd", async function () {
 		await gitCmd.add(this.gitRoot, this.files, true);
 
-		expect(gitCmd.cmd.calls.mostRecent().args[1]).toContain("--verbose");
+		expect(gitCmd.cmd.calls.mostRecent()
+				.args[1])
+			.toContain("--verbose");
 	});
 
 	// describe("integration tests", function () {
