@@ -4,6 +4,7 @@
 
 - Show the last commit message on the Undo Last Commit confirm dialog
 - Show the last commit message on the Add To Last Commit confirm dialog
+- Clean up code with async/await
 
 ## 0.16.1 - Fix remove autocomplete item
 
