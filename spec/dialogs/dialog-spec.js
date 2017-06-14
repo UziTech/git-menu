@@ -2,7 +2,7 @@
 /** @jsx etch.dom */
 /* globals atom */
 
-import Dialog from "../../lib/widgets/Dialog";
+import Dialog from "../../lib/dialogs/Dialog";
 import etch from "etch";
 
 describe("Dialog", function () {
