@@ -1,3 +1,5 @@
+<!-- lint disable list-item-indent -->
+
 # Commands
 
 - [Commit...](#commit)
@@ -28,9 +30,9 @@ You can also choose to amend the last commit with the selected files and/or opti
 
 You then have the following options to commit the message/files:
 
--   "Commit" will just commit the files.
--   "Commit & Push" will commit the files then push them to origin.
--   "Commit & Pull & Push" will commit the files, pull from origin then push to origin.
+- "Commit" will just commit the files.
+- "Commit & Push" will commit the files then push them to origin.
+- "Commit & Pull & Push" will commit the files, pull from origin then push to origin.
 
 ## Commit All...
 
