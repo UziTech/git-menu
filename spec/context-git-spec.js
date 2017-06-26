@@ -115,7 +115,9 @@ describe("Context Git", function () {
 						});
 						it("should not be called if atom.confirm returns false", async function () {
 							this.confirmSpy.and.returnValue(false);
-							await dispatch({ target: atom.views.getView(atom.workspace) });
+							try {
+								await dispatch({ target: atom.views.getView(atom.workspace) });
+							} catch (ex) {}
 							expect(this.confirmSpy)
 								.toHaveBeenCalled();
 							expect(this.cmdSpy)
