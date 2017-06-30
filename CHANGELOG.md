@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.16.3 Ask to remove `index.lock` if it exists
+
+- If `index.lock` exists ask to remove it before running a command
+- Commands now return a promise with hopes that [atom/atom#14931](https://github.com/atom/atom/pull/14931) will be merged
+
 ## 0.16.2 - Show last commit on confirm dialogs
 
 - Show the last commit message on the Undo Last Commit confirm dialog
