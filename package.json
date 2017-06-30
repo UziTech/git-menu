@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "etch": "^0.12.1",
-    "promisificator": "^3.0.1",
+    "promisificator": "^4.0.0",
     "string-argv": "0.0.2"
   },
   "atomTestRunner": "./spec/runner",
