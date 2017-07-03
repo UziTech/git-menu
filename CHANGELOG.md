@@ -5,8 +5,8 @@
 - If `index.lock` exists ask to remove it before running a command [#59](https://github.com/UziTech/context-git/issues/59)
 - Dispatched commands now return a promise with hopes that [atom/atom#14931](https://github.com/atom/atom/pull/14931) will be merged
 - Fix Run Command when selecting an item from the dropdown menu
-- Reduce files to folders on commit if all changed files in a folder are selected.
-- Unstage all files before commit.
+- Reduce files to folders on commit if all changed files in a folder are selected
+- Unstage all files before commit
 
 ## 0.16.2 - Show last commit on confirm dialogs
 
@@ -46,7 +46,7 @@
 ## 0.15.6 - New Style
 
 - New Style. Thanks [@MikedeJong](https://github.com/MikedeJong) [#45](https://github.com/UziTech/context-git/pull/45)
-- Fix commit & push failing if files were removed.
+- Fix commit & push failing if files were removed
 - Add more tests
 
 ## 0.15.5 - Fix Pull
