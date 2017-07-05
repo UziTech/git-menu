@@ -1,12 +1,13 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0.17.0 Ask to remove `index.lock` if it exists
+## 0.17.0 Unstage all files before commit
 
 - If `index.lock` exists ask to remove it before running a command [#59](https://github.com/UziTech/context-git/issues/59)
 - Dispatched commands now return a promise with hopes that [atom/atom#14931](https://github.com/atom/atom/pull/14931) will be merged
 - Fix Run Command when selecting an item from the dropdown menu
 - Reduce files to folders on commit if all changed files in a folder are selected [#16](https://github.com/UziTech/context-git/issues/16) [#53](https://github.com/UziTech/context-git/issues/53)
 - Unstage all files before commit
+- Add Delete Branch command
 
 ## 0.16.2 - Show last commit on confirm dialogs
 
