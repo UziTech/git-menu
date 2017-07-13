@@ -3,6 +3,9 @@
 ## vNext Reduce paths on Discard Changes
 
 - Reduce files to folders on discard-changes if all changed files in a folder are selected [#16](https://github.com/UziTech/context-git/issues/16) [#53](https://github.com/UziTech/context-git/issues/53)
+- Shorten progress bar on status bar
+- Add command to git notifications
+- Add progress bar to branch operations
 
 ## 0.17.0 Unstage all files before commit
 
