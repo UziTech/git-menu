@@ -68,16 +68,17 @@ export function mockDialog(methods = { activate: _ => Promise.reject() }) {
  * @return {Object} An object with the methods provided
  */
 export function mockGit(methods = {}) {
-	return Object.keys(methods)
+	const mock = Object.keys(methods)
 		.reduce((prev, method) => {
-			prev[method] = _ => {
+			prev[method] = function () {
 				if (typeof methods[method] === "function") {
-					return methods[method]();
+					return methods[method].apply(mock, arguments);
 				}
 				return methods[method];
 			};
 			return prev;
 		}, {});
+	return mock;
 };
 
 /**
