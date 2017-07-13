@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## vNext Reduce paths on Discard Changes
+
+- Reduce files to folders on discard-changes if all changed files in a folder are selected [#16](https://github.com/UziTech/context-git/issues/16) [#53](https://github.com/UziTech/context-git/issues/53)
+
 ## 0.17.0 Unstage all files before commit
 
 - If `index.lock` exists ask to remove it before running a command [#59](https://github.com/UziTech/context-git/issues/59)
