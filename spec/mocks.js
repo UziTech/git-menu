@@ -49,16 +49,16 @@ export const files = {
  * @return {class} A dialog class
  */
 export function mockDialog(methods = { activate: _ => Promise.reject() }) {
-	let dialog = function () {};
-	Object.keys(methods)
-		.forEach(method => {
-			dialog.prototype[method] = _ => {
+	const dialog = Object.keys(methods)
+		.reduce((prev, method) => {
+			prev.prototype[method] = function () {
 				if (typeof methods[method] === "function") {
-					return methods[method]();
+					return methods[method].apply(dialog, arguments);
 				}
 				return methods[method];
 			};
-		});
+			return prev;
+		}, function () {});
 	return dialog;
 }
 
