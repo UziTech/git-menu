@@ -1,5 +1,4 @@
 "use babel";
-/* globals describe, beforeEach, atom, it, expect, waitsForPromise, runs, spyOn, jasmine */
 
 import commands from "../lib/commands";
 import config from "../lib/config";

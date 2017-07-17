@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import discardAllChanges from "../../lib/commands/discard-all-changes";
 import discardChanges from "../../lib/commands/discard-changes";

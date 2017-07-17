@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import commitAll from "../../lib/commands/commit-all";
 import commit from "../../lib/commands/commit";

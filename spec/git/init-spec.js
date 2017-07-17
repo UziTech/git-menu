@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import gitCmd from "../../lib/git-cmd";
 // import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";

@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import { Directory } from "atom";
 import runCommand from "../../lib/commands/run-command";

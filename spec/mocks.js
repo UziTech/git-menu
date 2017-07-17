@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import path from "path";
 import fs from "fs";

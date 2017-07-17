@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import { Directory } from "atom";
 import pull from "../../lib/commands/pull";

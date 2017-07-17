@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import { Directory } from "atom";
 import commit from "../../lib/commands/commit";
