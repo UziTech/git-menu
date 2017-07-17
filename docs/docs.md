@@ -14,7 +14,7 @@
 - [Unignore Changes](#unignore-changes)
 - [Pull](#pull)
 - [Push](#push)
-- [Pull & Push](#pull--push)
+- [Sync](#sync)
 - [Initialize](#initialize)
 - [Refresh](#refresh)
 - [Fetch](#fetch)
@@ -80,7 +80,7 @@ Pull from tracked upstream
 
 Push to tracked upstream
 
-## Pull & Push
+## Sync
 
 Pull then Push
 
