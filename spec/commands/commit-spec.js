@@ -220,7 +220,7 @@ describe("commit", function () {
 		});
 	});
 
-	describe("commit & pull & push", function () {
+	describe("commit & sync", function () {
 
 		beforeEach(function () {
 			this.dialogReturn[2] = true;
@@ -288,9 +288,9 @@ describe("commit", function () {
 			expect(this.repo.refreshStatus).toHaveBeenCalledTimes(3);
 		});
 
-		it("should return numfiles + ' committed & pulled & pushed.'", async function () {
+		it("should return numfiles + ' committed & synced.'", async function () {
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("1 File committed & pulled & pushed.");
+			expect(ret).toBe("1 File committed & synced.");
 		});
 
 	});
