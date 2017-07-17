@@ -35,7 +35,7 @@ describe("commit", function () {
 					[files.t1]
 				];
 		this.dialog = mockDialog({
-			activate: Promise.resolve(this.dialogReturn)
+			activate: _ => Promise.resolve(this.dialogReturn)
 		});
 	});
 
@@ -85,9 +85,6 @@ describe("commit", function () {
 
 		it("should reject on empty message", async function () {
 			this.dialogReturn[0] = "";
-			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
-			});
 			let error;
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
@@ -131,9 +128,6 @@ describe("commit", function () {
 
 		it("should call git.commit with amend", async function () {
 			this.dialogReturn[1] = true;
-			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
-			});
 			spyOn(this.git, "commit").and.callThrough();
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
@@ -164,9 +158,6 @@ describe("commit", function () {
 
 		it("should return '2 Files committed.'", async function () {
 			this.dialogReturn[4] = [files.t1, files.t2];
-			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
-			});
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(ret).toBe("2 Files committed.");
 		});
@@ -176,9 +167,6 @@ describe("commit", function () {
 
 		beforeEach(function () {
 			this.dialogReturn[2] = true;
-			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
-			});
 		});
 
 		it("should show pushing... in status bar", async function () {
@@ -225,9 +213,6 @@ describe("commit", function () {
 		beforeEach(function () {
 			this.dialogReturn[2] = true;
 			this.dialogReturn[3] = true;
-			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
-			});
 		});
 
 		it("should show pulling... in status bar", async function () {
