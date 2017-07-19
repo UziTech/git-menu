@@ -29,7 +29,7 @@ describe("helper", function () {
 
 		it("should get directory of file", async function () {
 			const file = getFilePath(files.t1);
-			const dir = this.gitRoot.replace(/\\$/, "");
+			const dir = this.gitRoot.replace(/[\/\\]$/, "");
 
 			const dirs = await helper.getDirectories([file]);
 
@@ -60,7 +60,7 @@ describe("helper", function () {
 		});
 
 		it("should group files in same folder", async function () {
-			const dir = this.gitRoot.replace(/\\$/, "");
+			const dir = this.gitRoot.replace(/[\/\\]$/, "");
 			const filePaths = getFilePath([files.t1, files.t2]);
 
 			const dirs = await helper.getDirectories(filePaths);
@@ -72,7 +72,7 @@ describe("helper", function () {
 		});
 
 		it("should not group files in different folder", async function () {
-			const dir = this.gitRoot.replace(/\\$/, "");
+			const dir = this.gitRoot.replace(/[\/\\]$/, "");
 			const testDir = this.gitRoot + "test";
 			const filePaths = getFilePath([files.t1, files.tt2]);
 
