@@ -6,6 +6,7 @@
 - Shorten progress bar on status bar
 - Add command to git notifications
 - Add progress bar to branch operations
+- Change Pull & Push to Sync
 
 ## 0.17.0 Unstage all files before commit
 
