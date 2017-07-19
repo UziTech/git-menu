@@ -162,7 +162,7 @@ describe("helper", function () {
 		it("should reduce to ['.'] if all files are selected", async function () {
 			const reducedFiles = helper.reduceFilesToCommonFolders(this.allFiles, this.allFiles);
 
-			expect(reducedFiles).toEqual(["."]);
+			expect(reducedFiles).toEqual(["/"]);
 		});
 
 		it("should remove files not in all files", async function () {
