@@ -159,7 +159,7 @@ describe("helper", function () {
 			]);
 		});
 
-		it("should reduce to ['.'] if all files are selected", async function () {
+		it("should reduce to ['/'] if all files are selected", async function () {
 			const reducedFiles = helper.reduceFilesToCommonFolders(this.allFiles, this.allFiles);
 
 			expect(reducedFiles).toEqual(["/"]);
