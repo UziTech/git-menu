@@ -8,7 +8,7 @@
 
 An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
 
-![screenshot](https://uzitech.github.io/context-git/screenshots/context-git%200.11.0%20full.gif)
+![screenshot](./context-git.gif)
 
 ## Usage
 
