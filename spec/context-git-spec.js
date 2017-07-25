@@ -7,6 +7,7 @@ import main from "../lib/main";
 
 describe("Context Git", function () {
 	beforeEach(async function () {
+		atom.project.setPaths([__dirname]);
 		await atom.packages.activatePackage("context-git");
 		this.configOptions = atom.config.getAll("context-git")[0].value;
 		this.configConfirmationDialogs = Object.keys(this.configOptions.confirmationDialogs);
