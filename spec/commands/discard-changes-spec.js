@@ -19,6 +19,7 @@ describe("discard-changes", function () {
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
 			status: _ => Promise.resolve(this.statuses),
+			unstage: Promise.resolve("unstage result"),
 			clean: Promise.resolve("clean result"),
 			checkoutFiles: Promise.resolve("checkoutFiles result"),
 		});
@@ -119,6 +120,7 @@ describe("discard-changes", function () {
 					}
 					return Promise.resolve([fileStatus("??", files.t1)]);
 				},
+				unstage: Promise.resolve("unstage result"),
 				clean: Promise.resolve("clean result"),
 				checkoutFiles: Promise.resolve("checkoutFiles result"),
 			});
@@ -139,6 +141,7 @@ describe("discard-changes", function () {
 					}
 					return Promise.resolve([fileStatus("??", files.tt1)]);
 				},
+				unstage: Promise.resolve("unstage result"),
 				clean: Promise.resolve("clean result"),
 				checkoutFiles: Promise.resolve("checkoutFiles result"),
 			});
