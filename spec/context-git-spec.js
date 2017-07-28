@@ -18,24 +18,21 @@ describe("Context Git", function () {
 			.map(cmd => cmd.name)
 			.filter(cmd => cmd.startsWith("context-git:"));
 		this.getContextMenuItems = _ => atom.contextMenu.itemSets
-			.filter(itemSet => itemSet.selector === "atom-text-editor, .tree-view, .tab-bar")
+			.filter(itemSet => itemSet.selector === "atom-workspace, atom-text-editor, .tree-view, .tab-bar")
 			.map(itemSet => itemSet.items[0].submenu[0].command);
 		this.confirmSpy = spyOn(atom, "confirm");
 	});
 
 	describe("Config", function () {
-		Object.keys(config)
-			.forEach(configOption => {
+		Object.keys(config).forEach(configOption => {
 				it("has a config option: " + configOption, function () {
-					expect(this.allConfig)
-						.toContain(configOption);
+					expect(this.allConfig).toContain(configOption);
 				});
 			});
 	});
 
 	describe("Commands", function () {
-		Object.keys(commands)
-			.forEach(command => {
+		Object.keys(commands).forEach(command => {
 				const cmd = "context-git:" + command;
 				const label = commands[command].label;
 				const confirm = commands[command].confirm;
@@ -44,54 +41,43 @@ describe("Context Git", function () {
 				const dispatch = main.dispatchCommand(command, commands[command]);
 				describe(command, function () {
 					beforeEach(function () {
-						this.cmdSpy = spyOn(commands[command], "command")
-							.and.returnValue(Promise.reject());
+						this.cmdSpy = spyOn(commands[command], "command").and.returnValue(Promise.reject());
 					});
 					it("should have a command in the command pallete", function () {
-						expect(this.allCommands)
-							.toContain(cmd);
+						expect(this.allCommands).toContain(cmd);
 					});
 					it("should have a command", function () {
-						expect(func)
-							.toEqual(jasmine.any(Function));
+						expect(func).toEqual(jasmine.any(Function));
 					});
 					if (label) {
 						it("should have a config option to disable it in the context menu", function () {
-							expect(this.configContextMenuItems)
-								.toContain(command);
+							expect(this.configContextMenuItems).toContain(command);
 						});
 						it("should have a description", function () {
-							expect(description)
-								.toBeTruthy();
+							expect(description).toBeTruthy();
 						});
 						it("should have a context menu item", function () {
-							expect(this.getContextMenuItems())
-								.toContain(cmd);
+							expect(this.getContextMenuItems()).toContain(cmd);
 						});
 						it("should not have a context menu item when unchecked", function () {
 							atom.config.set("context-git.contextMenuItems." + command, false);
-							expect(this.getContextMenuItems())
-								.not.toContain(cmd);
+							expect(this.getContextMenuItems()).not.toContain(cmd);
 						});
 					} else {
 						it("should not have a config option to disable it in the context menu", function () {
-							expect(this.configContextMenuItems)
-								.not.toContain(command);
+							expect(this.configContextMenuItems).not.toContain(command);
 						});
 						it("should not have a context menu item", function () {
-							expect(this.getContextMenuItems())
-								.not.toContain(cmd);
+							expect(this.getContextMenuItems()).not.toContain(cmd);
 						});
 					}
 
 					if (confirm) {
 						it("should have a config option to disable the confirm dialog", function () {
-							expect(this.configConfirmationDialogs)
-								.toContain(command);
+							expect(this.configConfirmationDialogs).toContain(command);
 						});
 						it("should have a confirm message", function () {
-							expect(confirm.message)
-								.toEqual(jasmine.any(String));
+							expect(confirm.message).toEqual(jasmine.any(String));
 						});
 						if (confirm.detailMessage) {
 							it("should return a string detailMessage", function () {
@@ -101,39 +87,31 @@ describe("Context Git", function () {
 								} else {
 									detailMessage = confirm.detailMessage;
 								}
-								expect(confirm.detailMessage)
-									.toEqual(jasmine.any(String));
+								expect(confirm.detailMessage).toEqual(jasmine.any(String));
 							});
 						}
 						it("should be called if atom.confirm returns true", async function () {
 							this.confirmSpy.and.returnValue(true);
 							await dispatch({ target: atom.views.getView(atom.workspace) });
-							expect(this.confirmSpy)
-								.toHaveBeenCalled();
-							expect(this.cmdSpy)
-								.toHaveBeenCalled();
+							expect(this.confirmSpy).toHaveBeenCalled();
+							expect(this.cmdSpy).toHaveBeenCalled();
 						});
 						it("should not be called if atom.confirm returns false", async function () {
 							this.confirmSpy.and.returnValue(false);
 							try {
 								await dispatch({ target: atom.views.getView(atom.workspace) });
 							} catch (ex) {}
-							expect(this.confirmSpy)
-								.toHaveBeenCalled();
-							expect(this.cmdSpy)
-								.not.toHaveBeenCalled();
+							expect(this.confirmSpy).toHaveBeenCalled();
+							expect(this.cmdSpy).not.toHaveBeenCalled();
 						});
 					} else {
 						it("should not have a config option to disable the confirm dialog", function () {
-							expect(this.configConfirmationDialogs)
-								.not.toContain(command);
+							expect(this.configConfirmationDialogs).not.toContain(command);
 						});
 						it("should not call atom.confirm but should call the command", async function () {
 							await dispatch({ target: atom.views.getView(atom.workspace) });
-							expect(this.confirmSpy)
-								.not.toHaveBeenCalled();
-							expect(this.cmdSpy)
-								.toHaveBeenCalled();
+							expect(this.confirmSpy).not.toHaveBeenCalled();
+							expect(this.cmdSpy).toHaveBeenCalled();
 						});
 					}
 				});
