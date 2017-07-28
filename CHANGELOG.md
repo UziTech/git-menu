@@ -1,5 +1,11 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## next Git everywhere
+
+- Git is now available in every context menu
+- Unstage files before Discard Changes
+- Fix reduce files when no files change
+
 ## 0.17.2 Same as v0.17.1
 
 - apm failed
