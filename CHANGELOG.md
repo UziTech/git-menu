@@ -1,6 +1,6 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## next Git everywhere
+## 0.17.3 Git everywhere
 
 - Git is now available in every context menu
 - Unstage files before Discard Changes
