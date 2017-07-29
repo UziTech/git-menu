@@ -45,10 +45,80 @@ describe("discard-changes", function () {
 		expect(this.git.checkoutFiles).toHaveBeenCalled();
 	});
 
+	describe("no tracked selected", function () {
+
+		beforeEach(function () {
+			this.git = mockGit({
+				rootDir: Promise.resolve(this.gitRoot),
+				status: (_, filePaths) => {
+					if (filePaths[0] === this.gitRoot) {
+						return Promise.resolve([fileStatus("??", files.t1), fileStatus(" M", files.t2)]);
+					}
+					return Promise.resolve([fileStatus("??", files.t1)]);
+				},
+				unstage: Promise.resolve("unstage result"),
+				clean: Promise.resolve("clean result"),
+				checkoutFiles: Promise.resolve("checkoutFiles result"),
+			});
+		});
+
+		it("should call git.clean", async function () {
+			spyOn(this.git, "clean").and.callThrough();
+			try {
+				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
+			} catch (ex) {}
+			expect(this.git.clean).toHaveBeenCalled();
+		});
+
+		it("should not call git.checkoutFiles", async function () {
+			spyOn(this.git, "checkoutFiles").and.callThrough();
+			try {
+				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
+			} catch (ex) {}
+			expect(this.git.checkoutFiles).not.toHaveBeenCalled();
+		});
+
+	});
+
 	describe("only tracked", function () {
 
 		beforeEach(function () {
 			this.statuses = [fileStatus(" M", files.t1)];
+		});
+
+		it("should not call git.clean", async function () {
+			spyOn(this.git, "clean").and.callThrough();
+			try {
+				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
+			} catch (ex) {}
+			expect(this.git.clean).not.toHaveBeenCalled();
+		});
+
+		it("should call git.checkoutFiles", async function () {
+			spyOn(this.git, "checkoutFiles").and.callThrough();
+			try {
+				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
+			} catch (ex) {}
+			expect(this.git.checkoutFiles).toHaveBeenCalled();
+		});
+
+	});
+
+	describe("no untracked selected", function () {
+
+		beforeEach(function () {
+			this.git = mockGit({
+				rootDir: Promise.resolve(this.gitRoot),
+				status: (_, filePaths) => {
+					if (filePaths[0] === this.gitRoot) {
+						return Promise.resolve([fileStatus(" M", files.t1), fileStatus("??", files.t2)]);
+					}
+					return Promise.resolve([fileStatus(" M", files.t1)]);
+				},
+				unstage: Promise.resolve("unstage result"),
+				clean: Promise.resolve("clean result"),
+				checkoutFiles: Promise.resolve("checkoutFiles result"),
+			});
 		});
 
 		it("should not call git.clean", async function () {
