@@ -6,6 +6,8 @@
 
 # context-git package
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/UziTech/context-git.svg)](https://greenkeeper.io/)
+
 An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
 
 ![screenshot](./context-git.gif)
