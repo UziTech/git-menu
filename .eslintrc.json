@@ -34,6 +34,7 @@
 		"max-len": 0
 	},
 	"globals": {
-		"atom": true
+		"atom": true,
+		"pass": true
 	}
 }

@@ -1,6 +1,5 @@
 "use babel";
 /** @jsx etch.dom */
-/* globals atom */
 
 import Dialog from "../../lib/dialogs/Dialog";
 import etch from "etch";

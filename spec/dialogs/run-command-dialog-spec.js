@@ -1,5 +1,4 @@
 "use babel";
-/* globals atom */
 
 import RunCommandDialog from "../../lib/dialogs/RunCommandDialog";
 import { fileStatus, files } from "../mocks";
