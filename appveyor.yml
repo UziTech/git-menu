@@ -15,6 +15,7 @@ build_script:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 
 version: "{build}"
 platform: x64
