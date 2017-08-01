@@ -152,13 +152,13 @@ describe("commit", function () {
 
 		it("should return '1 File committed.'", async function () {
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("1 File committed.");
+			expect(ret.message).toEqual("1 File committed.");
 		});
 
 		it("should return '2 Files committed.'", async function () {
 			this.dialogReturn[4] = [files.t1, files.t2];
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("2 Files committed.");
+			expect(ret.message).toBe("2 Files committed.");
 		});
 	});
 
@@ -203,7 +203,7 @@ describe("commit", function () {
 
 		it("should return numFiles + ' committed & pushed.'", async function () {
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("1 File committed & pushed.");
+			expect(ret.message).toBe("1 File committed & pushed.");
 		});
 	});
 
@@ -274,7 +274,7 @@ describe("commit", function () {
 
 		it("should return numfiles + ' committed & synced.'", async function () {
 			const ret = await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret).toBe("1 File committed & synced.");
+			expect(ret.message).toBe("1 File committed & synced.");
 		});
 
 	});

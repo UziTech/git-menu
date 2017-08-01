@@ -50,7 +50,7 @@ describe("pull", function () {
 
 	it("should return pulled.'", async function () {
 		const ret = await pull.command(this.filePaths, statusBar, this.git, Notifications);
-		expect(ret).toBe("Pulled.");
+		expect(ret.message).toBe("Pulled.");
 	});
 
 });

@@ -50,7 +50,7 @@ describe("push", function () {
 
 	it("should return pushed.'", async function () {
 		const ret = await push.command(this.filePaths, statusBar, this.git, Notifications);
-		expect(ret).toBe("Pushed.");
+		expect(ret.message).toBe("Pushed.");
 	});
 
 });

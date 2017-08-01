@@ -22,9 +22,9 @@ describe("run-command", function () {
 			cmd: Promise.resolve("cmd result"),
 		});
 		this.dialogReturn = [
-					"command",
-					[files.t1]
-				];
+			"command",
+			[files.t1]
+		];
 		this.dialog = mockDialog({
 			activate: Promise.resolve(this.dialogReturn)
 		});
@@ -37,25 +37,21 @@ describe("run-command", function () {
 	describe("dialog", function () {
 
 		it("should call dialog with correct props", async function () {
-			spyOn(this, "dialog")
-				.and.callThrough();
+			spyOn(this, "dialog").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.dialog)
-				.toHaveBeenCalledWith({
+			expect(this.dialog).toHaveBeenCalledWith({
 					files: this.statuses
 				});
 		});
 
 		it("should call dialog.activate()", async function () {
-			spyOn(this.dialog.prototype, "activate")
-				.and.callThrough();
+			spyOn(this.dialog.prototype, "activate").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.dialog.prototype.activate)
-				.toHaveBeenCalled();
+			expect(this.dialog.prototype.activate).toHaveBeenCalled();
 		});
 	});
 
@@ -71,8 +67,7 @@ describe("run-command", function () {
 			} catch (ex) {
 				error = !ex;
 			}
-			expect(error)
-				.toBeTruthy();
+			expect(error).toBeTruthy();
 		});
 	});
 
@@ -89,63 +84,52 @@ describe("run-command", function () {
 			} catch (ex) {
 				error = ex;
 			}
-			expect(error)
-				.toBe("Command cannot be blank.");
+			expect(error).toBe("Command cannot be blank.");
 		});
 
 		it("should show running... in status bar", async function () {
-			spyOn(statusBar, "show")
-				.and.callThrough();
+			spyOn(statusBar, "show").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(statusBar.show)
-				.toHaveBeenCalledWith("Running...", null);
+			expect(statusBar.show).toHaveBeenCalledWith("Running...", null);
 		});
 
 		it("should call git.cmd", async function () {
 			this.dialogReturn[0] = " git command arg1 --arg2=\"test string\" ";
-			spyOn(this.git, "cmd")
-				.and.callThrough();
+			spyOn(this.git, "cmd").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.cmd)
-				.toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", "--arg2=\"test string\""]);
+			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", "--arg2=\"test string\""]);
 		});
 
 		it("should call git.cmd", async function () {
-			spyOn(this.git, "cmd")
-				.and.callThrough();
+			spyOn(this.git, "cmd").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.cmd)
-				.toHaveBeenCalledWith(this.gitRoot, [this.dialogReturn[0]]);
+			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, [this.dialogReturn[0]]);
 		});
 
 		it("should call git.cmd with files", async function () {
 			this.dialogReturn[0] = "command arg1 %files%";
-			spyOn(this.git, "cmd")
-				.and.callThrough();
+			spyOn(this.git, "cmd").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.cmd)
-				.toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.dialogReturn[1][0])]);
+			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.dialogReturn[1][0])]);
 		});
 
 		it("should return 'Ran {command}'", async function () {
 			const ret = await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret)
-				.toBe("Ran 'git command'");
+			expect(ret.message).toBe("Ran 'git command'");
 		});
 
 		it("should return 'with 1 file.'", async function () {
 			this.dialogReturn[0] = "command %files%";
 			const ret = await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret.substring())
-				.toBe("Ran 'git command %files%' with 1 file.");
+			expect(ret.message).toBe("Ran 'git command %files%' with 1 file.");
 		});
 
 		it("should return 'with 2 files.'", async function () {
@@ -157,8 +141,7 @@ describe("run-command", function () {
 				activate: Promise.resolve(this.dialogReturn)
 			});
 			const ret = await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(ret)
-				.toBe("Ran 'git command %files%' with 2 files.");
+			expect(ret.message).toBe("Ran 'git command %files%' with 2 files.");
 		});
 	});
 
