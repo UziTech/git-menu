@@ -2,7 +2,7 @@
 
 import { Directory } from "atom";
 import commit from "../../lib/commands/commit";
-import Notifications, { isVerbose } from "../../lib/Notifications";
+import Notifications from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
 
 describe("commit", function () {
@@ -122,7 +122,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null, isVerbose());
+			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null);
 		});
 
 		it("should call git.commit with amend", async function () {
@@ -131,7 +131,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null, isVerbose());
+			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null);
 		});
 
 		it("should show a git.commit result notification", async function () {
@@ -182,7 +182,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
+			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show a git.push result notification", async function () {
@@ -228,7 +228,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
+			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show git notification for pull results", async function () {
@@ -253,7 +253,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
+			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show git notification for push result", async function () {

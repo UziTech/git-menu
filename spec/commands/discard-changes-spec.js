@@ -2,7 +2,7 @@
 
 import { Directory } from "atom";
 import discardChanges from "../../lib/commands/discard-changes";
-import Notifications, { isVerbose } from "../../lib/Notifications";
+import Notifications from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
 
 describe("discard-changes", function () {
@@ -170,7 +170,7 @@ describe("discard-changes", function () {
 			try {
 				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			} catch (ex) {}
-			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["."], isVerbose());
+			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["."]);
 		});
 
 		it("should call git.checkoutFiles with ['.']", async function () {
@@ -178,7 +178,7 @@ describe("discard-changes", function () {
 			try {
 				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			} catch (ex) {}
-			expect(this.git.checkoutFiles).toHaveBeenCalledWith(this.gitRoot, ["."], isVerbose());
+			expect(this.git.checkoutFiles).toHaveBeenCalledWith(this.gitRoot, ["."]);
 		});
 
 		it("should call git.clean with [files.t1]", async function () {
@@ -199,7 +199,7 @@ describe("discard-changes", function () {
 			try {
 				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			} catch (ex) {}
-			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, [files.t1], isVerbose());
+			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, [files.t1]);
 		});
 
 		it("should call git.clean with ['test/']", async function () {
@@ -220,7 +220,7 @@ describe("discard-changes", function () {
 			try {
 				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			} catch (ex) {}
-			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["test/"], isVerbose());
+			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["test/"]);
 		});
 
 	});

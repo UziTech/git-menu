@@ -2,7 +2,7 @@
 
 import { Directory } from "atom";
 import push from "../../lib/commands/push";
-import Notifications, { isVerbose } from "../../lib/Notifications";
+import Notifications from "../../lib/Notifications";
 import { getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, files } from "../mocks";
 
 describe("push", function () {
@@ -37,7 +37,7 @@ describe("push", function () {
 		try {
 			await push.command(this.filePaths, statusBar, this.git, Notifications);
 		} catch (ex) {}
-		expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false, isVerbose());
+		expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 	});
 
 	it("should show git notification for push results", async function () {
