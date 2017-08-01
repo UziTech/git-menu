@@ -3,10 +3,9 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/649me6gpm37u4tja?svg=true)](https://ci.appveyor.com/project/UziTech/context-git)
 [![Code Climate](https://codeclimate.com/github/UziTech/context-git/badges/gpa.svg)](https://codeclimate.com/github/UziTech/context-git)
 [![Dependency Status](https://david-dm.org/UziTech/context-git.svg)](https://david-dm.org/UziTech/context-git)
+[![Greenkeeper badge](https://badges.greenkeeper.io/UziTech/context-git.svg)](https://greenkeeper.io/)
 
 # context-git package
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/UziTech/context-git.svg)](https://greenkeeper.io/)
 
 An Atom.io package to use git from the context menu. You can choose which commands show up in the context menu by enabling/disabling them in the settings.
 
