@@ -45,7 +45,7 @@ describe("push", function () {
 		try {
 			await push.command(this.filePaths, statusBar, this.git, Notifications);
 		} catch (ex) {}
-		expect(Notifications.addGit).toHaveBeenCalledWith("push result");
+		expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 	});
 
 	it("should return pushed.'", async function () {

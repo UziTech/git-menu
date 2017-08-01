@@ -139,7 +139,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(Notifications.addGit).toHaveBeenCalledWith("commit result");
+			expect(Notifications.addGit).toHaveBeenCalledWith("Commit", "commit result");
 		});
 
 		it("should call refresh after commit", async function () {
@@ -190,7 +190,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(Notifications.addGit).toHaveBeenCalledWith("push result");
+			expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 		});
 
 		it("should refresh after push", async function () {
@@ -236,7 +236,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(Notifications.addGit).toHaveBeenCalledWith("pull result");
+			expect(Notifications.addGit).toHaveBeenCalledWith("Pull", "pull result");
 		});
 
 		it("should show pushing... in status bar", async function () {
@@ -261,7 +261,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(Notifications.addGit).toHaveBeenCalledWith("push result");
+			expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 		});
 
 		it("should refresh after pulling and pushing", async function () {

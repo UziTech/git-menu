@@ -45,7 +45,7 @@ describe("pull", function () {
 		try {
 			await pull.command(this.filePaths, statusBar, this.git, Notifications);
 		} catch (ex) {}
-		expect(Notifications.addGit).toHaveBeenCalledWith("pull result");
+		expect(Notifications.addGit).toHaveBeenCalledWith("Pull", "pull result");
 	});
 
 	it("should return pulled.'", async function () {
