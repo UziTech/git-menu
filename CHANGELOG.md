@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## next Command in notification
+
+- Show the command as the notification title
+
 ## 0.17.3 Git everywhere
 
 - Git is now available in every context menu
