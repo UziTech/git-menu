@@ -1,7 +1,8 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## next Command in notification
+## 0.17.4 Remove untracked directories
 
+- Remove untracked directories on Discard Changes
 - Show the command as the notification title
 
 ## 0.17.3 Git everywhere
