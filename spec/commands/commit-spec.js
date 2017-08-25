@@ -139,7 +139,7 @@ describe("commit", function () {
 			try {
 				await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(Notifications.addGit).toHaveBeenCalledWith("Commit", "commit result");
+			expect(Notifications.addGit).toHaveBeenCalledWith("Commit", ["unstage result", "add result", "commit result"]);
 		});
 
 		it("should call refresh after commit", async function () {
