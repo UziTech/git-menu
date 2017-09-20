@@ -37,13 +37,6 @@ describe("Dialog", function () {
 			.toHaveBeenCalledWith(props);
 	});
 
-	it("should call this.beforeInitialize on constructor", function () {
-		spyOn(this.TestDialog.prototype, "beforeInitialize");
-		new this.TestDialog();
-		expect(this.TestDialog.prototype.beforeInitialize)
-			.toHaveBeenCalled();
-	});
-
 	it("should return a promise on activate", function () {
 		const promise = new this.TestDialog()
 			.activate();
