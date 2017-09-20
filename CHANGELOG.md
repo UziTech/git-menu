@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.17.5 Include results of multiple git calls
+
+- Include the results of multiple git calls when notification setting is set to show git output.
+- Warn about incompatibility with the `github` package [atom/github#961](https://github.com/atom/github/issues/961#issuecomment-317040677)
+
 ## 0.17.4 Remove untracked directories
 
 - Remove untracked directories on Discard Changes
