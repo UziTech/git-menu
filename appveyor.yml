@@ -8,6 +8,10 @@ environment:
   - ATOM_CHANNEL: stable
   - ATOM_CHANNEL: beta
 
+before_test:
+  - git config --global user.email "test@example.com"
+  - git config --global user.name "test"
+
 ### Generic setup follows ###
 build_script:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))
