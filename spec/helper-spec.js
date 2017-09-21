@@ -74,7 +74,7 @@ describe("helper", function () {
 
 		it("should not group files in different folder", async function () {
 			const dir = this.gitRoot.replace(/[\/\\]$/, "");
-			const testDir = this.gitRoot + path.sep +  "test";
+			const testDir = path.join(this.gitRoot, "test");
 			const filePaths = getFilePath(this.gitRoot, [files.t1, files.tt2]);
 
 			const dirs = await helper.getDirectories(filePaths);
@@ -95,7 +95,7 @@ describe("helper", function () {
 		});
 
 		it("should get files from folder", async function () {
-			const filesInDir = await helper.getFilesInDir(this.gitRoot + path.sep + "test");
+			const filesInDir = await helper.getFilesInDir(path.join(this.gitRoot, "test"));
 
 			expect(filesInDir).toEqual(getFilePath(this.gitRoot, [files.tt1, files.tt2]));
 		});
