@@ -8,7 +8,7 @@ environment:
   - ATOM_CHANNEL: stable
   - ATOM_CHANNEL: beta
 
-before_test:
+before_build:
   - git config --global user.email "test@example.com"
   - git config --global user.name "test"
 
