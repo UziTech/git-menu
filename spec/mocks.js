@@ -89,9 +89,12 @@ export function mockGit(methods = {}) {
  */
 export async function removeGitRoot(root) {
 	try {
-		const pathWatcher = await atom.project.getWatcherPromise(root);
-		await pathWatcher.native.stop();
-		pathWatcher.dispose();
+		const [, major, minor, patch] = atom.getVersion().match(/^(\d+)\.(\d+)\.(\d+)/);
+		if (+major > 1 || (+major === 1 && +minor > 20)) { // TODO: remove check after 1.21 becomes stable
+			const pathWatcher = await atom.project.getWatcherPromise(root);
+			await pathWatcher.native.stop();
+			pathWatcher.dispose();
+		}
 		await promisify(temp.cleanup)();
 	} catch (ex) {
 		console.error(ex);
