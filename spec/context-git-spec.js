@@ -41,7 +41,7 @@ describe("Context Git", function () {
 				const dispatch = main.dispatchCommand(command, commands[command]);
 				describe(command, function () {
 					beforeEach(function () {
-						this.cmdSpy = spyOn(commands[command], "command").and.returnValue(Promise.reject());
+						this.cmdSpy = spyOn(commands[command], "command").and.callFake(_ => Promise.reject());
 					});
 					it("should have a command in the command pallete", function () {
 						expect(this.allCommands).toContain(cmd);

@@ -9,19 +9,17 @@ describe("push", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
 
-		this.filePaths = getFilePath([files.t1]);
+		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
 			push: Promise.resolve("push result"),
 		});
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	it("should show pushing... in status bar", async function () {

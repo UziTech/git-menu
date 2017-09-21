@@ -7,19 +7,17 @@ describe("git.cmd", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	it("should call git", async function () {
 		let error;
 		try {
-			await gitCmd.cmd(this.getRoot);
+			await gitCmd.cmd(this.gitRoot);
 		} catch (ex) {
 			error = ex;
 		}
@@ -30,7 +28,7 @@ describe("git.cmd", function () {
 	it("should call git with the args", async function () {
 		let error;
 		try {
-			await gitCmd.cmd(this.getRoot, ["test"]);
+			await gitCmd.cmd(this.gitRoot, ["test"]);
 		} catch (ex) {
 			error = ex;
 		}
@@ -41,7 +39,7 @@ describe("git.cmd", function () {
 	it("should reject on error", async function () {
 		let rejected;
 		try {
-			await gitCmd.cmd(this.getRoot, ["test"]);
+			await gitCmd.cmd(this.gitRoot, ["test"]);
 		} catch (ex) {
 			rejected = true;
 		}
@@ -50,7 +48,7 @@ describe("git.cmd", function () {
 	});
 
 	it("should resolve on non-error", async function () {
-		await gitCmd.cmd(this.getRoot, ["init"]);
+		await gitCmd.cmd(this.gitRoot, ["init"]);
 		pass();
 	});
 

@@ -9,13 +9,12 @@ describe("commit", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
+
 		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus("M ", files.t1), fileStatus("M ", files.t2)];
-		this.filePaths = getFilePath([files.t1]);
+		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
 			lastCommit: Promise.resolve("last commit"),
@@ -38,8 +37,8 @@ describe("commit", function () {
 		});
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	describe("dialog", function () {

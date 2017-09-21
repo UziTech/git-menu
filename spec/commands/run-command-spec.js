@@ -9,13 +9,12 @@ describe("run-command", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
+
 		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus("M ", files.t1)];
-		this.filePaths = getFilePath([files.t1]);
+		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
 			status: Promise.resolve(this.statuses),
@@ -30,8 +29,8 @@ describe("run-command", function () {
 		});
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	describe("dialog", function () {
@@ -118,7 +117,7 @@ describe("run-command", function () {
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
-			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.dialogReturn[1][0])]);
+			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.gitRoot, this.dialogReturn[1][0])]);
 		});
 
 		it("should return 'Ran {command}'", async function () {

@@ -1,17 +1,18 @@
 "use babel";
 
 import { Directory } from "atom";
+import gitCmd from "../lib/git-cmd";
 import helper from "../lib/helper";
 import Notifications, { isVerbose } from "../lib/Notifications";
 import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "./mocks";
+import path from "path";
 
 describe("helper", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
+
 		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus("M ", files.t1), fileStatus("??", files.tt2)];
@@ -21,14 +22,14 @@ describe("helper", function () {
 		});
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	describe("getDirectories", function () {
 
 		it("should get directory of file", async function () {
-			const file = getFilePath(files.t1);
+			const file = getFilePath(this.gitRoot, files.t1);
 			const dir = this.gitRoot.replace(/[\/\\]$/, "");
 
 			const dirs = await helper.getDirectories([file]);
@@ -51,7 +52,7 @@ describe("helper", function () {
 	describe("consolidateFiles", function () {
 
 		it("should remove file if folder also selected", async function () {
-			const dirs = await helper.getDirectories([getFilePath(files.t1), this.gitRoot]);
+			const dirs = await helper.getDirectories([getFilePath(this.gitRoot, files.t1), this.gitRoot]);
 			const consolidatedFiles = helper.consolidateFiles(dirs);
 
 			expect(consolidatedFiles).toEqual({
@@ -61,7 +62,7 @@ describe("helper", function () {
 
 		it("should group files in same folder", async function () {
 			const dir = this.gitRoot.replace(/[\/\\]$/, "");
-			const filePaths = getFilePath([files.t1, files.t2]);
+			const filePaths = getFilePath(this.gitRoot, [files.t1, files.t2]);
 
 			const dirs = await helper.getDirectories(filePaths);
 			const consolidatedFiles = helper.consolidateFiles(dirs);
@@ -73,15 +74,15 @@ describe("helper", function () {
 
 		it("should not group files in different folder", async function () {
 			const dir = this.gitRoot.replace(/[\/\\]$/, "");
-			const testDir = this.gitRoot + "test";
-			const filePaths = getFilePath([files.t1, files.tt2]);
+			const testDir = this.gitRoot + path.sep +  "test";
+			const filePaths = getFilePath(this.gitRoot, [files.t1, files.tt2]);
 
 			const dirs = await helper.getDirectories(filePaths);
 			const consolidatedFiles = helper.consolidateFiles(dirs);
 
 			expect(consolidatedFiles).toEqual({
-				[dir]: getFilePath([files.t1]),
-				[testDir]: getFilePath([files.tt2]),
+				[dir]: getFilePath(this.gitRoot, [files.t1]),
+				[testDir]: getFilePath(this.gitRoot, [files.tt2]),
 			});
 		});
 
@@ -89,16 +90,20 @@ describe("helper", function () {
 
 	describe("getFilesInDir", function () {
 
-		it("should get files from folder", async function () {
-			const filesInDir = await helper.getFilesInDir(this.gitRoot + "test");
+		beforeEach(async function () {
+			await gitCmd.remove(this.gitRoot);
+		});
 
-			expect(filesInDir).toEqual(getFilePath([files.tt1, files.tt2]));
+		it("should get files from folder", async function () {
+			const filesInDir = await helper.getFilesInDir(this.gitRoot + path.sep + "test");
+
+			expect(filesInDir).toEqual(getFilePath(this.gitRoot, [files.tt1, files.tt2]));
 		});
 
 		it("should get files from sub-folder", async function () {
 			const filesInDir = await helper.getFilesInDir(this.gitRoot);
 
-			expect(filesInDir).toEqual(getFilePath([files.tt1, files.tt2, files.t1, files.t2]));
+			expect(filesInDir).toEqual(getFilePath(this.gitRoot, [files.tt1, files.tt2, files.t1, files.t2]));
 		});
 
 	});

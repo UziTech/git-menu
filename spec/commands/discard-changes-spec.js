@@ -9,13 +9,12 @@ describe("discard-changes", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
+
 		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus(" M", files.t1), fileStatus("??", files.t2)];
-		this.filePaths = getFilePath([files.t1]);
+		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
 			status: _ => Promise.resolve(this.statuses),
@@ -25,8 +24,8 @@ describe("discard-changes", function () {
 		});
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	it("should call git.clean", async function () {

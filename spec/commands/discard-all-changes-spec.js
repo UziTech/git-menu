@@ -8,15 +8,13 @@ describe("discard-all-changes", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
 
-		this.filePaths = getFilePath([files.t1]);
+		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	it("should call discard changes with project folders", async function () {

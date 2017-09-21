@@ -8,15 +8,14 @@ describe("git.remove", function () {
 
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
-		createGitRoot();
-		this.gitRoot = getFilePath();
-		atom.project.setPaths([this.gitRoot]);
+		this.gitRoot = await createGitRoot();
+
 		await gitCmd.cmd(this.gitRoot, ["init"]);
-		this.gitPath = getFilePath(".git");
+		this.gitPath = getFilePath(this.gitRoot, ".git");
 	});
 
-	afterEach(function () {
-		removeGitRoot();
+	afterEach(async function () {
+		await removeGitRoot(this.gitRoot);
 	});
 
 	it("should remove the .git folder", async function () {

@@ -1,7 +1,7 @@
 "use babel";
 
 import gitCmd from "../../lib/git-cmd";
-// import { getFilePath, removeGitRoot, createGitRoot, files } from "../mocks";
+import { getFilePath, removeGitRoot, createGitRoot, files } from "../mocks";
 
 describe("git.add", function () {
 
@@ -29,28 +29,27 @@ describe("git.add", function () {
 			.toContain("--verbose");
 	});
 
-	// describe("integration tests", function () {
-	//
-	// 	beforeEach(async function () {
-	// 		await atom.packages.activatePackage("context-git");
-	// 		createGitRoot();
-	// 		this.gitRoot = getFilePath();
-	// 		atom.project.setPaths([this.gitRoot]);
-	// 		await gitCmd.cmd(this.gitRoot, ["init"]);
-	// 		this.gitPath = getFilePath(".git");
-	// 	});
-	//
-	// 	afterEach(function () {
-	// 		removeGitRoot();
-	// 	});
-	//
-	// 	it("should add a file", async function () {
-	// 		await gitCmd.add(this.gitRoot, getFilePath(files.t1));
-	// 		const status = await gitCmd.cmd(this.gitRoot, ["status", "--short"]);
-	//
-	// 		expect(status).toContain(`A  ${files.t1}`);
-	// 	});
-	//
-	// });
+	describe("integration tests", function () {
+
+		beforeEach(async function () {
+			gitCmd.cmd.and.callThrough();
+			await atom.packages.activatePackage("context-git");
+			this.gitRoot = await createGitRoot();
+
+			this.gitPath = getFilePath(this.gitRoot, ".git");
+		});
+
+		afterEach(async function () {
+			await removeGitRoot(this.gitRoot);
+		});
+
+		it("should add a file", async function () {
+			await gitCmd.add(this.gitRoot, getFilePath(this.gitRoot, [files.t1]));
+			const status = await gitCmd.cmd(this.gitRoot, ["status", "--short"]);
+
+			expect(status).toContain(`A  ${files.t1}`);
+		});
+
+	});
 
 });
