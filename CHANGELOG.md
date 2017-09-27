@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.17.6 Fix Create Branch upstream notification
+
+- Fix notification not showing after creating an upstream branch
+
 ## 0.17.5 Include results of multiple git calls
 
 - Include the results of multiple git calls when notification setting is set to show git output.
