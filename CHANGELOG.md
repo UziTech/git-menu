@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.17.7 Work with github
+
+- Now works with the github package
+
 ## 0.17.6 Fix Create Branch upstream notification
 
 - Fix notification not showing after creating an upstream branch
