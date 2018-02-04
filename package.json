@@ -26,7 +26,7 @@
     }
   },
   "devDependencies": {
-    "atom-jasmine2-test-runner": "^1.0.0",
+    "atom-jasmine2-test-runner": "^2.0.0",
     "temp": "^0.8.3"
   }
 }
