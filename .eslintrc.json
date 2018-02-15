@@ -80,7 +80,7 @@
 		"func-call-spacing": 2,
 		"indent": ["error", "tab"],
 		"key-spacing": 2,
-		"keyword-spacing": 1,
+		"keyword-spacing": 2,
 		"line-comment-position": 1,
 		"linebreak-style": 2,
 		"lines-around-comment": 2,

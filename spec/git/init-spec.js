@@ -13,7 +13,7 @@ describe("git.init", function () {
 	});
 
 	it("should send init commad", async function () {
-		await gitCmd.init(this.gitRoot);
+		await gitCmd.init(this.gitRoot, false);
 
 		expect(gitCmd.cmd.calls.mostRecent().args[1]).toEqual(["init", "--quiet"]);
 	});
@@ -29,8 +29,7 @@ describe("git.init", function () {
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();
 			await atom.packages.activatePackage("context-git");
-			this.gitRoot = await createGitRoot();
-			await gitCmd.remove(this.gitRoot);
+			this.gitRoot = await createGitRoot(false);
 
 
 			this.gitPath = getFilePath(this.gitRoot, ".git");
@@ -48,7 +47,7 @@ describe("git.init", function () {
 
 			// eslint-disable-next-line no-sync
 			expect(fs.existsSync(this.gitPath)).toBe(true);
-			expect(commitCount).toBe("1");
+			expect(commitCount.replace(/^[^\n]*\n\n/, "")).toBe("1");
 		});
 
 		it("should return nothing on --quiet", async function () {

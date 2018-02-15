@@ -124,9 +124,10 @@ export function getFilePath(root, paths) {
 
 /**
  * Create the test spec/git-root directory
+ * @param  {bool} init initialize a git repo (default: true)
  * @return {void}
  */
-export async function createGitRoot() {
+export async function createGitRoot(init = true) {
 	try {
 		const root = await promisify(temp.mkdir)("git-root-");
 		const dirs = getFilePath(root, ["/test"]);
@@ -139,7 +140,9 @@ export async function createGitRoot() {
 			await promisify(fs.open)(file, "w").then(fd => promisify(fs.close)(fd));
 		}
 
-		await gitCmd.init(root);
+		if (init) {
+			await gitCmd.init(root);
+		}
 
 		atom.project.setPaths([root]);
 
