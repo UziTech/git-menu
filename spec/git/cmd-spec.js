@@ -1,7 +1,7 @@
-"use babel";
+/** @babel */
 
 import gitCmd from "../../lib/git-cmd";
-import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";
+import {removeGitRoot, createGitRoot} from "../mocks";
 
 describe("git.cmd", function () {
 
@@ -21,8 +21,7 @@ describe("git.cmd", function () {
 		} catch (ex) {
 			error = ex;
 		}
-		expect(error)
-			.toContain("usage: git [--version]");
+		expect(error).toContain("usage: git [--version]");
 	});
 
 	it("should call git with the args", async function () {
@@ -32,8 +31,7 @@ describe("git.cmd", function () {
 		} catch (ex) {
 			error = ex;
 		}
-		expect(error)
-			.toContain("git: 'test' is not a git command.");
+		expect(error).toContain("git: 'test' is not a git command.");
 	});
 
 	it("should reject on error", async function () {
@@ -43,8 +41,7 @@ describe("git.cmd", function () {
 		} catch (ex) {
 			rejected = true;
 		}
-		expect(rejected)
-			.toBeTruthy();
+		expect(rejected).toBeTruthy();
 	});
 
 	it("should resolve on non-error", async function () {

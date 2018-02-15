@@ -1,9 +1,9 @@
-"use babel";
+/** @babel */
 
-import { Directory } from "atom";
+import {Directory} from "atom";
 import runCommand from "../../lib/commands/run-command";
 import Notifications from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
+import {getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files} from "../mocks";
 
 describe("run-command", function () {
 
@@ -41,8 +41,8 @@ describe("run-command", function () {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {}
 			expect(this.dialog).toHaveBeenCalledWith({
-					files: this.statuses
-				});
+				files: this.statuses
+			});
 		});
 
 		it("should call dialog.activate()", async function () {
@@ -58,7 +58,7 @@ describe("run-command", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: _ => Promise.reject()
+				activate: () => Promise.reject()
 			});
 			let error;
 			try {

@@ -1,9 +1,9 @@
-"use babel";
+/** @babel */
 
 import commands from "../lib/commands";
 import config from "../lib/config";
-import rimraf from "../lib/rimraf";
 import main from "../lib/main";
+import {mockGit, createGitRoot, getFilePath, files} from "./mocks";
 
 describe("Context Git", function () {
 	beforeEach(async function () {
@@ -17,7 +17,7 @@ describe("Context Git", function () {
 			.findCommands({target: atom.views.getView(atom.workspace)})
 			.map(cmd => cmd.name)
 			.filter(cmd => cmd.startsWith("context-git:"));
-		this.getContextMenuItems = _ => atom.contextMenu.itemSets
+		this.getContextMenuItems = () => atom.contextMenu.itemSets
 			.filter(itemSet => itemSet.selector === "atom-workspace, atom-text-editor, .tree-view, .tab-bar")
 			.map(itemSet => itemSet.items[0].submenu[0].command);
 		this.confirmSpy = spyOn(atom, "confirm");
@@ -38,7 +38,7 @@ describe("Context Git", function () {
 			const dispatch = confirmResult => main.dispatchCommand(command, commands[command], confirmResult);
 			describe(command, function () {
 				beforeEach(function () {
-					this.cmdSpy = spyOn(commands[command], "command").and.callFake(_ => Promise.reject());
+					this.cmdSpy = spyOn(commands[command], "command").and.callFake(() => Promise.reject());
 				});
 				it("should have a command in the command pallete", function () {
 					expect(this.allCommands).toContain(cmd);
@@ -77,12 +77,15 @@ describe("Context Git", function () {
 						expect(confirm.message).toEqual(jasmine.any(String));
 					});
 					if (confirm.detail) {
-						it("should return a string detail", function () {
+						it("should return a string detail", async function () {
+							const gitRoot = await createGitRoot();
+							const filePaths = getFilePath(gitRoot, [files.t1]);
+							const git = mockGit();
 							let {detail} = confirm;
 							if (typeof detail === "function") {
-								detail = detail(["test"]);
+								detail = await detail(filePaths, git);
 							}
-							expect(confirm.detail).toEqual(jasmine.any(String));
+							expect(detail).toEqual(jasmine.any(String));
 						});
 					}
 					it("should be called if atom.confirm returns true", async function () {

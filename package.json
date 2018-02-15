@@ -10,7 +10,7 @@
   "repository": "https://github.com/UziTech/context-git",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.23.0 <2.0.0"
+    "atom": ">=1.25.0 <2.0.0"
   },
   "dependencies": {
     "etch": "^0.12.8",
@@ -27,6 +27,8 @@
   },
   "devDependencies": {
     "atom-jasmine2-test-runner": "^2.0.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1",
     "temp": "^0.8.3"
   }
 }

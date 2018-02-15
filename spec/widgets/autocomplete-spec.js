@@ -1,4 +1,5 @@
-"use babel";
+/** @babel */
+
 /** @jsx etch.dom */
 
 import etch from "etch";
@@ -7,8 +8,12 @@ import Autocomplete from "../../lib/widgets/Autocomplete.js";
 describe("Autocomplete.js", function () {
 	beforeEach(function () {
 		etch.setScheduler({
-			updateDocument(callback) { callback(); },
-			getNextUpdatePromise() { return Promise.resolve(); }
+			updateDocument(callback) {
+				callback();
+			},
+			getNextUpdatePromise() {
+				return Promise.resolve();
+			}
 		});
 
 		this.items = [
@@ -29,76 +34,66 @@ describe("Autocomplete.js", function () {
 	});
 
 	it("should not display the menu on focus if value is empty", function () {
-		const component = new Autocomplete({ items: this.items, value: "" });
+		const component = new Autocomplete({items: this.items, value: ""});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
 
-		expect(component.refs.menu)
-			.toBeFalsy();
+		expect(component.refs.menu).toBeFalsy();
 	});
 
 	it("should display the menu on focus", function () {
-		const component = new Autocomplete({ items: this.items, value: "i" });
+		const component = new Autocomplete({items: this.items, value: "i"});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
 
-		expect(component.refs.menu)
-			.toBeTruthy();
+		expect(component.refs.menu).toBeTruthy();
 		for (var i = 0; i < this.items.length; i++) {
-			expect(component.refs["item-" + i])
-				.toBeTruthy();
+			expect(component.refs[`item-${i}`]).toBeTruthy();
 		}
 	});
 
 	it("should only display max number of items", function () {
 		const maxItems = 10;
-		const component = new Autocomplete({ items: this.items, value: "i", maxItems });
+		const component = new Autocomplete({items: this.items, value: "i", maxItems});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
 
 		for (var i = 0; i < this.items.length; i++) {
 			if (i < maxItems) {
-				expect(component.refs["item-" + i])
-					.toBeTruthy();
+				expect(component.refs[`item-${i}`]).toBeTruthy();
 			} else {
-				expect(component.refs["item-" + i])
-					.toBeFalsy();
+				expect(component.refs[`item-${i}`]).toBeFalsy();
 			}
 		}
 	});
 
 	it("should filter items", function () {
 		const value = "1";
-		const component = new Autocomplete({ items: this.items, value });
+		const component = new Autocomplete({items: this.items, value});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
 
-		const filtered = Array.from(component.refs.menu.children)
-			.every(item => item.textContent.includes(value));
-		expect(filtered)
-			.toBe(true);
+		const filtered = Array.from(component.refs.menu.children).every(item => item.textContent.includes(value));
+		expect(filtered).toBe(true);
 	});
 
 	it("should hide item when value equals item", function () {
 		const value = "item1";
-		const component = new Autocomplete({ items: this.items, value });
+		const component = new Autocomplete({items: this.items, value});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
 
-		const hasItem = Array.from(component.refs.menu.children)
-			.some(item => item === value);
-		expect(hasItem)
-			.toBe(false);
+		const hasItem = Array.from(component.refs.menu.children).some(item => item === value);
+		expect(hasItem).toBe(false);
 	});
 
 	it("should call onSelect when an item is clicked", function () {
 		const onSelect = jasmine.createSpy("onSelect");
-		const component = new Autocomplete({ items: this.items, onSelect, open: true, });
+		const component = new Autocomplete({items: this.items, onSelect, open: true});
 		jasmine.attachToDOM(component.element);
 		component.refs["item-0"].click();
 
-		expect(onSelect)
-			.toHaveBeenCalled();
+		expect(onSelect).toHaveBeenCalled();
 	});
 
 	it("should not call onSelect when remove button is clicked", function () {
@@ -112,12 +107,9 @@ describe("Autocomplete.js", function () {
 			open: true,
 		});
 		jasmine.attachToDOM(component.element);
-		component.refs["item-0"].querySelector(".autocomplete-remove-button")
-			.click();
+		component.refs["item-0"].querySelector(".autocomplete-remove-button").click();
 
-		expect(onSelect)
-			.not.toHaveBeenCalled();
-		expect(onRemove)
-			.toHaveBeenCalled();
+		expect(onSelect).not.toHaveBeenCalled();
+		expect(onRemove).toHaveBeenCalled();
 	});
 });

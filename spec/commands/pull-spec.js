@@ -1,9 +1,8 @@
-"use babel";
+/** @babel */
 
-import { Directory } from "atom";
 import pull from "../../lib/commands/pull";
 import Notifications from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, files } from "../mocks";
+import {getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, files} from "../mocks";
 
 describe("pull", function () {
 

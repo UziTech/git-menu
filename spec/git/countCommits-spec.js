@@ -1,8 +1,7 @@
-"use babel";
+/** @babel */
 
 import gitCmd from "../../lib/git-cmd";
-import { getFilePath, removeGitRoot, createGitRoot } from "../mocks";
-import fs from "fs";
+import {getFilePath, removeGitRoot, createGitRoot} from "../mocks";
 
 describe("git.countCommits", function () {
 

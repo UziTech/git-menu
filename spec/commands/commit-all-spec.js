@@ -1,8 +1,8 @@
-"use babel";
+/** @babel */
 
 import commitAll from "../../lib/commands/commit-all";
 import commit from "../../lib/commands/commit";
-import { getFilePath, removeGitRoot, createGitRoot, files } from "../mocks";
+import {getFilePath, removeGitRoot, createGitRoot, files} from "../mocks";
 
 describe("commit-all", function () {
 
@@ -18,13 +18,10 @@ describe("commit-all", function () {
 	});
 
 	it("should call commit with project folders", async function () {
-		spyOn(commit, "command")
-			.and.callFake(_ => Promise.resolve());
+		spyOn(commit, "command").and.callFake(() => Promise.resolve());
 		try {
 			await commitAll.command(this.filePaths);
 		} catch (ex) {}
-		expect(commit.command.calls.mostRecent()
-				.args[0])
-			.toEqual(atom.project.getPaths());
+		expect(commit.command.calls.mostRecent().args[0]).toEqual(atom.project.getPaths());
 	});
 });

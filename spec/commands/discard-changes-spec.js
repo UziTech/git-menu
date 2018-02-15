@@ -1,9 +1,9 @@
-"use babel";
+/** @babel */
 
-import { Directory } from "atom";
+import {Directory} from "atom";
 import discardChanges from "../../lib/commands/discard-changes";
 import Notifications from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
+import {getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, fileStatus, files} from "../mocks";
 
 describe("discard-changes", function () {
 
@@ -17,7 +17,7 @@ describe("discard-changes", function () {
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
 			rootDir: Promise.resolve(this.gitRoot),
-			status: _ => Promise.resolve(this.statuses),
+			status: () => Promise.resolve(this.statuses),
 			unstage: Promise.resolve("unstage result"),
 			clean: Promise.resolve("clean result"),
 			checkoutFiles: Promise.resolve("checkoutFiles result"),

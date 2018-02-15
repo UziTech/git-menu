@@ -1,10 +1,9 @@
-"use babel";
+/** @babel */
 
-import { Directory } from "atom";
+import {Directory} from "atom";
 import gitCmd from "../lib/git-cmd";
 import helper from "../lib/helper";
-import Notifications, { isVerbose } from "../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "./mocks";
+import {getFilePath, mockGit, removeGitRoot, createGitRoot, fileStatus, files} from "./mocks";
 import path from "path";
 
 describe("helper", function () {

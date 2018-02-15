@@ -1,9 +1,9 @@
-"use babel";
+/** @babel */
 
-import { Directory } from "atom";
+import {Directory} from "atom";
 import commit from "../../lib/commands/commit";
 import Notifications from "../../lib/Notifications";
-import { getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files } from "../mocks";
+import {getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files} from "../mocks";
 
 describe("commit", function () {
 
@@ -26,14 +26,14 @@ describe("commit", function () {
 			push: Promise.resolve("push result"),
 		});
 		this.dialogReturn = [
-					"message",
-					false,
-					false,
-					false,
-					[files.t1]
-				];
+			"message",
+			false,
+			false,
+			false,
+			[files.t1]
+		];
 		this.dialog = mockDialog({
-			activate: _ => Promise.resolve(this.dialogReturn)
+			activate: () => Promise.resolve(this.dialogReturn)
 		});
 	});
 
@@ -67,7 +67,7 @@ describe("commit", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: _ => Promise.reject()
+				activate: () => Promise.reject()
 			});
 			let error;
 			try {
