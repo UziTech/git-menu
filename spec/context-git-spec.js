@@ -35,7 +35,7 @@ describe("Context Git", function () {
 		Object.keys(commands).forEach(command => {
 			const cmd = `context-git:${command}`;
 			const {label, confirm, description, command: func} = commands[command];
-			const dispatch = confirmResult => main.dispatchCommand(command, commands[command], confirmResult);
+			const dispatch = main.dispatchCommand(command, commands[command]);
 			describe(command, function () {
 				beforeEach(function () {
 					this.cmdSpy = spyOn(commands[command], "command").and.callFake(() => Promise.reject());
@@ -89,15 +89,18 @@ describe("Context Git", function () {
 						});
 					}
 					it("should be called if atom.confirm returns true", async function () {
-						await dispatch(true)({target: atom.views.getView(atom.workspace)});
+						this.confirmSpy.and.callFake((opts, callback) => {
+							callback(0, false);
+						});
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
 					it("should not be called if atom.confirm returns false", async function () {
-						this.confirmSpy.and.returnValue(false);
-						try {
-							await dispatch(false)({target: atom.views.getView(atom.workspace)});
-						} catch (ex) {}
+						this.confirmSpy.and.callFake((opts, callback) => {
+							callback(1, false);
+						});
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
 						expect(this.cmdSpy).not.toHaveBeenCalled();
 					});
@@ -106,7 +109,7 @@ describe("Context Git", function () {
 						expect(this.configConfirmationDialogs).not.toContain(command);
 					});
 					it("should not call atom.confirm but should call the command", async function () {
-						await dispatch()({target: atom.views.getView(atom.workspace)});
+						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).not.toHaveBeenCalled();
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
