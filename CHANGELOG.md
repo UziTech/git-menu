@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.18.0 Async Dialogs
+
+- Async Confirmation Dialogs
+
 ## 0.17.7 Work with github
 
 - Now works with the github package
