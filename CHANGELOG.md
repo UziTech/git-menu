@@ -2,7 +2,7 @@
 
 ## 0.18.0 Async Dialogs
 
-- Async Confirmation Dialogs
+- Async Confirmation Dialogs (only works in Atom >=1.25.0)
 
 ## 0.17.7 Work with github
 
