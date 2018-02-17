@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.18.2 Fix Async Dialog Accept
+
+- Fix Async Dialog
+
 ## 0.18.1 Fix Branches
 
 - Fix Create/Switch/Delete Branch
