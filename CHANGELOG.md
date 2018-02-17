@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.18.1 Fix Branches
+
+- Fix Create/Switch/Delete Branch
+
 ## 0.18.0 Async Dialogs
 
 - Async Confirmation Dialogs (only works in Atom >=1.25.0)
