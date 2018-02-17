@@ -95,11 +95,11 @@ describe("Dialog", function () {
 		expect(dialog.modalPanel.destroy).toHaveBeenCalled();
 	});
 
-	it("should call this.validate on accept", function () {
+	it("should call this.validate on accept", async function () {
 		spyOn(this.TestDialog.prototype, "validate");
 		const dialog = new this.TestDialog();
 		dialog.activate();
-		dialog.accept();
+		await dialog.accept();
 		expect(this.TestDialog.prototype.validate).toHaveBeenCalled();
 	});
 
@@ -107,7 +107,7 @@ describe("Dialog", function () {
 		this.TestDialog.prototype.validate = (() => false);
 		const dialog = new this.TestDialog();
 		const promise = dialog.activate();
-		dialog.accept();
+		await dialog.accept();
 		dialog.cancel();
 		let error;
 		try {
@@ -121,7 +121,7 @@ describe("Dialog", function () {
 	it("should resolve to an array on accept", async function () {
 		const dialog = new this.TestDialog();
 		const promise = dialog.activate();
-		dialog.accept();
+		await dialog.accept();
 		dialog.cancel();
 		let error;
 		try {
@@ -132,19 +132,19 @@ describe("Dialog", function () {
 		expect(error).toBeFalsy();
 	});
 
-	it("should call this.hide on accept", function () {
+	it("should call this.hide on accept", async function () {
 		spyOn(this.TestDialog.prototype, "hide");
 		const dialog = new this.TestDialog();
 		dialog.activate();
-		dialog.accept();
+		await dialog.accept();
 		expect(this.TestDialog.prototype.hide).toHaveBeenCalled();
 	});
 
-	it("should destroy the modal panel on accept", function () {
+	it("should destroy the modal panel on accept", async function () {
 		const dialog = new this.TestDialog();
 		dialog.activate();
 		spyOn(dialog.modalPanel, "destroy");
-		dialog.accept();
+		await dialog.accept();
 		expect(dialog.modalPanel.destroy).toHaveBeenCalled();
 	});
 
