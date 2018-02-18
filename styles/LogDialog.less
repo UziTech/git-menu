@@ -6,4 +6,20 @@
 		resize: none;
 		color: @text-color-highlight;
 	}
+
+	.format-info {
+		margin-left: 0.5em;
+		color: @text-color-subtle;
+		line-height: 12px;
+
+		&:focus,
+		&:hover {
+			color: @text-color-highlight;
+		}
+
+		.icon::before {
+			margin-right: 0;
+			font-size: 12px;
+		}
+	}
 }
