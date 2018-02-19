@@ -1,4 +1,7 @@
 <!-- lint disable first-heading-level list-item-indent -->
+## 0.20.0 Backwards Compatible
+
+- Use Synchronous Confirmation Dialogs in Atom <=1.24.x
 
 ## 0.19.0 Add Log and Stage commands
 
