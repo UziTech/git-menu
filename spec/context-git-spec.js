@@ -4,6 +4,8 @@ import commands from "../lib/commands";
 import config from "../lib/config";
 import main from "../lib/main";
 import {mockGit, createGitRoot, getFilePath, files} from "./mocks";
+import fs from "fs";
+import path from "path";
 
 describe("Context Git", function () {
 	beforeEach(async function () {
@@ -114,6 +116,18 @@ describe("Context Git", function () {
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
 				}
+			});
+		});
+
+		describe("command files", function () {
+		// eslint-disable-next-line no-sync
+			fs.readdirSync(path.resolve(__dirname, "../lib/commands")).map(file => {
+				describe(file, function () {
+					it("should be in commands.js", function () {
+						const command = file.replace(/.js$/, "");
+						expect(command in commands).toBe(true);
+					});
+				});
 			});
 		});
 	});
