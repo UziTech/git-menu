@@ -64,6 +64,7 @@
 				"message": "Do not commit focused tests."
 						}
 				],
+		"no-console": 1,
 		"no-shadow": 1,
 		"no-undef": 2,
 		"no-undefined": 2,
