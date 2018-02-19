@@ -47,7 +47,7 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value: "i"});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
-		component.handleInputFocus({target: component.refs.input});
+		// component.handleInputFocus({target: component.refs.input});
 
 		expect(component.isOpen()).toBe(true);
 		expect(component.refs.menu).toBeTruthy();
