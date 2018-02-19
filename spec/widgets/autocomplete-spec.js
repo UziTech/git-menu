@@ -37,7 +37,9 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value: ""});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
+		component.handleInputFocus({target: component.refs.input});
 
+		expect(component.isOpen()).toBe(false);
 		expect(component.refs.menu).toBeFalsy();
 	});
 
@@ -45,7 +47,9 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value: "i"});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
+		component.handleInputFocus({target: component.refs.input});
 
+		expect(component.isOpen()).toBe(true);
 		expect(component.refs.menu).toBeTruthy();
 		for (var i = 0; i < this.items.length; i++) {
 			expect(component.refs[`item-${i}`]).toBeTruthy();
@@ -57,6 +61,7 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value: "i", maxItems});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
+		component.handleInputFocus({target: component.refs.input});
 
 		for (var i = 0; i < this.items.length; i++) {
 			if (i < maxItems) {
@@ -72,6 +77,7 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
+		component.handleInputFocus({target: component.refs.input});
 
 		const filtered = Array.from(component.refs.menu.children).every(item => item.textContent.includes(value));
 		expect(filtered).toBe(true);
@@ -82,6 +88,7 @@ describe("Autocomplete.js", function () {
 		const component = new Autocomplete({items: this.items, value});
 		jasmine.attachToDOM(component.element);
 		component.refs.input.focus();
+		component.handleInputFocus({target: component.refs.input});
 
 		const hasItem = Array.from(component.refs.menu.children).some(item => item === value);
 		expect(hasItem).toBe(false);
