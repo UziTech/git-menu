@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 0.18.3
+
+- Add [Log](https://github.com/UziTech/context-git/blob/master/docs/docs.md#log) command
+
 ## 0.18.2 Fix Async Dialog Accept
 
 - Fix Async Dialog
