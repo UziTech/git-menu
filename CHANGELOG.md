@@ -1,7 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 0.18.3
+## 0.19.0 Add Log and Stage commands
 
+- add [Commit Staged](https://github.com/UziTech/context-git/blob/master/docs/docs.md#commit-staged) command
+- add [Stage Changes](https://github.com/UziTech/context-git/blob/master/docs/docs.md#stage-changes) command
+- Unstage files before Add to Last Commit
 - Add [Log](https://github.com/UziTech/context-git/blob/master/docs/docs.md#log) command
 
 ## 0.18.2 Fix Async Dialog Accept
