@@ -1,6 +1,5 @@
 /** @babel */
 
-import {Directory} from "atom";
 import discardChanges from "../../lib/commands/discard-changes";
 import Notifications from "../../lib/Notifications";
 import {getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, fileStatus, files} from "../mocks";
@@ -10,8 +9,6 @@ describe("discard-changes", function () {
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
 		this.gitRoot = await createGitRoot();
-
-		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus(" M", files.t1), fileStatus("??", files.t2)];
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);

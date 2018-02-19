@@ -1,6 +1,5 @@
 /** @babel */
 
-import {Directory} from "atom";
 import runCommand from "../../lib/commands/run-command";
 import Notifications from "../../lib/Notifications";
 import {getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoot, fileStatus, files} from "../mocks";
@@ -10,8 +9,6 @@ describe("run-command", function () {
 	beforeEach(async function () {
 		await atom.packages.activatePackage("context-git");
 		this.gitRoot = await createGitRoot();
-
-		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));
 
 		this.statuses = [fileStatus("M ", files.t1)];
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
