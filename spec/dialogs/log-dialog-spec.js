@@ -5,6 +5,7 @@ import {mockGit, createGitRoot} from "../mocks";
 
 describe("LogDialog", function () {
 	beforeEach(async function () {
+		await atom.packages.activatePackage("context-git");
 		this.gitRoot = await createGitRoot();
 		this.git = mockGit({
 			log: Promise.resolve(""),
