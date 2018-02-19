@@ -92,15 +92,23 @@ describe("Context Git", function () {
 					}
 					it("should be called if atom.confirm returns true", async function () {
 						this.confirmSpy.and.callFake((opts, callback) => {
-							callback(0, false);
+							if (callback) {
+								callback(0, false);
+							} else {
+								return 0;
+							}
 						});
 						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
 						expect(this.cmdSpy).toHaveBeenCalled();
 					});
-					it("should not be called if atom.confirm returns false", async function () {
+					it("should not be called if atom.confirm is canceled", async function () {
 						this.confirmSpy.and.callFake((opts, callback) => {
-							callback(1, false);
+							if (callback) {
+								callback(1, false);
+							} else {
+								return 2;
+							}
 						});
 						await dispatch({target: atom.views.getView(atom.workspace)});
 						expect(this.confirmSpy).toHaveBeenCalled();
