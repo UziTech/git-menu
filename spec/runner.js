@@ -1,6 +1,6 @@
 /** @babel */
 
-import {createRunner} from "atom-jasmine2-test-runner";
+import {createRunner} from "atom-jasmine3-test-runner";
 
 export default createRunner({
 	specHelper: {

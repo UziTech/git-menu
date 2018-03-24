@@ -13,7 +13,7 @@
     "atom": ">=1.13.0 <2.0.0"
   },
   "dependencies": {
-    "etch": "^0.12.8",
+    "etch": "^0.14.0",
     "promisificator": "^4.1.1",
     "rimraf": "^2.6.2",
     "string-argv": "0.0.2"
@@ -27,9 +27,9 @@
     }
   },
   "devDependencies": {
-    "atom-jasmine2-test-runner": "^2.0.0",
-    "eslint": "^4.17.0",
-    "eslint-plugin-react": "^7.6.1",
+    "atom-jasmine3-test-runner": "^3.1.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
     "temp": "^0.8.3"
   }
 }
