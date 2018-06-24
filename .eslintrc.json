@@ -8,11 +8,10 @@
 	},
 	"parserOptions": {
 		"sourceType": "module",
-		"ecmaVersion": 2017,
+		"ecmaVersion": 2018,
 		"ecmaFeatures": {
 			"jsx": true,
-			"impliedStrict": true,
-			"experimentalObjectRestSpread": true
+			"impliedStrict": true
 		}
 	},
 	"plugins": [
