@@ -16,7 +16,7 @@
     "etch": "^0.14.0",
     "promisificator": "^4.1.1",
     "rimraf": "^2.6.2",
-    "string-argv": "0.1.1"
+    "string-argv": "^0.1.1"
   },
   "atomTestRunner": "./spec/runner",
   "consumedServices": {
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "atom-jasmine3-test-runner": "^4.0.0",
-    "eslint": "^5.0.0",
-    "eslint-plugin-react": "^7.9.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-react": "^7.10.0",
     "temp": "^0.8.3"
   },
   "scripts": {
