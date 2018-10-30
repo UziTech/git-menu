@@ -10,15 +10,15 @@ import path from "path";
 describe("Context Git", function () {
 	beforeEach(async function () {
 		atom.project.setPaths([__dirname]);
-		await atom.packages.activatePackage("context-git");
-		this.configOptions = atom.config.getAll("context-git")[0].value;
+		await atom.packages.activatePackage("git-menu");
+		this.configOptions = atom.config.getAll("git-menu")[0].value;
 		this.configConfirmationDialogs = Object.keys(this.configOptions.confirmationDialogs);
 		this.configContextMenuItems = Object.keys(this.configOptions.contextMenuItems);
 		this.allConfig = Object.keys(this.configOptions);
 		this.allCommands = atom.commands
 			.findCommands({target: atom.views.getView(atom.workspace)})
 			.map(cmd => cmd.name)
-			.filter(cmd => cmd.startsWith("context-git:"));
+			.filter(cmd => cmd.startsWith("git-menu:"));
 		this.getContextMenuItems = () => atom.contextMenu.itemSets
 			.filter(itemSet => itemSet.selector === "atom-workspace, atom-text-editor, .tree-view, .tab-bar")
 			.map(itemSet => itemSet.items[0].submenu[0].command);
@@ -35,7 +35,7 @@ describe("Context Git", function () {
 
 	describe("Commands", function () {
 		Object.keys(commands).forEach(command => {
-			const cmd = `context-git:${command}`;
+			const cmd = `git-menu:${command}`;
 			const {label, confirm, description, command: func} = commands[command];
 			const dispatch = main.dispatchCommand(command, commands[command]);
 			describe(command, function () {
@@ -59,7 +59,7 @@ describe("Context Git", function () {
 						expect(this.getContextMenuItems()).toContain(cmd);
 					});
 					it("should not have a context menu item when unchecked", function () {
-						atom.config.set(`context-git.contextMenuItems.${command}`, false);
+						atom.config.set(`git-menu.contextMenuItems.${command}`, false);
 						expect(this.getContextMenuItems()).not.toContain(cmd);
 					});
 				} else {

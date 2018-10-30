@@ -6,7 +6,7 @@ import {getFilePath, removeGitRoot, createGitRoot, files} from "../mocks";
 describe("git.status", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 
 		this.gitPath = getFilePath(this.gitRoot, ".git");

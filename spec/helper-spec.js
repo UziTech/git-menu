@@ -9,7 +9,7 @@ import path from "path";
 describe("helper", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 
 		this.repo = await atom.project.repositoryForDirectory(new Directory(this.gitRoot));

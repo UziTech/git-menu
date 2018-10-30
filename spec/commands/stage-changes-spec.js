@@ -7,7 +7,7 @@ import {getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, fileStatu
 describe("stage-changes", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 
 		this.statuses = [fileStatus("M ", files.t1), fileStatus("??", files.t2)];
