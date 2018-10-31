@@ -1,7 +1,7 @@
 {
-  "name": "git-menu",
+  "name": "context-git",
   "main": "./lib/main",
-  "version": "1.0.0",
+  "version": "0.20.0",
   "description": "Use git from the context menu",
   "keywords": [
     "git",
@@ -28,7 +28,7 @@
     }
   },
   "devDependencies": {
-    "atom-jasmine3-test-runner": "^4.1.0",
+    "atom-jasmine3-test-runner": "^4.1.1",
     "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.11.1",
     "temp": "^0.8.3"
