@@ -1,7 +1,7 @@
-<!-- [![Throughput Graph](https://graphs.waffle.io/UziTech/context-git/throughput.svg)](https://waffle.io/UziTech/context-git/metrics) -->
-[![Build Status](https://travis-ci.org/UziTech/context-git.svg?branch=master)](https://travis-ci.org/UziTech/context-git)
-[![Build status](https://ci.appveyor.com/api/projects/status/649me6gpm37u4tja?svg=true)](https://ci.appveyor.com/project/UziTech/context-git)
-[![Dependency Status](https://david-dm.org/UziTech/context-git.svg)](https://david-dm.org/UziTech/context-git)
+<!-- [![Throughput Graph](https://graphs.waffle.io/UziTech/git-menu/throughput.svg)](https://waffle.io/UziTech/git-menu/metrics) -->
+[![Build Status](https://travis-ci.org/UziTech/git-menu.svg?branch=master)](https://travis-ci.org/UziTech/git-menu)
+[![Build status](https://ci.appveyor.com/api/projects/status/n2x6eoyt697uhfua?svg=true)](https://ci.appveyor.com/project/UziTech/git-menu)
+[![Dependency Status](https://david-dm.org/UziTech/git-menu.svg)](https://david-dm.org/UziTech/git-menu)
 
 # git-menu package
 
@@ -15,13 +15,13 @@ This package will add a "Git" item to the context menu when you right click on t
 
 ## Documentation
 
-[See /docs/docs.md](https://github.com/UziTech/context-git/blob/master/docs/docs.md)
+[See /docs/docs.md](https://github.com/UziTech/git-menu/blob/master/docs/docs.md)
 
 ## Contributing
 
 ### Voting
 
-The easiest way to contribute to this package is to vote on new commmands. New commands are entered as issues with the [`command`](https://github.com/UziTech/context-git/issues?q=is%3Aissue+is%3Aopen+label%3Acommand) label. I will prioritize commands with the most :+1:'s
+The easiest way to contribute to this package is to vote on new commmands. New commands are entered as issues with the [`command`](https://github.com/UziTech/git-menu/issues?q=is%3Aissue+is%3Aopen+label%3Acommand) label. I will prioritize commands with the most :+1:'s
 
 ### Submit Commands
 
