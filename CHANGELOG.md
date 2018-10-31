@@ -2,7 +2,8 @@
 
 ## 1.0.0 Git Menu
 
-- Change package name to git-menu. There are no other breaking changes.
+- Change package name to git-menu.
+- Changed default notification setting to show git output.
 
 ## 0.20.0 Backwards Compatible
 
