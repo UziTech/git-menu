@@ -28,7 +28,7 @@ describe("git.add", function () {
 
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();
-			await atom.packages.activatePackage("context-git");
+			await atom.packages.activatePackage("git-menu");
 			this.gitRoot = await createGitRoot();
 
 			this.gitPath = getFilePath(this.gitRoot, ".git");

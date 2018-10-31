@@ -1,4 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
+
+## 1.0.0 Git Menu
+
+- Change package name to git-menu. There are no other breaking changes.
+
 ## 0.20.0 Backwards Compatible
 
 - Use Synchronous Confirmation Dialogs in Atom <=1.24.x

@@ -7,7 +7,7 @@ import fs from "fs";
 describe("git.remove", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 
 		await gitCmd.cmd(this.gitRoot, ["init"]);

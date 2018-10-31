@@ -4,8 +4,9 @@
   "version": "0.20.0",
   "description": "Use git from the context menu",
   "keywords": [
-    "context",
-    "git"
+    "git",
+    "menu",
+    "context"
   ],
   "repository": "https://github.com/UziTech/context-git",
   "license": "MIT",
@@ -27,9 +28,9 @@
     }
   },
   "devDependencies": {
-    "atom-jasmine3-test-runner": "^4.0.0",
-    "eslint": "^5.3.0",
-    "eslint-plugin-react": "^7.10.0",
+    "atom-jasmine3-test-runner": "^4.1.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-react": "^7.11.1",
     "temp": "^0.8.3"
   },
   "scripts": {

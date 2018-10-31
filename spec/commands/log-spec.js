@@ -6,7 +6,7 @@ import {getFilePath, statusBar, mockGit, mockDialog, removeGitRoot, createGitRoo
 describe("log", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
@@ -16,7 +16,7 @@ describe("log", function () {
 		this.dialog = mockDialog({
 			activate: Promise.resolve()
 		});
-		this.format = atom.config.get("context-git.logFormat");
+		this.format = atom.config.get("git-menu.logFormat");
 	});
 
 	afterEach(async function () {

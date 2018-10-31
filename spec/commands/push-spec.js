@@ -7,7 +7,7 @@ import {getFilePath, statusBar, mockGit, removeGitRoot, createGitRoot, files} fr
 describe("push", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);

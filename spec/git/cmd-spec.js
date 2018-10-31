@@ -6,7 +6,7 @@ import {removeGitRoot, createGitRoot} from "../mocks";
 describe("git.cmd", function () {
 
 	beforeEach(async function () {
-		await atom.packages.activatePackage("context-git");
+		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 	});
 
