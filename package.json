@@ -1,7 +1,7 @@
 {
   "name": "git-menu",
   "main": "./lib/main",
-  "version": "0.20.0",
+  "version": "1.0.0",
   "description": "Use git from the context menu",
   "keywords": [
     "git",
