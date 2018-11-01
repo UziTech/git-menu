@@ -5,7 +5,7 @@
 - [Commit...](#commit)
 - [Commit All...](#commit-all)
 - [Commit Staged...](#commit-staged)
-- [Stage Changes...](#stage-changes)
+- [Stage Changes](#stage-changes)
 - [Discard Changes](#discard-changes)
 - [Discard All Changes](#discard-all-changes)
 - [Add To Last Commit](#add-to-last-commit)
@@ -27,7 +27,8 @@
 
 ## Commit...
 
-You can commit a single file or multiple files or folders selected in the tree-view. This command will bring up a dialog window where you can deselect any files you do not want to commit.
+You can commit a single file or multiple files or folders selected in the tree-view.
+This command will bring up a dialog window where you can unselect any files you do not want to commit.
 
 You can also choose to amend the last commit with the selected files and/or optionally change the last commit message.
 
@@ -43,9 +44,9 @@ Same as [Commit...](#commit) but will list all changed files in the dialog.
 
 ## Commit Staged...
 
-Same as [Commit...](#commit) but will list only staged changes in the dialog and will .
+Same as [Commit...](#commit) but will list only staged changes in the dialog.
 
-## Stage Changes...
+## Stage Changes
 
 Stage changes for committing later.
 
