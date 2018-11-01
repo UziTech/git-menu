@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 1.0.1 Deprecate `context-git:*` commands
+
+- Show an error when a `context-git:*` command is called. `git-menu:*` must be used.
+
 ## 1.0.0 Git Menu
 
 - Change package name to git-menu.
