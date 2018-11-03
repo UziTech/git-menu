@@ -1,7 +1,8 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## 1.1.0 Hide `context-git:*` commands
+## 1.1.0 Use busy-signal
 
+- Use Busy Signal instead of separate status bar item
 - Hide `context-git:*` commands in the command palette
 
 ## 1.0.1 Deprecate `context-git:*` commands
