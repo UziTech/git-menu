@@ -25,6 +25,11 @@
       "versions": {
         "^1.0.0": "statusBarService"
       }
+    },
+    "atom-ide-busy-signal": {
+      "versions": {
+        "0.1.0": "busySignalService"
+      }
     }
   },
   "devDependencies": {
