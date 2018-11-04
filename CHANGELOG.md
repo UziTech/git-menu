@@ -2,7 +2,7 @@
 
 ## 1.1.0 Use busy-signal
 
-- Use Busy Signal instead of separate status bar item
+- Use Atom IDE Busy Signal if available, instead of separate status bar item
 - Hide `context-git:*` commands in the command palette
 
 ## 1.0.1 Deprecate `context-git:*` commands
