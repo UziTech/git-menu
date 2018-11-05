@@ -105,7 +105,6 @@ describe("DeleteBranchDialog", function () {
 			this.dialog.accept();
 			const ret = await this.activate;
 			expect(ret[2]).toBe(true);
-			expect(atom.confirm).toHaveBeenCalled();
 		});
 
 		it("should return false if branch is not local", async function () {
@@ -121,6 +120,60 @@ describe("DeleteBranchDialog", function () {
 			this.dialog.accept();
 			const ret = await this.activate;
 			expect(ret[3]).toBe(true);
+		});
+
+		describe("confirm", function () {
+
+			it("should confirm on local only available", async function () {
+				this.dialog.state.local = true;
+				this.dialog.state.remote = false;
+				this.dialog.state.branch = "local";
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).toHaveBeenCalled();
+			});
+
+			it("should confirm on remote only available", async function () {
+				this.dialog.state.local = false;
+				this.dialog.state.remote = true;
+				this.dialog.state.branch = "remote";
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).toHaveBeenCalled();
+			});
+
+			it("should confirm on local and remote", async function () {
+				this.dialog.state.local = true;
+				this.dialog.state.remote = true;
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).toHaveBeenCalled();
+			});
+
+			it("should not confirm on local only", async function () {
+				this.dialog.state.local = true;
+				this.dialog.state.remote = false;
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).not.toHaveBeenCalled();
+			});
+
+			it("should not confirm on remote only", async function () {
+				this.dialog.state.local = false;
+				this.dialog.state.remote = true;
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).not.toHaveBeenCalled();
+			});
+
+			it("should not confirm on both false", async function () {
+				this.dialog.state.local = false;
+				this.dialog.state.remote = false;
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).not.toHaveBeenCalled();
+			});
+
 		});
 
 	});
