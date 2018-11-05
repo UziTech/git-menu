@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 1.1.1 Fix Delete Branch bug
+
+- Prevent trying to delete a branch that doesn't exist [#65](https://github.com/UziTech/git-menu/issues/65)
+
 ## 1.1.0 Use busy-signal
 
 - Use Atom IDE Busy Signal if available, instead of separate status bar item
