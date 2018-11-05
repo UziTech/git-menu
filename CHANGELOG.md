@@ -1,5 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## vNext Remove Synchronous Confirmation Dialogs
+
+- Remove Synchronous Confirmation Dialogs
+- Bump minimum Atom version to 1.25.0
+
 ## 1.1.1 Fix Delete Branch bug
 
 - Prevent trying to delete a branch that doesn't exist [#65](https://github.com/UziTech/git-menu/issues/65)
