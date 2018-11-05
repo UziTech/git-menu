@@ -11,7 +11,7 @@
   "repository": "https://github.com/UziTech/git-menu",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.13.0 <2.0.0"
+    "atom": ">=1.25.0 <2.0.0"
   },
   "dependencies": {
     "etch": "^0.14.0",
