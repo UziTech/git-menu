@@ -1,9 +1,10 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
-## vNext Remove Synchronous Confirmation Dialogs
+## 1.1.2 Remove Synchronous Confirmation Dialogs
 
 - Remove Synchronous Confirmation Dialogs
 - Bump minimum Atom version to 1.25.0
+- Fix first commit on a new repo [#76](https://github.com/UziTech/git-menu/issues/76)
 
 ## 1.1.1 Fix Delete Branch bug
 
