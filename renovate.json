@@ -3,7 +3,8 @@
     "config:base"
   ],
   "devDependencies": {
-    "automerge": true
+    "automerge": true,
+    "commitMessageTopic": "devDependency {{depName}}"
   },
   "rangeStrategy": "bump"
 }
