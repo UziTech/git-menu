@@ -1,5 +1,9 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "devDependencies": {
+    "automerge": true
+  },
+  "rangeStrategy": "bump"
 }
