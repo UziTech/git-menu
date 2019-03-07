@@ -96,5 +96,14 @@ describe("MergeBranchDialog", function () {
 			expect(ret[2]).toBe(true);
 		});
 
+		it("should show error on same branch", function () {
+			this.dialog.rootBranchChange({target: {value: "selected"}});
+			this.dialog.mergeBranchChange({target: {value: "selected"}});
+			expect(this.dialog.refs.rootBranchInput.classList).not.toContain("error");
+			expect(this.dialog.refs.mergeBranchInput.classList).not.toContain("error");
+			this.dialog.accept();
+			expect(this.dialog.refs.rootBranchInput.classList).toContain("error");
+			expect(this.dialog.refs.mergeBranchInput.classList).toContain("error");
+		});
 	});
 });
