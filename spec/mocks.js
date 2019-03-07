@@ -83,7 +83,7 @@ export function mockGit(methods = {}) {
 	});
 
 	return mock;
-};
+}
 
 /**
  * Remove the test spec/git-root directory
@@ -121,7 +121,7 @@ export function getFilePath(root, paths) {
 
 	return (isArray ? fullPaths : fullPaths[0]);
 
-};
+}
 
 /**
  * Create the test spec/git-root directory
@@ -152,4 +152,4 @@ export async function createGitRoot(init = true) {
 		// eslint-disable-next-line no-console
 		console.error(ex);
 	}
-};
+}

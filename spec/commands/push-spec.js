@@ -23,25 +23,19 @@ describe("push", function () {
 
 	it("should show pushing... in status bar", async function () {
 		spyOn(statusBar, "show").and.callThrough();
-		try {
-			await push.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
-		expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
+		await push.command(this.filePaths, statusBar, this.git, Notifications);
+		expect(statusBar.show).toHaveBeenCalledWith("Pushing...");
 	});
 
 	it("should call git.push", async function () {
 		spyOn(this.git, "push").and.callThrough();
-		try {
-			await push.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
+		await push.command(this.filePaths, statusBar, this.git, Notifications);
 		expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 	});
 
 	it("should show git notification for push results", async function () {
 		spyOn(Notifications, "addGit").and.callThrough();
-		try {
-			await push.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
+		await push.command(this.filePaths, statusBar, this.git, Notifications);
 		expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 	});
 

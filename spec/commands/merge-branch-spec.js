@@ -53,11 +53,7 @@ describe("merge-branch", function () {
 
 		it("should call dialog.activate()", async function () {
 			spyOn(this.dialog.prototype, "activate").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.dialog.prototype.activate).toHaveBeenCalled();
 		});
 	});
@@ -94,53 +90,33 @@ describe("merge-branch", function () {
 
 		it("should show merging branch... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
-			expect(statusBar.show).toHaveBeenCalledWith("Merging Branch...", null);
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			expect(statusBar.show).toHaveBeenCalledWith("Merging Branch...");
 		});
 
 		it("should not call git.checkoutBranch if root branch is selected", async function () {
 			spyOn(this.git, "checkoutBranch").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.checkoutBranch).not.toHaveBeenCalled();
 		});
 
 		it("should call git.checkoutBranch if root branch not selected", async function () {
 			this.dialogReturn[0].selected = false;
 			spyOn(this.git, "checkoutBranch").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.checkoutBranch).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0].name);
 		});
 
 		it("should call git.merge", async function () {
 			spyOn(this.git, "merge").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.merge).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
 		});
 
 		it("should call git.deleteBranch", async function () {
 			this.dialogReturn[2] = true;
 			spyOn(this.git, "deleteBranch").and.callThrough();
-			try {
-				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {
-				// do nothing
-			}
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.deleteBranch).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
 		});
 	});

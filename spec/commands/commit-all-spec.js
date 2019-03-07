@@ -19,9 +19,7 @@ describe("commit-all", function () {
 
 	it("should call commit with project folders", async function () {
 		spyOn(commit, "command").and.callFake(() => Promise.resolve());
-		try {
-			await commitAll.command(this.filePaths);
-		} catch (ex) {}
+		await commitAll.command(this.filePaths);
 		expect(commit.command.calls.mostRecent().args[0]).toEqual(atom.project.getPaths());
 	});
 });

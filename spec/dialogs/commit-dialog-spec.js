@@ -38,27 +38,27 @@ describe("CommitDialog", function () {
 			this.dialog = new CommitDialog({lastCommit: this.lastCommit});
 		});
 
-		it("should set the message as the last commit message if blank", async function () {
+		it("should set the message as the last commit message if blank", function () {
 			this.dialog.amendChange({target: {checked: true}});
 
 			expect(this.dialog.state.message).toBe(this.lastCommit);
 		});
 
-		it("should not change if message is not blank", async function () {
+		it("should not change if message is not blank", function () {
 			this.dialog.state.message = this.message;
 			this.dialog.amendChange({target: {checked: true}});
 
 			expect(this.dialog.state.message).toBe(this.message);
 		});
 
-		it("should set the message empty if message is last commit", async function () {
+		it("should set the message empty if message is last commit", function () {
 			this.dialog.state.message = this.lastCommit;
 			this.dialog.amendChange({target: {checked: false}});
 
 			expect(this.dialog.state.message).toBe("");
 		});
 
-		it("should not change if message is not last commit", async function () {
+		it("should not change if message is not last commit", function () {
 			this.dialog.state.message = this.message;
 			this.dialog.amendChange({target: {checked: false}});
 

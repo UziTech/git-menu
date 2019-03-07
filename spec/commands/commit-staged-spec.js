@@ -47,7 +47,9 @@ describe("commit-staged", function () {
 			spyOn(this, "dialog").and.callThrough();
 			try {
 				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			} catch (ex) {
+				// do nothing
+			}
 			expect(this.dialog).toHaveBeenCalledWith({
 				files: [this.statuses[0]],
 				lastCommit: "last commit",
@@ -57,9 +59,7 @@ describe("commit-staged", function () {
 
 		it("should call dialog.activate()", async function () {
 			spyOn(this.dialog.prototype, "activate").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.dialog.prototype.activate).toHaveBeenCalled();
 		});
 	});
@@ -95,42 +95,32 @@ describe("commit-staged", function () {
 
 		it("should show committing... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
-			expect(statusBar.show).toHaveBeenCalledWith("Committing...", null);
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			expect(statusBar.show).toHaveBeenCalledWith("Committing...");
 		});
 
 		it("should call git.commit", async function () {
 			spyOn(this.git, "commit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null);
 		});
 
 		it("should call git.commit with amend", async function () {
 			this.dialogReturn[1] = true;
 			spyOn(this.git, "commit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.commit).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[0], this.dialogReturn[1], null);
 		});
 
 		it("should show a git.commit result notification", async function () {
 			spyOn(Notifications, "addGit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(Notifications.addGit).toHaveBeenCalledWith("Commit Staged", "commit result");
 		});
 
 		it("should call refresh after commit", async function () {
 			spyOn(this.repo, "refreshStatus").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.repo.refreshStatus).toHaveBeenCalled();
 		});
 
@@ -148,34 +138,26 @@ describe("commit-staged", function () {
 
 		it("should show pushing... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(statusBar.show).toHaveBeenCalledTimes(2);
-			expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
+			expect(statusBar.show).toHaveBeenCalledWith("Pushing...");
 		});
 
 		it("should call git.push", async function () {
 			spyOn(this.git, "push").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show a git.push result notification", async function () {
 			spyOn(Notifications, "addGit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 		});
 
 		it("should refresh after push", async function () {
 			spyOn(this.repo, "refreshStatus").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.repo.refreshStatus).toHaveBeenCalledTimes(2);
 		});
 
@@ -194,59 +176,45 @@ describe("commit-staged", function () {
 
 		it("should show pulling... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(statusBar.show).toHaveBeenCalledTimes(3);
-			expect(statusBar.show).toHaveBeenCalledWith("Pulling...", null);
+			expect(statusBar.show).toHaveBeenCalledWith("Pulling...");
 		});
 
 		it("should call git.pull", async function () {
 			spyOn(this.git, "pull").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show git notification for pull results", async function () {
 			spyOn(Notifications, "addGit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(Notifications.addGit).toHaveBeenCalledWith("Pull", "pull result");
 		});
 
 		it("should show pushing... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(statusBar.show).toHaveBeenCalledTimes(3);
-			expect(statusBar.show).toHaveBeenCalledWith("Pushing...", null);
+			expect(statusBar.show).toHaveBeenCalledWith("Pushing...");
 		});
 
 		it("should call git.push", async function () {
 			spyOn(this.git, "push").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.push).toHaveBeenCalledWith(this.gitRoot, false);
 		});
 
 		it("should show git notification for push result", async function () {
 			spyOn(Notifications, "addGit").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(Notifications.addGit).toHaveBeenCalledWith("Push", "push result");
 		});
 
 		it("should refresh after pulling and pushing", async function () {
 			spyOn(this.repo, "refreshStatus").and.callThrough();
-			try {
-				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.repo.refreshStatus).toHaveBeenCalledTimes(3);
 		});
 

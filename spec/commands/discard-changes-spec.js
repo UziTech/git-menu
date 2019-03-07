@@ -27,17 +27,13 @@ describe("discard-changes", function () {
 
 	it("should call git.clean", async function () {
 		spyOn(this.git, "clean").and.callThrough();
-		try {
-			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
+		await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 		expect(this.git.clean).toHaveBeenCalled();
 	});
 
 	it("should call git.checkoutFiles", async function () {
 		spyOn(this.git, "checkoutFiles").and.callThrough();
-		try {
-			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
+		await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 		expect(this.git.checkoutFiles).toHaveBeenCalled();
 	});
 
@@ -60,17 +56,13 @@ describe("discard-changes", function () {
 
 		it("should call git.clean", async function () {
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).toHaveBeenCalled();
 		});
 
 		it("should not call git.checkoutFiles", async function () {
 			spyOn(this.git, "checkoutFiles").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.checkoutFiles).not.toHaveBeenCalled();
 		});
 
@@ -84,17 +76,13 @@ describe("discard-changes", function () {
 
 		it("should not call git.clean", async function () {
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).not.toHaveBeenCalled();
 		});
 
 		it("should call git.checkoutFiles", async function () {
 			spyOn(this.git, "checkoutFiles").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.checkoutFiles).toHaveBeenCalled();
 		});
 
@@ -119,17 +107,13 @@ describe("discard-changes", function () {
 
 		it("should not call git.clean", async function () {
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).not.toHaveBeenCalled();
 		});
 
 		it("should call git.checkoutFiles", async function () {
 			spyOn(this.git, "checkoutFiles").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.checkoutFiles).toHaveBeenCalled();
 		});
 
@@ -143,17 +127,13 @@ describe("discard-changes", function () {
 
 		it("should call git.clean", async function () {
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).toHaveBeenCalled();
 		});
 
 		it("should not call git.checkoutFiles", async function () {
 			spyOn(this.git, "checkoutFiles").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.checkoutFiles).not.toHaveBeenCalled();
 		});
 
@@ -163,17 +143,13 @@ describe("discard-changes", function () {
 
 		it("should call git.clean with ['.']", async function () {
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["."]);
 		});
 
 		it("should call git.checkoutFiles with ['.']", async function () {
 			spyOn(this.git, "checkoutFiles").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.checkoutFiles).toHaveBeenCalledWith(this.gitRoot, ["."]);
 		});
 
@@ -192,9 +168,7 @@ describe("discard-changes", function () {
 			});
 
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, [files.t1]);
 		});
 
@@ -213,9 +187,7 @@ describe("discard-changes", function () {
 			});
 
 			spyOn(this.git, "clean").and.callThrough();
-			try {
-				await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
-			} catch (ex) {}
+			await discardChanges.command(this.filePaths, statusBar, this.git, Notifications);
 			expect(this.git.clean).toHaveBeenCalledWith(this.gitRoot, ["test/"]);
 		});
 

@@ -19,9 +19,7 @@ describe("discard-all-changes", function () {
 
 	it("should call discard changes with project folders", async function () {
 		spyOn(discardChanges, "command").and.callFake(() => Promise.resolve());
-		try {
-			await discardAllChanges.command(this.filePaths);
-		} catch (ex) {}
+		await discardAllChanges.command(this.filePaths);
 		expect(discardChanges.command.calls.mostRecent().args[0]).toEqual(atom.project.getPaths());
 	});
 });

@@ -8,7 +8,7 @@ describe("LogDialog", function () {
 		await atom.packages.activatePackage("git-menu");
 		this.gitRoot = await createGitRoot();
 		this.git = mockGit({
-			log: Promise.resolve(""),
+			log: () => Promise.resolve(""),
 		});
 	});
 
@@ -68,7 +68,7 @@ describe("LogDialog", function () {
 
 	});
 
-	it("should call getLogs when scrolled to the bottom", async function () {
+	it("should call getLogs when scrolled to the bottom", function () {
 		const dialog = new LogDialog({root: this.gitRoot, gitCmd: this.git, format: ""});
 		spyOn(dialog, "getLogs");
 

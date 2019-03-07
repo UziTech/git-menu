@@ -17,6 +17,9 @@
 	"plugins": [
 		"react"
 	],
+	"extends": [
+		"eslint:recommended"
+	],
 	"rules": {
 		"valid-jsdoc": 1,
 
@@ -123,5 +126,10 @@
 	"globals": {
 		"atom": false,
 		"pass": false
+	},
+	"settings": {
+		"react": {
+			"version": "16"
+		}
 	}
 }

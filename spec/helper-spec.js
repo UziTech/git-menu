@@ -29,7 +29,7 @@ describe("helper", function () {
 
 		it("should get directory of file", async function () {
 			const file = getFilePath(this.gitRoot, files.t1);
-			const dir = this.gitRoot.replace(/[\/\\]$/, "");
+			const dir = this.gitRoot.replace(/[/\\]$/, "");
 
 			const dirs = await helper.getDirectories([file]);
 
@@ -60,7 +60,7 @@ describe("helper", function () {
 		});
 
 		it("should group files in same folder", async function () {
-			const dir = this.gitRoot.replace(/[\/\\]$/, "");
+			const dir = this.gitRoot.replace(/[/\\]$/, "");
 			const filePaths = getFilePath(this.gitRoot, [files.t1, files.t2]);
 
 			const dirs = await helper.getDirectories(filePaths);
@@ -72,7 +72,7 @@ describe("helper", function () {
 		});
 
 		it("should not group files in different folder", async function () {
-			const dir = this.gitRoot.replace(/[\/\\]$/, "");
+			const dir = this.gitRoot.replace(/[/\\]$/, "");
 			const testDir = path.join(this.gitRoot, "test");
 			const filePaths = getFilePath(this.gitRoot, [files.t1, files.tt2]);
 
@@ -120,7 +120,7 @@ describe("helper", function () {
 			];
 		});
 
-		it("should not reduce files if there is not a common folder", async function () {
+		it("should not reduce files if there is not a common folder", function () {
 			const selectedFiles = [
 				"/a.txt",
 				"/c/d/a.txt",
@@ -131,7 +131,7 @@ describe("helper", function () {
 			expect(reducedFiles).toEqual(selectedFiles);
 		});
 
-		it("should reduce files if there is a common folder", async function () {
+		it("should reduce files if there is a common folder", function () {
 			const selectedFiles = [
 				"/a.txt",
 				"/c/d/a.txt",
@@ -147,7 +147,7 @@ describe("helper", function () {
 			]);
 		});
 
-		it("should reduce sub-folders if there is a common folder", async function () {
+		it("should reduce sub-folders if there is a common folder", function () {
 			const selectedFiles = [
 				"/a.txt",
 				"/c/d/a.txt",
@@ -163,13 +163,13 @@ describe("helper", function () {
 			]);
 		});
 
-		it("should reduce to ['/'] if all files are selected", async function () {
+		it("should reduce to ['/'] if all files are selected", function () {
 			const reducedFiles = helper.reduceFilesToCommonFolders(this.allFiles, this.allFiles);
 
 			expect(reducedFiles).toEqual(["/"]);
 		});
 
-		it("should remove files not in all files", async function () {
+		it("should remove files not in all files", function () {
 			const selectedFiles = [
 				"/a.txt",
 				"/b.txt",

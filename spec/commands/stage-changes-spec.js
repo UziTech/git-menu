@@ -25,9 +25,7 @@ describe("stage-changes", function () {
 
 	it("should call git.add", async function () {
 		spyOn(this.git, "add").and.callThrough();
-		try {
-			await stageChanges.command(this.filePaths, statusBar, this.git, Notifications);
-		} catch (ex) {}
+		await stageChanges.command(this.filePaths, statusBar, this.git, Notifications);
 		expect(this.git.add).toHaveBeenCalled();
 	});
 

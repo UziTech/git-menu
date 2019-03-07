@@ -36,7 +36,9 @@ describe("run-command", function () {
 			spyOn(this, "dialog").and.callThrough();
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			} catch (ex) {
+				// do nothing
+			}
 			expect(this.dialog).toHaveBeenCalledWith({
 				files: this.statuses
 			});
@@ -44,9 +46,7 @@ describe("run-command", function () {
 
 		it("should call dialog.activate()", async function () {
 			spyOn(this.dialog.prototype, "activate").and.callThrough();
-			try {
-				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.dialog.prototype.activate).toHaveBeenCalled();
 		});
 	});
@@ -85,35 +85,27 @@ describe("run-command", function () {
 
 		it("should show running... in status bar", async function () {
 			spyOn(statusBar, "show").and.callThrough();
-			try {
-				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
-			expect(statusBar.show).toHaveBeenCalledWith("Running...", null);
+			await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			expect(statusBar.show).toHaveBeenCalledWith("Running...");
 		});
 
 		it("should call git.cmd", async function () {
 			this.dialogReturn[0] = " git command arg1 --arg2=\"test string\" ";
 			spyOn(this.git, "cmd").and.callThrough();
-			try {
-				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", "--arg2=\"test string\""]);
 		});
 
 		it("should call git.cmd", async function () {
 			spyOn(this.git, "cmd").and.callThrough();
-			try {
-				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, [this.dialogReturn[0]]);
 		});
 
 		it("should call git.cmd with files", async function () {
 			this.dialogReturn[0] = "command arg1 %files%";
 			spyOn(this.git, "cmd").and.callThrough();
-			try {
-				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			} catch (ex) {}
+			await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.cmd).toHaveBeenCalledWith(this.gitRoot, ["command", "arg1", getFilePath(this.gitRoot, this.dialogReturn[1][0])]);
 		});
 

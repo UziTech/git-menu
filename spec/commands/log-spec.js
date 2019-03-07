@@ -10,11 +10,11 @@ describe("log", function () {
 		this.gitRoot = await createGitRoot();
 		this.filePaths = getFilePath(this.gitRoot, [files.t1]);
 		this.git = mockGit({
-			rootDir: Promise.resolve(this.gitRoot),
-			cmd: Promise.resolve("cmd result"),
+			rootDir: () => Promise.resolve(this.gitRoot),
+			cmd: () => Promise.resolve("cmd result"),
 		});
 		this.dialog = mockDialog({
-			activate: Promise.resolve()
+			activate: () => Promise.resolve()
 		});
 		this.format = atom.config.get("git-menu.logFormat");
 	});
@@ -29,7 +29,9 @@ describe("log", function () {
 			spyOn(this, "dialog").and.callThrough();
 			try {
 				await log.command(this.filePaths, statusBar, this.git, null, this.dialog);
-			} catch (ex) {}
+			} catch (ex) {
+				// do nothing
+			}
 			expect(this.dialog).toHaveBeenCalledWith(jasmine.objectContaining({
 				root: this.gitRoot,
 				gitCmd: jasmine.any(Object),
@@ -39,9 +41,7 @@ describe("log", function () {
 
 		it("should call dialog.activate()", async function () {
 			spyOn(this.dialog.prototype, "activate").and.callThrough();
-			try {
-				await log.command(this.filePaths, statusBar, this.git, null, this.dialog);
-			} catch (ex) {}
+			await log.command(this.filePaths, statusBar, this.git, null, this.dialog);
 			expect(this.dialog.prototype.activate).toHaveBeenCalled();
 		});
 	});
