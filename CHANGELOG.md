@@ -1,5 +1,9 @@
 <!-- lint disable first-heading-level list-item-indent -->
 
+## 1.2.0 Add Merge Branch Command
+
+- Add Merge Branch command [#91](https://github.com/UziTech/git-menu/issues/91)
+
 ## 1.1.2 Remove Synchronous Confirmation Dialogs
 
 - Remove Synchronous Confirmation Dialogs
