@@ -97,6 +97,7 @@ export async function removeGitRoot(root) {
 		pathWatcher.dispose();
 		await promisify(temp.cleanup)();
 	} catch (ex) {
+		// eslint-disable-next-line no-console
 		console.error(ex);
 	}
 }
@@ -148,6 +149,7 @@ export async function createGitRoot(init = true) {
 
 		return root;
 	} catch (ex) {
+		// eslint-disable-next-line no-console
 		console.error(ex);
 	}
 };
