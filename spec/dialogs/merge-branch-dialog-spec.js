@@ -12,6 +12,10 @@ describe("MergeBranchDialog", function () {
 		];
 
 		this.root = "root";
+
+		spyOn(atom, "confirm").and.callFake((opts, callback) => {
+			callback([0, false]);
+		});
 	});
 
 	describe("selected branch", function () {
@@ -104,6 +108,28 @@ describe("MergeBranchDialog", function () {
 			this.dialog.accept();
 			expect(this.dialog.refs.rootBranchInput.classList).toContain("error");
 			expect(this.dialog.refs.mergeBranchInput.classList).toContain("error");
+		});
+
+		describe("confirm", function () {
+
+			it("should confirm on delete", async function () {
+				this.dialog.state.delete = true;
+				this.dialog.state.rootBranch = "branch1";
+				this.dialog.state.mergeBranch = "branch2";
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).toHaveBeenCalled();
+			});
+
+			it("should not confirm on not delete", async function () {
+				this.dialog.state.delete = false;
+				this.dialog.state.rootBranch = "branch1";
+				this.dialog.state.mergeBranch = "branch2";
+				this.dialog.accept();
+				await this.activate;
+				expect(atom.confirm).not.toHaveBeenCalled();
+			});
+
 		});
 	});
 });
