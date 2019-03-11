@@ -17,7 +17,7 @@
     "etch": "^0.14.0",
     "promisificator": "^4.1.1",
     "rimraf": "^2.6.3",
-    "string-argv": "^0.1.1"
+    "string-argv": "^0.1.2"
   },
   "atomTestRunner": "./spec/runner",
   "consumedServices": {
