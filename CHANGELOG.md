@@ -1,6 +1,6 @@
-## [next](https://github.com/UziTech/git-menu/compare/v1.3.0...master)
+## [next](https://github.com/UziTech/git-menu/compare/v1.4.0...master)
 
-## [1.3.0](https://github.com/UziTech/git-menu/compare/v1.2.0...v1.3.0)
+## [1.4.0](https://github.com/UziTech/git-menu/compare/v1.2.0...v1.4.0)
 
 -   Show busy signal when command starts
 -   Clean up code
