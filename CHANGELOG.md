@@ -2,6 +2,7 @@
 
 -   Show busy signal when command starts
 -   Clean up code
+-   Add Diff command [#94](https://github.com/UziTech/git-menu/issues/94)
 
 ## [1.2.0](https://github.com/UziTech/git-menu/compare/v1.1.2...v1.2.0) (2019-03-07)
 
