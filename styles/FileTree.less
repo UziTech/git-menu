@@ -1,0 +1,57 @@
+@import "ui-variables";
+
+.git-menu {
+	.file-tree {
+		padding: 2px;
+		width: 100%;
+		line-height: 1.4em;
+		max-height: 14em;
+		overflow: auto;
+		margin-bottom: 15px;
+
+		ul {
+			padding-left: 0px;
+			margin-bottom: 0px;
+
+			ul {
+				padding-left: 20px;
+				margin-top: 10px;
+			}
+
+			li {
+				list-style: none;
+				margin-bottom: 10px;
+
+				&:last-child {
+					margin-bottom: 0px;
+				}
+
+				&.untracked, &.added {
+					color: @text-color-success;
+				}
+
+				&.changed {
+					color: @text-color-warning;
+				}
+
+				&.deleted {
+					color: @text-color-error;
+				}
+
+				&.unchecked {
+					color: @text-color-subtle;
+				}
+
+				&.dir {
+					cursor: default;
+				}
+
+				&.collapsed {
+					ul {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
