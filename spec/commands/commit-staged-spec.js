@@ -45,6 +45,7 @@ describe("commit-staged", function () {
 
 		it("should call dialog with correct props", async function () {
 			spyOn(this, "dialog").and.callThrough();
+			spyOn(atom.config, "get").and.returnValue(true);
 			try {
 				await commitStaged.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {
@@ -53,7 +54,8 @@ describe("commit-staged", function () {
 			expect(this.dialog).toHaveBeenCalledWith({
 				files: [this.statuses[0]],
 				lastCommit: "last commit",
-				filesSelectable: false
+				filesSelectable: false,
+				treeView: true,
 			});
 		});
 

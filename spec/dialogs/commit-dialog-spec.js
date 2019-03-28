@@ -18,7 +18,7 @@ describe("CommitDialog", function () {
 
 		it("should select all files by default", function () {
 			const dialog = new CommitDialog({files: this.files});
-			const selectedFiles = dialog.state.files.filter(f => f.selected);
+			const selectedFiles = dialog.refs.fileTree.getSelectedFiles();
 			expect(selectedFiles.length).toBe(this.files.length);
 		});
 
