@@ -1,7 +1,5 @@
 /** @babel */
 
-/** @jsx etch.dom */
-
 import etch from "etch";
 import Autocomplete from "../../lib/widgets/Autocomplete.js";
 
