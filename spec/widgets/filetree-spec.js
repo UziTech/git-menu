@@ -100,4 +100,58 @@ describe("FileTree.js", function () {
 
 		expect(dirs).toBe(null);
 	});
+
+	describe("checkboxes", () => {
+		beforeEach(function () {
+			const component = new FileTree({files: this.files});
+			jasmine.attachToDOM(component.element);
+			const checkboxes = component.element.querySelectorAll("[type='checkbox']");
+
+			this.checkbox = (name) => {
+				const order = [
+					"a/b/",
+					"a/b/f.js",
+					"a/b/g.js",
+					"b/a/f.js",
+					"c/a/",
+					"c/a/b/f.js",
+					"c/a/c/f.js",
+				];
+				const index = order.indexOf(name);
+
+				return index > -1 ? checkboxes[index] : null;
+			};
+		});
+
+		it("should (un)check all children", function () {
+			expect(this.checkbox("a/b/f.js").checked).toBe(true);
+			expect(this.checkbox("a/b/g.js").checked).toBe(true);
+
+			this.checkbox("a/b/").click();
+
+			expect(this.checkbox("a/b/f.js").checked).toBe(false);
+			expect(this.checkbox("a/b/g.js").checked).toBe(false);
+
+			this.checkbox("a/b/").click();
+
+			expect(this.checkbox("a/b/f.js").checked).toBe(true);
+			expect(this.checkbox("a/b/g.js").checked).toBe(true);
+		});
+
+		it("should change parents indeterminate", function () {
+			expect(this.checkbox("a/b/").checked).toBe(true);
+			expect(this.checkbox("a/b/").indeterminate).toBe(false);
+
+			this.checkbox("a/b/f.js").click();
+
+			expect(this.checkbox("a/b/").checked).toBe(false);
+			expect(this.checkbox("a/b/").indeterminate).toBe(true);
+
+			this.checkbox("a/b/f.js").click();
+
+			expect(this.checkbox("a/b/").checked).toBe(true);
+			expect(this.checkbox("a/b/").indeterminate).toBe(false);
+		});
+	});
+
 });
