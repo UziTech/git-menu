@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/UziTech/git-menu/compare/v1.4.0...v1.5.0) (2019-04-02)
+
+
+### Features
+
+* Merge pull request [#97](https://github.com/UziTech/git-menu/issues/97) from UziTech/tree-view-files ([41a19b7](https://github.com/UziTech/git-menu/commit/41a19b7))
+
 ## [next](https://github.com/UziTech/git-menu/compare/v1.4.0...master)
 
 ## [1.4.0](https://github.com/UziTech/git-menu/compare/v1.2.0...v1.4.0) (2019-03-18)
