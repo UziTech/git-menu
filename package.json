@@ -31,6 +31,9 @@
       }
     }
   },
+  "release": {
+    "extends": "@semantic-release/apm-config"
+  },
   "dependencies": {
     "etch": "^0.14.0",
     "promisificator": "^4.1.1",
