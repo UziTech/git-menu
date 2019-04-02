@@ -13,11 +13,10 @@
   "engines": {
     "atom": ">=1.25.0 <2.0.0"
   },
-  "dependencies": {
-    "etch": "^0.14.0",
-    "promisificator": "^4.1.1",
-    "rimraf": "^2.6.3",
-    "string-argv": "^0.1.2"
+  "scripts": {
+    "test": "atom --test spec",
+    "lint": "eslint .",
+    "semantic-release": "semantic-release"
   },
   "atomTestRunner": "./spec/runner",
   "consumedServices": {
@@ -32,13 +31,18 @@
       }
     }
   },
+  "dependencies": {
+    "etch": "^0.14.0",
+    "promisificator": "^4.1.1",
+    "rimraf": "^2.6.3",
+    "string-argv": "^0.1.2"
+  },
   "devDependencies": {
+    "@semantic-release/apm-config": "^6.0.1",
     "atom-jasmine3-test-runner": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
+    "semantic-release": "^15.13.8",
     "temp": "^0.9.0"
-  },
-  "scripts": {
-    "lint": "eslint ."
   }
 }
