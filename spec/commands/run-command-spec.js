@@ -34,13 +34,15 @@ describe("run-command", function () {
 
 		it("should call dialog with correct props", async function () {
 			spyOn(this, "dialog").and.callThrough();
+			spyOn(atom.config, "get").and.returnValue(true);
 			try {
 				await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			} catch (ex) {
 				// do nothing
 			}
 			expect(this.dialog).toHaveBeenCalledWith({
-				files: this.statuses
+				files: this.statuses,
+				treeView: true,
 			});
 		});
 
