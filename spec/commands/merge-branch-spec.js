@@ -21,12 +21,14 @@ describe("merge-branch", function () {
 			checkoutBranch: Promise.resolve("checkoutBranch result"),
 			merge: Promise.resolve("merge result"),
 			deleteBranch: Promise.resolve("deleteBranch result"),
+			abort: Promise.resolve("abort result"),
 		});
 		this.dialogReturn = [
 			{name: "rootBranch", selected: true},
 			{name: "mergeBranch", selected: false},
 			false,
 			false,
+			true,
 		];
 		this.dialog = mockDialog({
 			activate: () => Promise.resolve(this.dialogReturn)
@@ -126,6 +128,26 @@ describe("merge-branch", function () {
 			spyOn(this.git, "deleteBranch").and.callThrough();
 			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.deleteBranch).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
+		});
+
+		it("should call git.abort", async function () {
+			this.dialogReturn[4] = true;
+			spyOn(this.git, "merge").and.returnValue(Promise.reject("merge error"));
+			spyOn(this.git, "abort").and.callThrough();
+			try {
+				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			} catch (ex) {} // eslint-disable-line no-empty
+			expect(this.git.abort).toHaveBeenCalledWith(this.gitRoot, !this.dialogReturn[2]);
+		});
+
+		it("should not call git.abort", async function () {
+			this.dialogReturn[4] = false;
+			spyOn(this.git, "merge").and.returnValue(Promise.reject("merge error"));
+			spyOn(this.git, "abort").and.callThrough();
+			try {
+				await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			} catch (ex) {} // eslint-disable-line no-empty
+			expect(this.git.abort).not.toHaveBeenCalled();
 		});
 	});
 });

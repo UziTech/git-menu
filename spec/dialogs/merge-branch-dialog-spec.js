@@ -108,6 +108,14 @@ describe("MergeBranchDialog", function () {
 			expect(ret[3]).toBe(true);
 		});
 
+		it("should return abort", async function () {
+			this.dialog.mergeBranchChange({target: {value: "local"}});
+			this.dialog.abortChange({target: {checked: false}});
+			this.dialog.accept();
+			const ret = await this.activate;
+			expect(ret[4]).toBe(false);
+		});
+
 		it("should show error on same branch", function () {
 			this.dialog.rootBranchChange({target: {value: "selected"}});
 			this.dialog.mergeBranchChange({target: {value: "selected"}});
