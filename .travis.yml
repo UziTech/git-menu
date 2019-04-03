@@ -12,17 +12,14 @@ script:
 jobs:
   include:
     - stage: test 👩🏾‍💻
-      env: ATOM_CHANNEL=stable
       os: linux
-    - stage: test 👩🏾‍💻
-      env: ATOM_CHANNEL=beta
-      os: linux
-    - stage: test 👩🏾‍💻
       env: ATOM_CHANNEL=stable
-      os: osx
-    - stage: test 👩🏾‍💻
+    - os: linux
       env: ATOM_CHANNEL=beta
-      os: osx
+    - os: osx
+      env: ATOM_CHANNEL=stable
+    - os: osx
+      env: ATOM_CHANNEL=beta
 
     - stage: lint ✨
       script:
