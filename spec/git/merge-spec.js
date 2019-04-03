@@ -31,9 +31,7 @@ describe("git.merge", function () {
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();
 			await atom.packages.activatePackage("git-menu");
-			this.gitRoot = await createGitRoot();
-
-			this.gitPath = getFilePath(this.gitRoot, ".git");
+			this.gitRoot = await createGitRoot(true, true);
 		});
 
 		afterEach(async function () {
@@ -46,11 +44,21 @@ describe("git.merge", function () {
 			await promisify(fs.writeFile)(getFilePath(this.gitRoot, files.t1), "test");
 			await gitCmd.cmd(this.gitRoot, ["add", "."]);
 			await gitCmd.cmd(this.gitRoot, ["commit", "--message=new branch commit"]);
-			await gitCmd.cmd(this.gitRoot, ["checkout", "-b", "master"]);
-			await gitCmd.merge(this.gitRoot, newBranch);
-			const lastCommit = await gitCmd.cmd(this.gitRoot, ["log", "--max-count=1", "--format=%B"], "", false);
+			await gitCmd.cmd(this.gitRoot, ["checkout", "master"]);
+			await promisify(fs.writeFile)(getFilePath(this.gitRoot, files.t2), "test");
+			await gitCmd.cmd(this.gitRoot, ["add", "."]);
+			await gitCmd.cmd(this.gitRoot, ["commit", "--message=master branch commit"]);
 
-			expect(lastCommit).toBe("new branch commit");
+			await gitCmd.merge(this.gitRoot, newBranch, true);
+
+			let lastCommits = await gitCmd.cmd(this.gitRoot, ["log", "--max-count=3", "--format=%B"], "", false);
+			lastCommits = lastCommits.split("\n").filter(i => i);
+
+			expect(lastCommits).toEqual([
+				"Merge branch 'new-branch'",
+				"master branch commit",
+				"new branch commit",
+			]);
 		});
 
 	});
