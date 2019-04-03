@@ -26,6 +26,7 @@ describe("merge-branch", function () {
 			{name: "rootBranch", selected: true},
 			{name: "mergeBranch", selected: false},
 			false,
+			false,
 		];
 		this.dialog = mockDialog({
 			activate: () => Promise.resolve(this.dialogReturn)
@@ -113,8 +114,15 @@ describe("merge-branch", function () {
 			expect(this.git.merge).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
 		});
 
-		it("should call git.deleteBranch", async function () {
+		it("should call git.rebase", async function () {
 			this.dialogReturn[2] = true;
+			spyOn(this.git, "rebase").and.callThrough();
+			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
+			expect(this.git.rebase).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
+		});
+
+		it("should call git.deleteBranch", async function () {
+			this.dialogReturn[3] = true;
 			spyOn(this.git, "deleteBranch").and.callThrough();
 			await mergeBranch.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(this.git.deleteBranch).toHaveBeenCalledWith(this.gitRoot, this.dialogReturn[1].name);
