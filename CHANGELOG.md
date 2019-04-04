@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/UziTech/git-menu/compare/v1.5.0...v2.0.0) (2019-04-04)
+
+
+### Bug Fixes
+
+* **merge:** Add abort checkbox on merge dialog ([d92a166](https://github.com/UziTech/git-menu/commit/d92a166))
+
+
+### Features
+
+* **merge:** Add rebase checkbox to merge dialog ([8d43d22](https://github.com/UziTech/git-menu/commit/8d43d22))
+
+
+### BREAKING CHANGES
+
+* **merge:** Abort merge on error by default
+
 # [1.5.0](https://github.com/UziTech/git-menu/compare/v1.4.0...v1.5.0) (2019-04-02)
 
 ### Features
