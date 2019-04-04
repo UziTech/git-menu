@@ -126,9 +126,10 @@ export function getFilePath(root, paths) {
 /**
  * Create the test spec/git-root directory
  * @param  {bool} init initialize a git repo (default: true)
+ * @param  {bool} commit commit the initial files with the message "init commit" (default: false)
  * @return {void}
  */
-export async function createGitRoot(init = true) {
+export async function createGitRoot(init = true, commit = false) {
 	try {
 		const root = await promisify(temp.mkdir)("git-root-");
 		const dirs = getFilePath(root, ["/test"]);
@@ -142,7 +143,15 @@ export async function createGitRoot(init = true) {
 		}
 
 		if (init) {
-			await gitCmd.init(root);
+			await gitCmd.cmd(root, ["init"]);
+		}
+
+		if (commit) {
+			if (!init) {
+				throw new Error("Cannot commit without init");
+			}
+			await gitCmd.cmd(root, ["add", "."]);
+			await gitCmd.cmd(root, ["commit", "--message=init commit"]);
 		}
 
 		atom.project.setPaths([root]);

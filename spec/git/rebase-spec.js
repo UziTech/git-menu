@@ -5,7 +5,7 @@ import {getFilePath, removeGitRoot, createGitRoot, files} from "../mocks";
 import {promisify} from "promisificator";
 import fs from "fs";
 
-describe("git.merge", function () {
+describe("git.rebase", function () {
 
 	beforeEach(function () {
 		spyOn(gitCmd, "cmd").and.returnValue(Promise.resolve());
@@ -14,14 +14,14 @@ describe("git.merge", function () {
 		this.gitRoot = "root";
 	});
 
-	it("should send ['merge', branch, '--quiet'] to cmd", async function () {
-		await gitCmd.merge(this.gitRoot, this.branch);
+	it("should send ['rebase', branch, '--quiet'] to cmd", async function () {
+		await gitCmd.rebase(this.gitRoot, this.branch);
 
-		expect(gitCmd.cmd.calls.mostRecent().args[1].filter(i => !!i)).toEqual(["merge", this.branch, "--quiet"]);
+		expect(gitCmd.cmd.calls.mostRecent().args[1].filter(i => !!i)).toEqual(["rebase", this.branch, "--quiet"]);
 	});
 
 	it("should send --verbose to cmd", async function () {
-		await gitCmd.merge(this.gitRoot, this.branch, true);
+		await gitCmd.rebase(this.gitRoot, this.branch, true);
 
 		expect(gitCmd.cmd.calls.mostRecent().args[1]).toContain("--verbose");
 	});
@@ -32,13 +32,15 @@ describe("git.merge", function () {
 			gitCmd.cmd.and.callThrough();
 			await atom.packages.activatePackage("git-menu");
 			this.gitRoot = await createGitRoot(true, true);
+
+			this.gitPath = getFilePath(this.gitRoot, ".git");
 		});
 
 		afterEach(async function () {
 			await removeGitRoot(this.gitRoot);
 		});
 
-		it("should merge a branch", async function () {
+		it("should rebase a branch", async function () {
 			const newBranch = "new-branch";
 			await gitCmd.cmd(this.gitRoot, ["checkout", "-b", newBranch]);
 			await promisify(fs.writeFile)(getFilePath(this.gitRoot, files.t1), "test");
@@ -49,13 +51,12 @@ describe("git.merge", function () {
 			await gitCmd.cmd(this.gitRoot, ["add", "."]);
 			await gitCmd.cmd(this.gitRoot, ["commit", "--message=master branch commit"]);
 
-			await gitCmd.merge(this.gitRoot, newBranch, true);
+			await gitCmd.rebase(this.gitRoot, newBranch, true);
 
-			let lastCommits = await gitCmd.cmd(this.gitRoot, ["log", "--max-count=3", "--format=%B"], "", false);
+			let lastCommits = await gitCmd.cmd(this.gitRoot, ["log", "--max-count=2", "--format=%B"], "", false);
 			lastCommits = lastCommits.split("\n").filter(i => i);
 
 			expect(lastCommits).toEqual([
-				"Merge branch 'new-branch'",
 				"master branch commit",
 				"new branch commit",
 			]);

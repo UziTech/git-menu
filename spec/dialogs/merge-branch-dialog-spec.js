@@ -92,12 +92,28 @@ describe("MergeBranchDialog", function () {
 			expect(ret[1]).toBe(this.branches[0]);
 		});
 
+		it("should return rebase", async function () {
+			this.dialog.mergeBranchChange({target: {value: "local"}});
+			this.dialog.rebaseChange({target: {checked: true}});
+			this.dialog.accept();
+			const ret = await this.activate;
+			expect(ret[2]).toBe(true);
+		});
+
 		it("should return delete", async function () {
 			this.dialog.mergeBranchChange({target: {value: "local"}});
 			this.dialog.deleteChange({target: {checked: true}});
 			this.dialog.accept();
 			const ret = await this.activate;
-			expect(ret[2]).toBe(true);
+			expect(ret[3]).toBe(true);
+		});
+
+		it("should return abort", async function () {
+			this.dialog.mergeBranchChange({target: {value: "local"}});
+			this.dialog.abortChange({target: {checked: false}});
+			this.dialog.accept();
+			const ret = await this.activate;
+			expect(ret[4]).toBe(false);
 		});
 
 		it("should show error on same branch", function () {
