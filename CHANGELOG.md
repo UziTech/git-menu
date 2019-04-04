@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/UziTech/git-menu/compare/v2.0.0...v2.0.1) (2019-04-04)
+
+
+### Bug Fixes
+
+* **git:** Replace all slashes for root ([68293dd](https://github.com/UziTech/git-menu/commit/68293dd))
+* **paths:** Get active text editor if active pane item is not a file ([3e648fc](https://github.com/UziTech/git-menu/commit/3e648fc))
+* **refresh:** Fix project case mismatch ([0bc03f7](https://github.com/UziTech/git-menu/commit/0bc03f7))
+
 # [2.0.0](https://github.com/UziTech/git-menu/compare/v1.5.0...v2.0.0) (2019-04-04)
 
 
