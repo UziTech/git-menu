@@ -22,4 +22,12 @@ describe("commit-all", function () {
 		await commitAll.command(this.filePaths);
 		expect(commit.command.calls.mostRecent().args[0]).toEqual(atom.project.getPaths());
 	});
+
+	it("should only send project folders that contain filePaths", async function () {
+		spyOn(commit, "command").and.callFake(() => Promise.resolve());
+		const [projectFolder] = atom.project.getPaths();
+		spyOn(atom.project, "getPaths").and.callFake(() => [projectFolder, "test"]);
+		await commitAll.command(this.filePaths);
+		expect(commit.command.calls.mostRecent().args[0]).toEqual([projectFolder]);
+	});
 });
