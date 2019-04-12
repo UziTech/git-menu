@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/UziTech/git-menu/compare/v2.0.1...v2.0.2) (2019-04-12)
+
+
+### Bug Fixes
+
+* **commit-all:** Only use selected project ([d20153b](https://github.com/UziTech/git-menu/commit/d20153b))
+
 ## [2.0.1](https://github.com/UziTech/git-menu/compare/v2.0.0...v2.0.1) (2019-04-04)
 
 
