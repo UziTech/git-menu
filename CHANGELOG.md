@@ -1,3 +1,11 @@
+## [2.0.5](https://github.com/UziTech/git-menu/compare/v2.0.4...v2.0.5) (2019-04-22)
+
+
+### Bug Fixes
+
+* **notifications:** Combine git notifications ([3b9184b](https://github.com/UziTech/git-menu/commit/3b9184b))
+* **settings:** Update notification option names ([9c83ef4](https://github.com/UziTech/git-menu/commit/9c83ef4))
+
 ## [2.0.4](https://github.com/UziTech/git-menu/compare/v2.0.3...v2.0.4) (2019-04-17)
 
 
