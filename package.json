@@ -29,6 +29,11 @@
       "versions": {
         "0.1.0": "busySignalService"
       }
+    },
+    "context": {
+      "versions": {
+        "0.1.0": "contextService"
+      }
     }
   },
   "dependencies": {
