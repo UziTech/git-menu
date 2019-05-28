@@ -6,26 +6,31 @@
 - [Commit All...](#commit-all)
 - [Commit Staged...](#commit-staged)
 - [Stage Changes](#stage-changes)
+- [Add To Last Commit](#add-to-last-commit)
+- [Undo Last Commit](#undo-last-commit)
 - [Discard Changes](#discard-changes)
 - [Discard All Changes](#discard-all-changes)
 - [Ignore Changes](#ignore-changes)
 - [Unignore Changes](#unignore-changes)
 - [Stash Changes](#stash-changes)
 - [Unstash Changes](#unstash-changes)
-- [Add To Last Commit](#add-to-last-commit)
-- [Undo Last Commit](#undo-last-commit)
+- [Fetch](#fetch)
+- [Fetch All](#fetch-all)
+- [Pull](#pull)
+- [Pull All](#pull-all)
+- [Push](#push)
+- [Push All](#push-all)
+- [Sync](#sync)
+- [Sync All](#sync-all)
+- [Merge Branch](#merge-branch)
 - [Switch Branch](#switch-branch)
 - [Create Branch](#create-branch)
-- [Merge Branch](#merge-branch)
-- [Pull](#pull)
-- [Push](#push)
-- [Sync](#sync)
+- [Delete Branch](#delete-branch)
 - [Initialize](#initialize)
-- [Refresh](#refresh)
-- [Fetch](#fetch)
-- [Run Command](#run-command)
 - [Log](#log)
 - [Diff](#diff)
+- [Run Command](#run-command)
+- [Refresh](#refresh)
 
 ## Commit...
 
@@ -52,6 +57,16 @@ Same as [Commit...](#commit) but will list only staged changes in the dialog.
 
 Stage changes for committing later.
 
+## Add To Last Commit
+
+This will add the selected files to the last commit.
+
+If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [Commit All...](#commit-all).
+
+## Undo Last Commit
+
+This will undo the last commit but save the changes. Like `git reset --mixed HEAD~1`.
+
 ## Discard Changes
 
 This will discard changes to the selected files.
@@ -76,15 +91,41 @@ Save changes and checkout last commit.
 
 Restore changes from last stash.
 
-## Add To Last Commit
+## Fetch
 
-This will add the selected files to the last commit.
+Fetch from all tracked repos.
 
-If you want to change the message of the last commit you will have to choose [Commit...](#commit) or [Commit All...](#commit-all).
+## Fetch All
 
-## Undo Last Commit
+Fetch all project repos.
 
-This will undo the last commit but save the changes. Like `git reset --mixed HEAD~1`.
+## Pull
+
+Pull from tracked upstream.
+
+## Pull All
+
+Pull all project repos.
+
+## Push
+
+Push to tracked upstream.
+
+## Push All
+
+Push all project repos.
+
+## Sync
+
+Pull then Push.
+
+## Sync All
+
+Pull then Push all project repos.
+
+## Merge Branch
+
+Merge or rebase a branch.
 
 ## Switch Branch
 
@@ -94,37 +135,13 @@ Checkout a different branch in this repo.
 
 Create a branch and optionally track/create a remote branch.
 
-## Merge Branch
+## Delete Branch
 
-Merge or rebase a branch.
-
-## Pull
-
-Pull from tracked upstream.
-
-## Push
-
-Push to tracked upstream.
-
-## Sync
-
-Pull then Push.
+Delete a local and/or remote branch.
 
 ## Initialize
 
 Initialize a git repo for the current project.
-
-## Refresh
-
-Refresh the git status in Atom.
-
-## Fetch
-
-Fetch from all tracked repos.
-
-## Run Command
-
-Run any `git` command with selected `%files%` as an argument.
 
 ## Log
 
@@ -133,3 +150,11 @@ Show the git log.
 ## Diff
 
 Open the diff patch in a new editor.
+
+## Run Command
+
+Run any `git` command with selected `%files%` as an argument.
+
+## Refresh
+
+Refresh the git status in Atom.
