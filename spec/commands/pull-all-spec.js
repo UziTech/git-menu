@@ -22,7 +22,7 @@ describe("pull-all", function () {
 		spyOn(pull, "command").and.callFake(() => Promise.resolve());
 		await pullAll.command();
 		expect(pull.command).toHaveBeenCalledTimes(2);
-		expect(pull.command.calls.argsFor(0)[0]).toEqual(this.gitRoot1);
-		expect(pull.command.calls.argsFor(1)[0]).toEqual(this.gitRoot2);
+		expect(pull.command.calls.argsFor(0)[0]).toEqual([this.gitRoot1]);
+		expect(pull.command.calls.argsFor(1)[0]).toEqual([this.gitRoot2]);
 	});
 });

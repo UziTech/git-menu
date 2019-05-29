@@ -22,7 +22,7 @@ describe("fetch-all", function () {
 		spyOn(fetch, "command").and.callFake(() => Promise.resolve());
 		await fetchAll.command();
 		expect(fetch.command).toHaveBeenCalledTimes(2);
-		expect(fetch.command.calls.argsFor(0)[0]).toEqual(this.gitRoot1);
-		expect(fetch.command.calls.argsFor(1)[0]).toEqual(this.gitRoot2);
+		expect(fetch.command.calls.argsFor(0)[0]).toEqual([this.gitRoot1]);
+		expect(fetch.command.calls.argsFor(1)[0]).toEqual([this.gitRoot2]);
 	});
 });

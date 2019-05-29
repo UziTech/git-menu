@@ -22,7 +22,7 @@ describe("sync-all", function () {
 		spyOn(sync, "command").and.callFake(() => Promise.resolve());
 		await syncAll.command();
 		expect(sync.command).toHaveBeenCalledTimes(2);
-		expect(sync.command.calls.argsFor(0)[0]).toEqual(this.gitRoot1);
-		expect(sync.command.calls.argsFor(1)[0]).toEqual(this.gitRoot2);
+		expect(sync.command.calls.argsFor(0)[0]).toEqual([this.gitRoot1]);
+		expect(sync.command.calls.argsFor(1)[0]).toEqual([this.gitRoot2]);
 	});
 });
