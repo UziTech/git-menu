@@ -43,6 +43,30 @@ describe("FileTree.js", function () {
 		]);
 	});
 
+	it("should group folders first", function () {
+		const component = new FileTree({files: [
+			{file: "a/a.js"},
+			{file: "a/b.js"},
+			{file: "a/c/a.js"},
+			{file: "a/c/b.js"},
+		]});
+		jasmine.attachToDOM(component.element);
+		const spans = component.element.querySelectorAll(".input-label");
+		const labels = [];
+		for (const span of spans) {
+			labels.push(span.textContent.trim());
+		}
+
+		expect(labels).toEqual([
+			"a/",
+			"c/",
+			"a.js",
+			"b.js",
+			"a.js",
+			"b.js",
+		]);
+	});
+
 	it("should select all files initially", function () {
 		const component = new FileTree({files: this.files});
 		jasmine.attachToDOM(component.element);
