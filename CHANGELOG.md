@@ -1,3 +1,24 @@
+# [3.0.0](https://github.com/UziTech/git-menu/compare/v2.0.5...v3.0.0) (2019-06-05)
+
+
+### Bug Fixes
+
+* **commands:** Add new commands ([f227a8e](https://github.com/UziTech/git-menu/commit/f227a8e))
+* **commands:** Fix sending root to multiple repos ([77dbebf](https://github.com/UziTech/git-menu/commit/77dbebf))
+
+
+### Features
+
+* **commands:** Add Fetch All command ([f88ad2c](https://github.com/UziTech/git-menu/commit/f88ad2c))
+* **commands:** Add Pull All command ([8e4d656](https://github.com/UziTech/git-menu/commit/8e4d656))
+* **commands:** Add Push All command ([81234ef](https://github.com/UziTech/git-menu/commit/81234ef))
+* **commands:** Add Sync All command ([99d89b0](https://github.com/UziTech/git-menu/commit/99d89b0))
+
+
+### BREAKING CHANGES
+
+* **commands:** Reorder Commands
+
 ## [2.0.5](https://github.com/UziTech/git-menu/compare/v2.0.4...v2.0.5) (2019-04-22)
 
 
