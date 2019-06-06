@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/UziTech/git-menu/compare/v3.0.0...v3.0.1) (2019-06-06)
+
+
+### Bug Fixes
+
+* **FileTree:** Sort directories first ([3bf516f](https://github.com/UziTech/git-menu/commit/3bf516f))
+
 # [3.0.0](https://github.com/UziTech/git-menu/compare/v2.0.5...v3.0.0) (2019-06-05)
 
 
