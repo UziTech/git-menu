@@ -43,12 +43,12 @@ describe("FileTree.js", function () {
 		]);
 	});
 
-	it("should group folders first", function () {
+	it("should sort folders first", function () {
 		const component = new FileTree({files: [
 			{file: "a/a.js"},
 			{file: "a/b.js"},
-			{file: "a/c/a.js"},
-			{file: "a/c/b.js"},
+			{file: "a/c/d.js"},
+			{file: "a/c/e.js"},
 		]});
 		jasmine.attachToDOM(component.element);
 		const spans = component.element.querySelectorAll(".input-label");
@@ -60,8 +60,29 @@ describe("FileTree.js", function () {
 		expect(labels).toEqual([
 			"a/",
 			"c/",
+			"d.js",
+			"e.js",
 			"a.js",
 			"b.js",
+		]);
+	});
+
+	it("should sort folders with single file first", function () {
+		const component = new FileTree({files: [
+			{file: "a/a.js"},
+			{file: "a/b.js"},
+			{file: "a/c/a.js"},
+		]});
+		jasmine.attachToDOM(component.element);
+		const spans = component.element.querySelectorAll(".input-label");
+		const labels = [];
+		for (const span of spans) {
+			labels.push(span.textContent.trim());
+		}
+
+		expect(labels).toEqual([
+			"a/",
+			"c/a.js",
 			"a.js",
 			"b.js",
 		]);
