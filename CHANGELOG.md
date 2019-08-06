@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/UziTech/git-menu/compare/v3.0.1...v3.0.2) (2019-08-06)
+
+
+### Bug Fixes
+
+* **un/ignore:** Fix ignore with verbose ([e559893](https://github.com/UziTech/git-menu/commit/e559893))
+
 ## [3.0.1](https://github.com/UziTech/git-menu/compare/v3.0.0...v3.0.1) (2019-06-06)
 
 
