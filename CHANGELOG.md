@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/UziTech/git-menu/compare/v3.0.2...v3.0.3) (2019-08-07)
+
+
+### Bug Fixes
+
+* Focus last active element after closing dialog ([#136](https://github.com/UziTech/git-menu/issues/136)) ([1c6868c](https://github.com/UziTech/git-menu/commit/1c6868c))
+
 ## [3.0.2](https://github.com/UziTech/git-menu/compare/v3.0.1...v3.0.2) (2019-08-06)
 
 
