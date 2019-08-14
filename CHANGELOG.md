@@ -1,3 +1,13 @@
+## [3.0.4](https://github.com/UziTech/git-menu/compare/v3.0.3...v3.0.4) (2019-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rimraf to ^2.7.0 ([0fb7f44](https://github.com/UziTech/git-menu/commit/0fb7f44))
+* **deps:** update dependency rimraf to ^2.7.0 ([#138](https://github.com/UziTech/git-menu/issues/138)) ([0077a38](https://github.com/UziTech/git-menu/commit/0077a38))
+* **helper:** fix fs.stat in v1.41.0 ([cab43ab](https://github.com/UziTech/git-menu/commit/cab43ab))
+* **helper:** fix fs.stat in v1.41.0 ([#139](https://github.com/UziTech/git-menu/issues/139)) ([4b6c36f](https://github.com/UziTech/git-menu/commit/4b6c36f))
+
 ## [3.0.3](https://github.com/UziTech/git-menu/compare/v3.0.2...v3.0.3) (2019-08-07)
 
 
