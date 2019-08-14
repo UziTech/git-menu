@@ -34,7 +34,7 @@
   "dependencies": {
     "etch": "^0.14.0",
     "promisificator": "^4.1.1",
-    "rimraf": "^2.6.3",
+    "rimraf": "^2.7.0",
     "string-argv": "^0.3.0"
   },
   "devDependencies": {
