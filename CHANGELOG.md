@@ -1,3 +1,11 @@
+## [3.0.5](https://github.com/UziTech/git-menu/compare/v3.0.4...v3.0.5) (2019-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rimraf to v3 ([a81b8ed](https://github.com/UziTech/git-menu/commit/a81b8ed))
+* **deps:** update dependency rimraf to v3 ([#141](https://github.com/UziTech/git-menu/issues/141)) ([f9d1e4c](https://github.com/UziTech/git-menu/commit/f9d1e4c))
+
 ## [3.0.4](https://github.com/UziTech/git-menu/compare/v3.0.3...v3.0.4) (2019-08-14)
 
 
