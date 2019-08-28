@@ -22,10 +22,12 @@ jobs:
     - os: osx
       env: ATOM_CHANNEL=beta
     - os: windows
-      script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))"
+      install: false
+      script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1'))"
       env: ATOM_CHANNEL=stable
     - os: windows
-      script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))"
+      install: false
+      script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1'))"
       env: ATOM_CHANNEL=beta
 
     - stage: lint ✨
