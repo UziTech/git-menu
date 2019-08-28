@@ -22,11 +22,9 @@ jobs:
     - os: osx
       env: ATOM_CHANNEL=beta
     - os: windows
-      install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))"
       env: ATOM_CHANNEL=stable
     - os: windows
-      install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))"
       env: ATOM_CHANNEL=beta
 
