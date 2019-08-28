@@ -22,11 +22,11 @@ jobs:
     - os: osx
       env: ATOM_CHANNEL=beta
     - os: windows
-      install: false
+      install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1'))"
       env: ATOM_CHANNEL=stable
     - os: windows
-      install: false
+      install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script: PowerShell iex "((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1'))"
       env: ATOM_CHANNEL=beta
 
