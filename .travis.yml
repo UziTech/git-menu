@@ -29,7 +29,7 @@ jobs:
         - git clone _old $TRAVIS_REPO_SLUG
         - cd $TRAVIS_REPO_SLUG
       install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
-      script: PowerShell -Command 'iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1"))'
+      script: PowerShell -Command '& iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1"))'
       env: ATOM_CHANNEL=stable
     - os: windows
       before_install:
@@ -39,7 +39,7 @@ jobs:
         - git clone _old $TRAVIS_REPO_SLUG
         - cd $TRAVIS_REPO_SLUG
       install: PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
-      script: PowerShell -Command 'iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1"))'
+      script: PowerShell -Command '& iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1"))'
       env: ATOM_CHANNEL=beta
 
     - stage: lint ✨
