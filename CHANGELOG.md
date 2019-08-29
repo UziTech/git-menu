@@ -1,3 +1,11 @@
+## [3.0.6](https://github.com/UziTech/git-menu/compare/v3.0.5...v3.0.6) (2019-08-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency string-argv to ^0.3.1 ([edff8eb](https://github.com/UziTech/git-menu/commit/edff8eb))
+* **deps:** update dependency string-argv to ^0.3.1 ([#146](https://github.com/UziTech/git-menu/issues/146)) ([41cc01b](https://github.com/UziTech/git-menu/commit/41cc01b))
+
 ## [3.0.5](https://github.com/UziTech/git-menu/compare/v3.0.4...v3.0.5) (2019-08-15)
 
 
