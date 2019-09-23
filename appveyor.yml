@@ -14,7 +14,7 @@ before_build:
 
 ### Generic setup follows ###
 build_script:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/uzitech/ci/travis-windows/build-package-travis.ps1'))
 
 branches:
   only:
