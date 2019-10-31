@@ -29,6 +29,7 @@ jobs:
     - stage: release 🎉
       if: branch = master && type != pull_request
       script:
+        - nvm install lts/*
         - chmod u+x ./semantic-release.sh
         - ./semantic-release.sh
 
