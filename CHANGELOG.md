@@ -1,3 +1,10 @@
+## [3.0.7](https://github.com/UziTech/git-menu/compare/v3.0.6...v3.0.7) (2019-11-13)
+
+
+### Bug Fixes
+
+* save commit message in localStorage ([561093e](https://github.com/UziTech/git-menu/commit/561093e80ff9b820212a39c9d100dabc15f1fb54))
+
 ## [3.0.6](https://github.com/UziTech/git-menu/compare/v3.0.5...v3.0.6) (2019-08-29)
 
 
