@@ -9,6 +9,7 @@ jobs:
 
     env:
       TRAVIS_OS_NAME: linux
+      TRAVIS_BUILD_DIR: /github/workspace
 
     steps:
     - name: Checkout
@@ -28,6 +29,7 @@ jobs:
 
     env:
       TRAVIS_OS_NAME: osx
+      TRAVIS_BUILD_DIR: /github/workspace
 
     steps:
     - name: Checkout
@@ -46,7 +48,7 @@ jobs:
       - windows-latest
 
     env:
-      ATOM_LINT_WITH_BUNDLED_NODE: true
+      APPVEYOR_BUILD_FOLDER: /github/workspace
 
     steps:
       - name: Checkout
