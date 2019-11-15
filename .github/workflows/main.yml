@@ -18,7 +18,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
 
   linux-beta:
     runs-on: ubuntu-latest
@@ -34,7 +37,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
 
   macos-stable:
     runs-on: macos-latest
@@ -48,7 +54,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
 
   macos-beta:
     runs-on: macos-latest
@@ -64,7 +73,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
 
   windows-stable:
     runs-on: windows-latest
@@ -78,7 +90,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
 
   windows-beta:
     runs-on: windows-latest
@@ -94,7 +109,10 @@ jobs:
     - name: Install dependencies
       run: apm ci
     - name: Run tests
-      run: atom --test spec
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "test"
+        atom --test spec
   
   lint:
     needs: [linux-stable, linux-beta, macos-stable, macos-beta, windows-stable, windows-beta]
