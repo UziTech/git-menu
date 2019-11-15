@@ -9,7 +9,7 @@ jobs:
 
     env:
       TRAVIS_OS_NAME: linux
-      TRAVIS_BUILD_DIR: /github/workspace
+      TRAVIS_BUILD_DIR: $GITHUB_WORKSPACE
 
     steps:
     - name: Checkout
@@ -29,7 +29,7 @@ jobs:
 
     env:
       TRAVIS_OS_NAME: osx
-      TRAVIS_BUILD_DIR: /github/workspace
+      TRAVIS_BUILD_DIR: $GITHUB_WORKSPACE
 
     steps:
     - name: Checkout
@@ -48,7 +48,7 @@ jobs:
       - windows-latest
 
     env:
-      APPVEYOR_BUILD_FOLDER: /github/workspace
+      APPVEYOR_BUILD_FOLDER: $GITHUB_WORKSPACE
 
     steps:
       - name: Checkout
