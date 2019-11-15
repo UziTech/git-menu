@@ -1,61 +1,107 @@
-name: CI
-
-on: [push]
+name: "CI"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
-  build-linux:
-    runs-on:
-      - ubuntu-latest
-
-    env:
-      TRAVIS_OS_NAME: linux
-      TRAVIS_BUILD_DIR: $GITHUB_WORKSPACE
-
+  linux-stable:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-      
-    - name: Build package
-      run: |
-        git config --global user.email "test@example.com"
-        git config --global user.name "test"
-        curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
-        chmod u+x build-package.sh
-        ./build-package.sh
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
 
-  build-macos:
-    runs-on:
-      - macOS-latest
-
-    env:
-      TRAVIS_OS_NAME: osx
-      TRAVIS_BUILD_DIR: $GITHUB_WORKSPACE
-
+  linux-beta:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-      
-    - name: Build package
-      run: |
-        git config --global user.email "test@example.com"
-        git config --global user.name "test"
-        curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
-        chmod u+x build-package.sh
-        ./build-package.sh
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+      with:
+        channel: 'beta'
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
 
-  build-windows:
-    runs-on:
-      - windows-latest
-
-    env:
-      APPVEYOR_BUILD_FOLDER: $GITHUB_WORKSPACE
-
+  macos-stable:
+    runs-on: macos-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
 
-      - name: Run package script
-        run: |
-          git config --global user.email "test@example.com"
-          git config --global user.name "test"
-          iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/UziTech/ci/github/build-package.ps1'))
+  macos-beta:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+      with:
+        channel: 'beta'
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
+
+  windows-stable:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
+
+  windows-beta:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: UziTech/action-setup-atom@v1.0.0
+      with:
+        channel: 'beta'
+    - name: Get Atom versions
+      run: atom -v
+    - name: Get APM versions
+      run: apm -v
+    - name: Install dependencies
+      run: apm ci
+    - name: Run tests
+      run: atom --test spec
+  
+  lint:
+    needs: [linux-stable, linux-beta, macos-stable, macos-beta, windows-stable, windows-beta]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: NPM install
+        run: npm ci 
+      - name: Lint ✨
+        run: npm run lint
