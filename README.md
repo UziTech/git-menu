@@ -1,6 +1,4 @@
-<!-- [![Throughput Graph](https://graphs.waffle.io/UziTech/git-menu/throughput.svg)](https://waffle.io/UziTech/git-menu/metrics) -->
-[![Build Status](https://travis-ci.org/UziTech/git-menu.svg?branch=master)](https://travis-ci.org/UziTech/git-menu)
-[![Build status](https://ci.appveyor.com/api/projects/status/n2x6eoyt697uhfua/branch/master?svg=true)](https://ci.appveyor.com/project/UziTech/git-menu)
+[![Actions Status](https://github.com/UziTech/git-menu/workflows/CI/badge.svg)](https://github.com/UziTech/git-menu/actions)
 [![Dependency Status](https://david-dm.org/UziTech/git-menu.svg)](https://david-dm.org/UziTech/git-menu)
 
 # git-menu package
