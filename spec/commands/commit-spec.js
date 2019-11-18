@@ -203,7 +203,7 @@ describe("commit", function () {
 		it("should call git.pull", async function () {
 			spyOn(this.git, "pull").and.callThrough();
 			await commit.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
-			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false);
+			expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false, false);
 		});
 
 		it("should show git notification for pull results", async function () {

@@ -30,7 +30,14 @@ describe("pull", function () {
 	it("should call git.pull", async function () {
 		spyOn(this.git, "pull").and.callThrough();
 		await pull.command(this.filePaths, statusBar, this.git, Notifications);
-		expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false);
+		expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, false, false);
+	});
+
+	it("should call git.pull with rebase config", async function () {
+		spyOn(this.git, "pull").and.callThrough();
+		atom.config.set("git-menu.rebaseOnPull", true);
+		await pull.command(this.filePaths, statusBar, this.git, Notifications);
+		expect(this.git.pull).toHaveBeenCalledWith(this.gitRoot, true, false);
 	});
 
 	it("should show git notification for pull results", async function () {
