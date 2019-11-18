@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/UziTech/git-menu/compare/v3.0.7...v3.0.8) (2019-11-18)
+
+
+### Bug Fixes
+
+* remove last commit message after commit ([62ec74a](https://github.com/UziTech/git-menu/commit/62ec74a842b7434e5e99ca31ed487897ef909585))
+
 ## [3.0.7](https://github.com/UziTech/git-menu/compare/v3.0.6...v3.0.7) (2019-11-13)
 
 
