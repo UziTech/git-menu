@@ -38,7 +38,7 @@ describe("git.add", function () {
 			await removeGitRoot(this.gitRoot);
 		});
 
-		xit("should add a file", async function () {
+		it("should add a file", async function () {
 			await gitCmd.add(this.gitRoot, getFilePath(this.gitRoot, [files.t1]));
 			const status = await gitCmd.cmd(this.gitRoot, ["status", "--short"]);
 

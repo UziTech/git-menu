@@ -16,7 +16,7 @@ describe("git.status", function () {
 		await removeGitRoot(this.gitRoot);
 	});
 
-	xit("should return status of t1", async function () {
+	it("should return status of t1", async function () {
 		await gitCmd.cmd(this.gitRoot, ["init"]);
 		const status = await gitCmd.status(this.gitRoot, getFilePath(this.gitRoot, [files.t1]));
 		expect(status[0]).toEqual(jasmine.objectContaining({added: false, untracked: true, deleted: false, changed: false, file: files.t1}));

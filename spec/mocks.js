@@ -95,7 +95,7 @@ export async function removeGitRoot(root) {
 		const pathWatcher = await atom.project.getWatcherPromise(root);
 		await pathWatcher.native.stop();
 		pathWatcher.dispose();
-		await promisify(temp.cleanup)();
+		await temp.cleanup();
 	} catch (ex) {
 		// eslint-disable-next-line no-console
 		console.error(ex);
@@ -131,7 +131,11 @@ export function getFilePath(root, paths) {
  */
 export async function createGitRoot(init = true, commit = false) {
 	try {
-		const root = await promisify(temp.mkdir)("git-root-");
+		let root = await temp.mkdir("git-root-");
+		if (process.platform === "win32" && root.includes("~")) {
+			// this should fix when root === "C:\Users\NAME~1\..."
+			root = root.replace(/^c:\\users\\[^\\]+/i, process.env.USERPROFILE);
+		}
 		const dirs = getFilePath(root, ["/test"]);
 		const filePaths = getFilePath(root, ["/test1.txt", "/test2.txt", "/test/test1.txt", "/test/test2.txt"]);
 
