@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/UziTech/git-menu/compare/v3.0.8...v3.1.0) (2019-12-20)
+
+
+### Features
+
+* add rebaseOnPull config ([50a6ee7](https://github.com/UziTech/git-menu/commit/50a6ee7fa4abf0fdeef7e725726ce4d62d007490))
+
 ## [3.0.8](https://github.com/UziTech/git-menu/compare/v3.0.7...v3.0.8) (2019-11-18)
 
 
