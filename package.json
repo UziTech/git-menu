@@ -44,7 +44,7 @@
     "atom-jasmine3-test-runner": "^4.3.10",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
-    "husky": "4.0.6",
+    "husky": "4.0.7",
     "semantic-release": "^16.0.1",
     "temp": "^0.9.1"
   }
