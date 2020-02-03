@@ -42,7 +42,7 @@
     "@semantic-release/apm-config": "^8.0.0",
     "atom-jasmine3-test-runner": "^4.3.12",
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "husky": "4.2.1",
     "semantic-release": "^17.0.2",
     "temp": "^0.9.1"
