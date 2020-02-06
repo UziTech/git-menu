@@ -4,7 +4,6 @@
 ### Bug Fixes
 
 * windows smb root ([d4c6a5d](https://github.com/UziTech/git-menu/commit/d4c6a5d2c7b78224fb345575c76abbc8f0a5fe63))
-* **linting:** executed npm run lint -- --fix ([63398c9](https://github.com/UziTech/git-menu/commit/63398c95f9943307df384c52b365932e490a24bc))
 
 # [3.1.0](https://github.com/UziTech/git-menu/compare/v3.0.8...v3.1.0) (2019-12-20)
 
