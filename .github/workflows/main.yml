@@ -48,8 +48,9 @@ jobs:
 
   Release:
     needs: [Test, Lint]
-    if: startsWith(github.repository, 'UziTech/') &&
-      github.ref == 'refs/heads/master'
+    if: |
+      github.ref == 'refs/heads/master' &&
+      github.event.repository.fork == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
