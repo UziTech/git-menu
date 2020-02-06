@@ -52,7 +52,7 @@ describe("git.rootDir", function () {
 			await removeGitRoot(this.gitRoot);
 		});
 
-		it("should add a file", async function () {
+		it("should get root dir", async function () {
 			const root = await gitCmd.rootDir(getFilePath(this.gitRoot, path.dirname(files.tt1)));
 
 			expect(root).toContain(this.gitRoot);
