@@ -127,6 +127,7 @@ describe("DeleteBranchDialog", function () {
 			it("should confirm on local only available", async function () {
 				this.dialog.state.local = true;
 				this.dialog.state.remote = false;
+				this.dialog.state.force = true;
 				this.dialog.state.branch = "local";
 				this.dialog.accept();
 				await this.activate;
@@ -136,6 +137,7 @@ describe("DeleteBranchDialog", function () {
 			it("should confirm on remote only available", async function () {
 				this.dialog.state.local = false;
 				this.dialog.state.remote = true;
+				this.dialog.state.force = true;
 				this.dialog.state.branch = "remote";
 				this.dialog.accept();
 				await this.activate;
@@ -145,6 +147,7 @@ describe("DeleteBranchDialog", function () {
 			it("should confirm on local and remote", async function () {
 				this.dialog.state.local = true;
 				this.dialog.state.remote = true;
+				this.dialog.state.force = true;
 				this.dialog.accept();
 				await this.activate;
 				expect(atom.confirm).toHaveBeenCalled();
@@ -153,6 +156,7 @@ describe("DeleteBranchDialog", function () {
 			it("should not confirm on local only", async function () {
 				this.dialog.state.local = true;
 				this.dialog.state.remote = false;
+				this.dialog.state.force = true;
 				this.dialog.accept();
 				await this.activate;
 				expect(atom.confirm).not.toHaveBeenCalled();
@@ -161,6 +165,7 @@ describe("DeleteBranchDialog", function () {
 			it("should not confirm on remote only", async function () {
 				this.dialog.state.local = false;
 				this.dialog.state.remote = true;
+				this.dialog.state.force = true;
 				this.dialog.accept();
 				await this.activate;
 				expect(atom.confirm).not.toHaveBeenCalled();
@@ -169,6 +174,7 @@ describe("DeleteBranchDialog", function () {
 			it("should not confirm on both false", async function () {
 				this.dialog.state.local = false;
 				this.dialog.state.remote = false;
+				this.dialog.state.force = true;
 				this.dialog.accept();
 				await this.activate;
 				expect(atom.confirm).not.toHaveBeenCalled();
