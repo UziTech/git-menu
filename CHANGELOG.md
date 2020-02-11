@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/UziTech/git-menu/compare/v3.1.1...v3.1.2) (2020-02-11)
+
+
+### Bug Fixes
+
+* show valid message on force delete all branches ([fb5d669](https://github.com/UziTech/git-menu/commit/fb5d66960e26f2ea09133b8fb17145445f78e9d6))
+
 ## [3.1.1](https://github.com/UziTech/git-menu/compare/v3.1.0...v3.1.1) (2020-02-06)
 
 
