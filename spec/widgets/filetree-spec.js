@@ -150,22 +150,9 @@ describe("FileTree.js", function () {
 		beforeEach(function () {
 			const component = new FileTree({files: this.files});
 			jasmine.attachToDOM(component.element);
-			const checkboxes = component.element.querySelectorAll("[type='checkbox']");
 
-			this.checkbox = (name) => {
-				const order = [
-					"a/b/",
-					"a/b/f.js",
-					"a/b/g.js",
-					"b/a/f.js",
-					"c/a/",
-					"c/a/b/f.js",
-					"c/a/c/f.js",
-				];
-				const index = order.indexOf(name);
-
-				return index > -1 ? checkboxes[index] : null;
-			};
+			const checkboxes = [...component.element.querySelectorAll("[type='checkbox']")];
+			this.checkbox = (name) => checkboxes.find(i => i.closest("li").key === name);
 		});
 
 		it("should (un)check all children", function () {
@@ -196,6 +183,110 @@ describe("FileTree.js", function () {
 
 			expect(this.checkbox("a/b/").checked).toBe(true);
 			expect(this.checkbox("a/b/").indeterminate).toBe(false);
+		});
+	});
+
+	describe("buttons", () => {
+		describe("click", () => {
+			beforeEach(function () {
+				const component = new FileTree({files: this.files});
+				jasmine.attachToDOM(component.element);
+
+				const buttons = [...component.element.querySelectorAll(".buttons button")];
+				this.button = (name) => buttons.find(b => b.textContent === name);
+
+				const checkboxes = [...component.element.querySelectorAll("[type='checkbox']")];
+				this.someChecked = () => checkboxes.some(c => c.checked);
+				this.someUnchecked = () => checkboxes.some(c => !c.checked);
+
+				this.someCollapsed = () => !!component.element.querySelector(".dir.collapsed");
+				this.someExpanded = () => !!component.element.querySelector(".dir:not(.collapsed)");
+			});
+
+			it("should check/uncheck all", async function () {
+				expect(this.someChecked()).toBe(true);
+
+				this.button("Uncheck All").click();
+
+				expect(this.someChecked()).toBe(false);
+				expect(this.someUnchecked()).toBe(true);
+
+				this.button("Check All").click();
+
+				expect(this.someUnchecked()).toBe(false);
+			});
+
+			it("should collapse/expand all", async function () {
+				expect(this.someExpanded()).toBe(true);
+
+				this.button("Collapse All").click();
+
+				expect(this.someExpanded()).toBe(false);
+				expect(this.someCollapsed()).toBe(true);
+
+				this.button("Expand All").click();
+
+				expect(this.someCollapsed()).toBe(false);
+			});
+		});
+
+		describe("show", () => {
+			beforeEach(function () {
+				this.fileTree = (options) => {
+					const component = new FileTree(options);
+					jasmine.attachToDOM(component.element);
+
+					const buttons = [...component.element.querySelectorAll(".buttons button")];
+					this.button = (name) => {
+						return buttons.find(b => b.textContent === name);
+					};
+				};
+			});
+
+			it("should show all buttons", async function () {
+				this.fileTree({files: this.files});
+
+				expect(this.button("Uncheck All")).toBeVisible();
+				expect(this.button("Check All")).toBeVisible();
+				expect(this.button("Collapse All")).toBeVisible();
+				expect(this.button("Expand All")).toBeVisible();
+			});
+
+			it("should hide check/uncheck all when checkboxes are not shown", async function () {
+				this.fileTree({files: this.files, showCheckboxes: false});
+
+				expect(this.button("Uncheck All")).not.toBeVisible();
+				expect(this.button("Check All")).not.toBeVisible();
+				expect(this.button("Collapse All")).toBeVisible();
+				expect(this.button("Expand All")).toBeVisible();
+			});
+
+			it("should hide all when only one file", async function () {
+				this.fileTree({files: [{file: "a/b.js"}]});
+
+				expect(this.button("Uncheck All")).not.toBeVisible();
+				expect(this.button("Check All")).not.toBeVisible();
+				expect(this.button("Collapse All")).not.toBeVisible();
+				expect(this.button("Expand All")).not.toBeVisible();
+			});
+
+			it("should hide collapse/expand all when treeView is false", async function () {
+				this.fileTree({files: this.files, treeView: false});
+
+				expect(this.button("Uncheck All")).toBeVisible();
+				expect(this.button("Check All")).toBeVisible();
+				expect(this.button("Collapse All")).not.toBeVisible();
+				expect(this.button("Expand All")).not.toBeVisible();
+			});
+
+			it("should hide collapse/expand all when no folders", async function () {
+				this.fileTree({files: [{file: "a/b.j"}, {file: "b/c.j"}]});
+
+				expect(this.button("Uncheck All")).toBeVisible();
+				expect(this.button("Check All")).toBeVisible();
+				expect(this.button("Collapse All")).not.toBeVisible();
+				expect(this.button("Expand All")).not.toBeVisible();
+			});
 		});
 	});
 
