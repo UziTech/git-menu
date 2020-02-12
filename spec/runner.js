@@ -6,6 +6,7 @@ export default createRunner({
 	specHelper: {
 		jasmineFocused: true,
 		jasminePass: true,
+		customMatchers: true,
 		attachToDom: true,
 		ci: true
 	},
