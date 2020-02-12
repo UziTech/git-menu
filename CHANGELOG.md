@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/UziTech/git-menu/compare/v3.1.2...v3.2.0) (2020-02-12)
+
+
+### Features
+
+* add (un)check all buttons ([#210](https://github.com/UziTech/git-menu/issues/210)) ([c690f59](https://github.com/UziTech/git-menu/commit/c690f59244e52a6dc98ece1183aebe420835ee2f))
+
 ## [3.1.2](https://github.com/UziTech/git-menu/compare/v3.1.1...v3.1.2) (2020-02-11)
 
 
