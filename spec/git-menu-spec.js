@@ -7,7 +7,7 @@ import {mockGit, createGitRoot, getFilePath, files} from "./mocks";
 import fs from "fs";
 import path from "path";
 
-describe("Context Git", function () {
+describe("Git Menu", function () {
 	beforeEach(async function () {
 		atom.project.setPaths([__dirname]);
 		await atom.packages.activatePackage("git-menu");
