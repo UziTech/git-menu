@@ -40,7 +40,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@semantic-release/apm-config": "^8.0.0",
-    "atom-jasmine3-test-runner": "^4.4.2",
+    "atom-jasmine3-test-runner": "^4.4.3",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.18.3",
     "husky": "4.2.3",
