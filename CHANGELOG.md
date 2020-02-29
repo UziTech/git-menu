@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/UziTech/git-menu/compare/v3.2.0...v3.2.1) (2020-02-29)
+
+
+### Bug Fixes
+
+* calls git exe instead of git file in cwd ([718e172](https://github.com/UziTech/git-menu/commit/718e17251c2e017185d07fb3543753b9ae5f34e6)), closes [#7](https://github.com/UziTech/git-menu/issues/7)
+
 # [3.2.0](https://github.com/UziTech/git-menu/compare/v3.1.2...v3.2.0) (2020-02-12)
 
 
