@@ -34,7 +34,8 @@
     "etch": "^0.14.0",
     "promisificator": "^4.1.1",
     "rimraf": "^3.0.2",
-    "string-argv": "^0.3.1"
+    "string-argv": "^0.3.1",
+    "which": "^2.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
