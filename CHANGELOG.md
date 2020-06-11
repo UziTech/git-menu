@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/UziTech/git-menu/compare/v3.2.1...v3.2.2) (2020-06-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency promisificator to ^4.2.0 ([#230](https://github.com/UziTech/git-menu/issues/230)) ([dbd5930](https://github.com/UziTech/git-menu/commit/dbd5930c5188863f1c014a97c4d15f845b2734d9))
+
 ## [3.2.1](https://github.com/UziTech/git-menu/compare/v3.2.0...v3.2.1) (2020-02-29)
 
 
