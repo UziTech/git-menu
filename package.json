@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "etch": "^0.14.0",
-    "promisificator": "^4.1.1",
+    "promisificator": "^4.2.0",
     "rimraf": "^3.0.2",
     "string-argv": "^0.3.1",
     "which": "^2.0.2"
