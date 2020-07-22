@@ -1,3 +1,10 @@
+## [3.2.3](https://github.com/UziTech/git-menu/compare/v3.2.2...v3.2.3) (2020-07-22)
+
+
+### Bug Fixes
+
+* track remote branch on switch branch ([12253d5](https://github.com/UziTech/git-menu/commit/12253d5450d76fff83433a2e46a2f23635c611ca))
+
 ## [3.2.2](https://github.com/UziTech/git-menu/compare/v3.2.1...v3.2.2) (2020-06-11)
 
 
