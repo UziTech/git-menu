@@ -1,3 +1,10 @@
+## [3.2.4](https://github.com/UziTech/git-menu/compare/v3.2.3...v3.2.4) (2020-07-22)
+
+
+### Bug Fixes
+
+* track pushed branches ([6075ff6](https://github.com/UziTech/git-menu/commit/6075ff6aac6ef3967298fb60f9b7cccbc5760867))
+
 ## [3.2.3](https://github.com/UziTech/git-menu/compare/v3.2.2...v3.2.3) (2020-07-22)
 
 
