@@ -74,7 +74,7 @@ describe("SwitchBranchDialog", function () {
 			const activate = dialog.activate();
 			dialog.accept();
 			const ret = await activate;
-			expect(ret).toEqual(["selected"]);
+			expect(ret).toEqual(["selected", "origin"]);
 		});
 
 		it("should return the branch name", async function () {
@@ -83,7 +83,25 @@ describe("SwitchBranchDialog", function () {
 			dialog.branchChange({target: {value: "test"}});
 			dialog.accept();
 			const ret = await activate;
-			expect(ret).toEqual(["test"]);
+			expect(ret).toEqual(["test", null]);
+		});
+
+		it("should return the remote name", async function () {
+			const dialog = new SwitchBranchDialog({branches: this.branches, root: this.root});
+			const activate = dialog.activate();
+			dialog.branchChange({target: {value: "remotes/upstream/test"}});
+			dialog.accept();
+			const ret = await activate;
+			expect(ret).toEqual(["test", "upstream"]);
+		});
+
+		it("should return the remote origin", async function () {
+			const dialog = new SwitchBranchDialog({branches: this.branches, root: this.root});
+			const activate = dialog.activate();
+			dialog.branchChange({target: {value: "remote"}});
+			dialog.accept();
+			const ret = await activate;
+			expect(ret).toEqual(["remote", "origin"]);
 		});
 
 	});
