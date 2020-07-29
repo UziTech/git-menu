@@ -55,7 +55,7 @@ describe("helper", function () {
 			const consolidatedFiles = helper.consolidateFiles(dirs);
 
 			expect(consolidatedFiles).toEqual({
-				[this.gitRoot]: [this.gitRoot]
+				[this.gitRoot]: [this.gitRoot],
 			});
 		});
 
@@ -67,7 +67,7 @@ describe("helper", function () {
 			const consolidatedFiles = helper.consolidateFiles(dirs);
 
 			expect(consolidatedFiles).toEqual({
-				[dir]: filePaths
+				[dir]: filePaths,
 			});
 		});
 

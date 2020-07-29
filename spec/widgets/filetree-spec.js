@@ -11,7 +11,7 @@ describe("FileTree.js", function () {
 			},
 			getNextUpdatePromise() {
 				return Promise.resolve();
-			}
+			},
 		});
 
 		this.files = [

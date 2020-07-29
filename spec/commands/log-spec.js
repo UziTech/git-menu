@@ -14,7 +14,7 @@ describe("log", function () {
 			cmd: () => Promise.resolve("cmd result"),
 		});
 		this.dialog = mockDialog({
-			activate: () => Promise.resolve()
+			activate: () => Promise.resolve(),
 		});
 		this.format = atom.config.get("git-menu.logFormat");
 	});
@@ -50,7 +50,7 @@ describe("log", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: () => Promise.reject()
+				activate: () => Promise.reject(),
 			});
 			let error;
 			try {

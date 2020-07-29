@@ -35,7 +35,7 @@ describe("stage-changes", function () {
 			this.git = mockGit({
 				status: () => {
 					return Promise.resolve([fileStatus(" M", files.t1)]);
-				}
+				},
 			});
 		});
 

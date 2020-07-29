@@ -19,10 +19,10 @@ describe("run-command", function () {
 		});
 		this.dialogReturn = [
 			"command",
-			[files.t1]
+			[files.t1],
 		];
 		this.dialog = mockDialog({
-			activate: Promise.resolve(this.dialogReturn)
+			activate: Promise.resolve(this.dialogReturn),
 		});
 	});
 
@@ -57,7 +57,7 @@ describe("run-command", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: () => Promise.reject()
+				activate: () => Promise.reject(),
 			});
 			let error;
 			try {
@@ -74,7 +74,7 @@ describe("run-command", function () {
 		it("should reject on empty message", async function () {
 			this.dialogReturn[0] = "";
 			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
+				activate: Promise.resolve(this.dialogReturn),
 			});
 			let error;
 			try {
@@ -125,10 +125,10 @@ describe("run-command", function () {
 		it("should return 'with 2 files.'", async function () {
 			this.dialogReturn = [
 				"command %files%",
-				[files.t1, files.t2]
+				[files.t1, files.t2],
 			];
 			this.dialog = mockDialog({
-				activate: Promise.resolve(this.dialogReturn)
+				activate: Promise.resolve(this.dialogReturn),
 			});
 			const ret = await runCommand.command(this.filePaths, statusBar, this.git, Notifications, this.dialog);
 			expect(ret.message).toBe("Ran 'git command %files%' with 2 files.");

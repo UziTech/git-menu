@@ -79,7 +79,7 @@ describe("LogDialog", function () {
 				scrollHeight: 1000,
 				scrollTop: 0,
 				clientHeight: 100,
-			}
+			},
 		});
 
 		expect(dialog.getLogs).not.toHaveBeenCalled();
@@ -89,7 +89,7 @@ describe("LogDialog", function () {
 				scrollHeight: 1000,
 				scrollTop: 900,
 				clientHeight: 100,
-			}
+			},
 		});
 
 		expect(dialog.getLogs).toHaveBeenCalled();

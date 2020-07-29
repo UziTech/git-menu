@@ -28,7 +28,7 @@ describe("SwitchBranchDialog", function () {
 
 		it("should set state.fetching to true", async function () {
 			const git = mockGit({
-				branches: () => this.branches
+				branches: () => this.branches,
 			});
 			const dialog = new SwitchBranchDialog({branches: this.branches, root: this.root, git});
 			spyOn(dialog, "update");
@@ -38,11 +38,11 @@ describe("SwitchBranchDialog", function () {
 
 		it("should change branches", async function () {
 			const git = mockGit({
-				branches: () => this.branches
+				branches: () => this.branches,
 			});
 
 			const branches = [
-				{name: "name", branch: "branch", selected: true}
+				{name: "name", branch: "branch", selected: true},
 			];
 
 			const dialog = new SwitchBranchDialog({branches, root: this.root, git});
@@ -54,7 +54,7 @@ describe("SwitchBranchDialog", function () {
 		it("should show error", async function () {
 			const git = mockGit({
 				fetch: () => Promise.reject("fetch error"),
-				branches: () => this.branches
+				branches: () => this.branches,
 			});
 
 			const notifications = jasmine.createSpyObj(["addError"]);

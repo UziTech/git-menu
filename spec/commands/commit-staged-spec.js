@@ -30,10 +30,10 @@ describe("commit-staged", function () {
 			false,
 			false,
 			false,
-			[]
+			[],
 		];
 		this.dialog = mockDialog({
-			activate: () => Promise.resolve(this.dialogReturn)
+			activate: () => Promise.resolve(this.dialogReturn),
 		});
 	});
 
@@ -70,7 +70,7 @@ describe("commit-staged", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: () => Promise.reject()
+				activate: () => Promise.reject(),
 			});
 			let error;
 			try {

@@ -33,7 +33,7 @@ describe("Dialog", function () {
 
 	it("should call this.initialState on constructor", function () {
 		const props = {
-			test: 1
+			test: 1,
 		};
 		spyOn(this.TestDialog.prototype, "initialState");
 		new this.TestDialog(props);

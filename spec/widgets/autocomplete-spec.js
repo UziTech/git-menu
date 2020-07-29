@@ -11,7 +11,7 @@ describe("Autocomplete.js", function () {
 			},
 			getNextUpdatePromise() {
 				return Promise.resolve();
-			}
+			},
 		});
 
 		this.items = [

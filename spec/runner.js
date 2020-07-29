@@ -8,6 +8,6 @@ export default createRunner({
 		jasminePass: true,
 		customMatchers: true,
 		attachToDom: true,
-		ci: true
+		ci: true,
 	},
 });

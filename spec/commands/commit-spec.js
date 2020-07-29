@@ -30,10 +30,10 @@ describe("commit", function () {
 			false,
 			false,
 			false,
-			[files.t1]
+			[files.t1],
 		];
 		this.dialog = mockDialog({
-			activate: () => Promise.resolve(this.dialogReturn)
+			activate: () => Promise.resolve(this.dialogReturn),
 		});
 	});
 
@@ -69,7 +69,7 @@ describe("commit", function () {
 
 		it("should reject without an error", async function () {
 			this.dialog = mockDialog({
-				activate: () => Promise.reject()
+				activate: () => Promise.reject(),
 			});
 			let error;
 			try {
