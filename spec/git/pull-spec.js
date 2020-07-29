@@ -74,7 +74,6 @@ describe("git.pull", function () {
 
 			const log = await gitCmd.cmd(this.gitRoot, ["log", "--format=%s"]);
 			expect(log.trim()).toEqual(jasmine.stringMatching(/^Merge branch/));
-			expect(log.trim()).toEqual(jasmine.stringMatching("test1\ntest2\ninit commit"));
 		});
 
 		it("should rebase", async function () {
