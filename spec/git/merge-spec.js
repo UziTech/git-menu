@@ -55,7 +55,7 @@ describe("git.merge", function () {
 			lastCommits = lastCommits.split("\n").filter(i => i);
 
 			expect(lastCommits).toEqual([
-				"Merge branch 'new-branch'",
+				jasmine.stringMatching("Merge branch 'new-branch'"),
 				"master branch commit",
 				"new branch commit",
 			]);
