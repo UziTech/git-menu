@@ -29,7 +29,7 @@ jobs:
         run: apm -v
       - name: Install Dependencies
         run: apm ci
-      - name: Run Tests 👩🏾‍💻
+      - name: Test 👩🏾‍💻
         run: |
           git config --global user.email "test@example.com"
           git config --global user.name "test"
