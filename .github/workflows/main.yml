@@ -17,23 +17,23 @@ jobs:
         channel: [stable, beta]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    - name: Install Atom
-      uses: UziTech/action-setup-atom@v1
-      with:
-        channel: ${{ matrix.channel }}
-    - name: Atom Version
-      run: atom -v
-    - name: APM Version
-      run: apm -v
-    - name: Install Dependencies
-      run: apm ci
-    - name: Run Tests 👩🏾‍💻
-      run: |
-        git config --global user.email "test@example.com"
-        git config --global user.name "test"
-        atom --test spec
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Atom
+        uses: UziTech/action-setup-atom@v1
+        with:
+          channel: ${{ matrix.channel }}
+      - name: Atom Version
+        run: atom -v
+      - name: APM Version
+        run: apm -v
+      - name: Install Dependencies
+        run: apm ci
+      - name: Run Tests 👩🏾‍💻
+        run: |
+          git config --global user.email "test@example.com"
+          git config --global user.name "test"
+          atom --test spec
 
   Lint:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
