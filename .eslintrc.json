@@ -125,8 +125,8 @@
 		"react/jsx-no-bind": "error"
 	},
 	"globals": {
-		"atom": false,
-		"pass": false
+		"atom": "readonly",
+		"pass": "readonly"
 	},
 	"settings": {
 		"react": {
