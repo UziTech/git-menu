@@ -1,3 +1,10 @@
+## [3.2.5](https://github.com/UziTech/git-menu/compare/v3.2.4...v3.2.5) (2020-09-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency etch to ^0.14.1 ([b97d8b5](https://github.com/UziTech/git-menu/commit/b97d8b5d169216f1d86dacf1d50ad7952de08d84))
+
 ## [3.2.4](https://github.com/UziTech/git-menu/compare/v3.2.3...v3.2.4) (2020-07-22)
 
 
