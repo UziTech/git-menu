@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "etch": "^0.14.0",
+    "etch": "^0.14.1",
     "promisificator": "^4.2.0",
     "rimraf": "^3.0.2",
     "string-argv": "^0.3.1",
