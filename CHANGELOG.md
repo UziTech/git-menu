@@ -1,3 +1,10 @@
+## [3.2.6](https://github.com/UziTech/git-menu/compare/v3.2.5...v3.2.6) (2020-10-01)
+
+
+### Bug Fixes
+
+* replace all & in command names in menus ([9dadd83](https://github.com/UziTech/git-menu/commit/9dadd83288231bafc82c6c2ae24e77854c8006f5))
+
 ## [3.2.5](https://github.com/UziTech/git-menu/compare/v3.2.4...v3.2.5) (2020-09-23)
 
 
