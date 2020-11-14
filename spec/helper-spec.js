@@ -87,6 +87,52 @@ describe("helper", function () {
 
 	});
 
+	describe("getDefaultBranch", () => {
+
+		it("should return master branch", async function () {
+			const branches = [
+				{name: "test"},
+				{name: "default"},
+				{name: "main"},
+				{name: "master"},
+			];
+			const branch = helper.getDefaultBranch(branches);
+
+			expect(branch.name).toBe("master");
+		});
+
+		it("should return main branch", async function () {
+			const branches = [
+				{name: "test"},
+				{name: "default"},
+				{name: "main"},
+			];
+			const branch = helper.getDefaultBranch(branches);
+
+			expect(branch.name).toBe("main");
+		});
+
+		it("should return default branch", async function () {
+			const branches = [
+				{name: "test"},
+				{name: "default"},
+			];
+			const branch = helper.getDefaultBranch(branches);
+
+			expect(branch.name).toBe("default");
+		});
+
+		it("should return null", async function () {
+			const branches = [
+				{name: "test"},
+			];
+			const branch = helper.getDefaultBranch(branches);
+
+			expect(branch).toBe(null);
+		});
+
+	});
+
 	describe("getFilesInDir", function () {
 
 		beforeEach(async function () {
