@@ -1,3 +1,10 @@
+## [3.2.7](https://github.com/UziTech/git-menu/compare/v3.2.6...v3.2.7) (2020-11-15)
+
+
+### Bug Fixes
+
+* check for 'main' or 'default' as default branch names ([a213b84](https://github.com/UziTech/git-menu/commit/a213b846a46a6f2fdd863c4d64ff320bf3c3941d))
+
 ## [3.2.6](https://github.com/UziTech/git-menu/compare/v3.2.5...v3.2.6) (2020-10-01)
 
 
