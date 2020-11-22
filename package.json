@@ -45,7 +45,7 @@
     "eslint": "^7.14.0",
     "eslint-plugin-react": "^7.21.5",
     "husky": "4.3.0",
-    "semantic-release": "^17.2.4",
+    "semantic-release": "^17.3.0",
     "temp": "^0.9.4"
   }
 }
