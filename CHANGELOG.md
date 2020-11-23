@@ -1,3 +1,10 @@
+## [3.2.8](https://github.com/UziTech/git-menu/compare/v3.2.7...v3.2.8) (2020-11-23)
+
+
+### Bug Fixes
+
+* fix delete current branch ([2593011](https://github.com/UziTech/git-menu/commit/2593011896ac250f2a304be369895ef6e99a6c7d))
+
 ## [3.2.7](https://github.com/UziTech/git-menu/compare/v3.2.6...v3.2.7) (2020-11-15)
 
 
