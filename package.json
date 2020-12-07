@@ -38,13 +38,10 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "11.0.0",
-    "@commitlint/config-conventional": "11.0.0",
     "@semantic-release/apm-config": "^8.0.0",
     "atom-jasmine3-test-runner": "^5.1.8",
     "eslint": "^7.15.0",
     "eslint-plugin-react": "^7.21.5",
-    "husky": "5.0.4",
     "semantic-release": "^17.3.0",
     "temp": "^0.9.4"
   }
