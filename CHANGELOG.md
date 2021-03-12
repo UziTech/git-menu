@@ -1,3 +1,10 @@
+## [3.2.9](https://github.com/UziTech/git-menu/compare/v3.2.8...v3.2.9) (2021-03-12)
+
+
+### Bug Fixes
+
+* fix fs.readdir in electron 9 ([2f2d7ad](https://github.com/UziTech/git-menu/commit/2f2d7ad138a0cc0cb67c6f81e751a58a3c0b39a2))
+
 ## [3.2.8](https://github.com/UziTech/git-menu/compare/v3.2.7...v3.2.8) (2020-11-23)
 
 
