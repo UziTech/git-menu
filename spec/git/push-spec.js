@@ -50,7 +50,7 @@ describe("git.push", function () {
 		expect(gitCmd.cmd.calls.mostRecent().args[1]).not.toContain("--set-upstream");
 	});
 
-	describe("integration tests", function () {
+	(process.env.CI ? describe : xdescribe)("integration tests", function () {
 
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();

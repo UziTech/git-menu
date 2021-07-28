@@ -24,7 +24,7 @@ describe("git.init", function () {
 		expect(gitCmd.cmd.calls.mostRecent().args[1]).not.toContain("--quiet");
 	});
 
-	describe("integration tests", function () {
+	(process.env.CI ? describe : xdescribe)("integration tests", function () {
 
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();

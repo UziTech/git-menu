@@ -38,7 +38,7 @@ describe("git.rootDir", function () {
 		expect(root).toEqual("test");
 	});
 
-	describe("integration tests", function () {
+	(process.env.CI ? describe : xdescribe)("integration tests", function () {
 
 		beforeEach(async function () {
 			gitCmd.cmd.and.callThrough();
