@@ -42,7 +42,7 @@
     "atom-jasmine3-test-runner": "^5.2.13",
     "eslint": "^8.17.0",
     "eslint-plugin-react": "^7.30.0",
-    "semantic-release": "^19.0.2",
+    "semantic-release": "^19.0.3",
     "temp": "^0.9.4"
   }
 }
