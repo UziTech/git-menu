@@ -1,5 +1,8 @@
+GitHub is [sunsetting Atom](https://github.blog/2022-06-08-sunsetting-atom/) on Dec 15th, 2022 so I am archiving all of my Atom plugins. If someone wants to continue development please message @UziTech.
+
+---
+
 [![Actions Status](https://github.com/UziTech/git-menu/workflows/CI/badge.svg)](https://github.com/UziTech/git-menu/actions)
-[![Dependency Status](https://david-dm.org/UziTech/git-menu.svg)](https://david-dm.org/UziTech/git-menu)
 
 # git-menu package
 
